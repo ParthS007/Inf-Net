@@ -19,7 +19,9 @@ conda activate /scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env
 # Navigate to the code directory
 cd /scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net
 
-# Run training
+# Train Inf-Net from scratch with PyTorch 1.9.0
+# Training on 50 doctor-labeled images
+# Note: is_semi and is_pseudo default to False, so we don't pass them
 python MyTrain_LungInf.py \
     --epoch 100 \
     --batchsize 8 \
