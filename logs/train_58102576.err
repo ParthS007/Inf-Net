@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "MyTrain_LungInf.py", line 144, in <module>
+    model = Inf_Net(channel=opt.net_channel, n_class=opt.n_classes).cuda()
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Code/model_lung_infection/InfNet_ResNet.py", line 146, in __init__
+    self.initialize_weights()
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Code/model_lung_infection/InfNet_ResNet.py", line 232, in initialize_weights
+    assert len(all_params.keys()) == len(self.resnet.state_dict().keys())
+AssertionError

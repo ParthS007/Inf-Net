@@ -131,3 +131,5 @@ dmypy.json
 *.pkl
 *.png
 *.png
+*.jpg
+Dataset/
