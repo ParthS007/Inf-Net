@@ -1,3 +1,0 @@
-usage: MyTest_LungInf.py [-h] [--testsize TESTSIZE] [--data_path DATA_PATH]
-                         [--pth_path PTH_PATH] [--save_path SAVE_PATH]
-MyTest_LungInf.py: error: unrecognized arguments: infection segmentation/Inf-Net/
