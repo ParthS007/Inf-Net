@@ -2,7 +2,7 @@
 
 ## Quick Start
 
-This guide covers installing and running Inf-Net for COVID-19 lung infection segmentation on A100 GPUs.
+This guide covers running Inf-Net for COVID-19 lung infection segmentation on A100 GPUs.
 
 ## Prerequisites
 
@@ -10,31 +10,7 @@ This guide covers installing and running Inf-Net for COVID-19 lung infection seg
 - Conda package manager
 - SLURM job scheduler
 
-## 1. Environment Setup
-
-### Create Conda Environment
-```bash
-# Create environment with Python 3.6
-conda create -p ./env python=3.6 -y
-
-# Activate environment
-source /path/to/miniconda3/etc/profile.d/conda.sh
-conda activate /path/to/your/project/env
-```
-
-### Install Dependencies
-```bash
-# Install PyTorch 1.9.0 with CUDA 11.1 (A100 compatible)
-pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
-
-# Install other requirements
-pip install scipy==1.7.3 thop
-
-# For analysis (optional)
-pip install pandas matplotlib tabulate
-```
-
-## 2. Dataset Setup
+## 1. Dataset Setup
 
 ### Download COVID-SemiSeg Dataset
 ```bash
@@ -63,91 +39,33 @@ curl -L -o res2net50_v1b_26w_4s-3cf99910.pth https://shanghuagao.oss-cn-beijing.
 
 ## 3. Training
 
-### Create Training Script
-```bash
-# Create train_infnet.sh
-cat > train_infnet.sh << 'EOF'
-#!/bin/bash
-#SBATCH --job-name=infnet_train
-#SBATCH --output=logs/train_%j.out
-#SBATCH --error=logs/train_%j.err
-#SBATCH --time=04:00:00
-#SBATCH --mem=32G
-#SBATCH --cpus-per-task=4
-#SBATCH --gres=gpu:1
-#SBATCH --partition=a100
-#SBATCH --qos=a100-6hours
+1. Create Training Script - [train_infnet.sh](./train_infnet.sh)
 
-mkdir -p logs
-source /path/to/miniconda3/etc/profile.d/conda.sh
-conda activate /path/to/your/project/env
-cd /path/to/your/project/code/inf-net
+2. `chmod +x train_infnet.sh`
 
-python MyTrain_LungInf.py \
-    --epoch 100 \
-    --batchsize 8 \
-    --num_workers 4 \
-    --backbone Res2Net50 \
-    --trainsize 352 \
-    --lr 1e-4
-EOF
+3. Submit Training Job - `sbatch train_infnet.sh`
 
-chmod +x train_infnet.sh
-```
+4. Monitor Training
 
-### Submit Training Job
-```bash
-sbatch train_infnet.sh
-```
+    ```bash
+    # Check job status
+    squeue -u $USER
 
-### Monitor Training
-```bash
-# Check job status
-squeue -u $USER
+    # View training progress
+    tail -f logs/train_*.out
 
-# View training progress
-tail -f logs/train_*.out
-
-# Check for errors
-tail -f logs/train_*.err
-```
+    # Check for errors
+    tail -f logs/train_*.err
+    ```
 
 ## 4. Testing/Inference
 
-### Create Test Script
-```bash
-# Create test_infnet.sh
-cat > test_infnet.sh << 'EOF'
-#!/bin/bash
-#SBATCH --job-name=infnet_test
-#SBATCH --output=logs/test_%j.out
-#SBATCH --error=logs/test_%j.err
-#SBATCH --time=00:30:00
-#SBATCH --mem=16G
-#SBATCH --cpus-per-task=2
-#SBATCH --gres=gpu:1
-#SBATCH --partition=a100
-#SBATCH --qos=a100-30min
+1. Create Test Script - [test_infnet.sh](./test_infnet.sh)
 
-mkdir -p logs
-source /path/to/miniconda3/etc/profile.d/conda.sh
-conda activate /path/to/your/project/env
-cd /path/to/your/project/code/inf-net
+2. `chmod +x test_infnet.sh`
 
-python MyTest_LungInf.py \
-    --testsize 352 \
-    --data_path "./Dataset/TestingSet/LungInfection-Test/" \
-    --pth_path "./Snapshots/save_weights/Inf-Net/Inf-Net-100.pth" \
-    --save_path "./Results/Lung_infection_segmentation/Inf-Net/"
-EOF
+3. `sbatch test_infnet.sh`
 
-chmod +x test_infnet.sh
-```
-
-### Run Testing
-```bash
-sbatch test_infnet.sh
-```
 
 ## 5. Expected Results
 
@@ -159,88 +77,3 @@ sbatch test_infnet.sh
 ### Testing Output
 - **Predictions**: 48 segmentation masks in `Results/Lung_infection_segmentation/Inf-Net/`
 - **Format**: PNG files with same names as input images
-
-## 6. Troubleshooting
-
-### Common Issues
-
-**1. CUDA Error: "no kernel image available"**
-- **Cause**: PyTorch version incompatible with A100
-- **Solution**: Use PyTorch 1.9.0+ with CUDA 11.1
-
-**2. cuDNN Error: "CUDNN_STATUS_EXECUTION_FAILED"**
-- **Cause**: Old PyTorch version
-- **Solution**: Upgrade to PyTorch 1.9.0+
-
-**3. SSL Certificate Error**
-- **Cause**: Network issues downloading pretrained models
-- **Solution**: Download manually or use local weights
-
-**4. Job Fails with QOS Error**
-- **Cause**: Wrong partition or time limit
-- **Solution**: Check available partitions: `sinfo -p a100`
-
-### Performance Tips
-
-- **Batch Size**: Start with 8, increase if memory allows
-- **Image Size**: 352x352 works well, can try 320x320 for faster training
-- **Workers**: Use 4-8 for data loading
-- **Epochs**: 100 is usually sufficient, can stop early if converged
-
-## 7. File Structure
-
-```
-code/inf-net/
-├── Dataset/
-│   ├── TrainingSet/LungInfection-Train/  # 50 training images
-│   └── TestingSet/LungInfection-Test/    # 48 test images
-├── Snapshots/
-│   ├── pre_trained/                      # Backbone models
-│   └── save_weights/Inf-Net/            # Trained models
-├── Results/
-│   └── Lung_infection_segmentation/Inf-Net/  # Predictions
-├── Code/
-│   ├── model_lung_infection/            # Model definitions
-│   └── utils/                           # Utilities
-├── MyTrain_LungInf.py                   # Training script
-├── MyTest_LungInf.py                    # Testing script
-└── logs/                                # Training logs
-```
-
-## 8. Quick Commands
-
-```bash
-# Activate environment
-conda activate /path/to/your/project/env
-
-# Check GPU availability
-nvidia-smi
-
-# Submit training
-sbatch train_infnet.sh
-
-# Submit testing
-sbatch test_infnet.sh
-
-# Monitor jobs
-squeue -u $USER
-
-# View results
-ls -la Snapshots/save_weights/Inf-Net/
-ls -la Results/Lung_infection_segmentation/Inf-Net/
-```
-
-## 9. Next Steps
-
-- **Evaluation**: Use MATLAB evaluation toolbox for metrics
-- **Semi-supervised**: Try Semi-Inf-Net with pseudo-labels
-- **Multi-class**: Extend to GGO and consolidation segmentation
-- **Differential Privacy**: Add DP-SGD for privacy-preserving training
-
----
-
-**Total Setup Time**: ~30 minutes  
-**Training Time**: ~6 minutes  
-**Testing Time**: ~2 minutes  
-
-**Requirements**: A100 GPU, 32GB RAM, 50GB storage
