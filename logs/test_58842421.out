@@ -1,0 +1,10 @@
+#################### 
+Start Testing (Inf-Net)
+Namespace(testsize=352, data_path='./Dataset/TestingSet/LungInfection-Test/', pth_path='./Snapshots/save_weights/Inf-Net/1/Inf-Net-100.pth', save_path='./Results/Lung_infection_segmentation/Inf-Net/', run=1)
+This code is written for 'Inf-Net: Automatic COVID-19 Lung Infection Segmentation from CT Scans', 2020, TMI.
+----
+Please cite the paper if you use this code and dataset. And any questions feel free to contact me via E-mail (gepengai.ji@gamil.com)
+----
+ ####################
+Test Done!
+Testing completed!

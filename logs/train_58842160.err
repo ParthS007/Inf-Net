@@ -1,0 +1,7 @@
+/var/spool/slurm/job58842160/slurm_script: line 19: activate: No such file or directory
+Traceback (most recent call last):
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/MyTrain_LungInf.py", line 17, in <module>
+    from Code.utils.utils import clip_gradient, adjust_lr, AvgMeter
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Code/utils/utils.py", line 4, in <module>
+    from thop import profile
+ModuleNotFoundError: No module named 'thop'
