@@ -12,7 +12,7 @@ import torch.nn.functional as F
 import numpy as np
 import os
 import argparse
-from scipy import misc
+import imageio
 from Code.model_lung_infection.InfNet_Res2Net import Inf_Net as Network
 from Code.utils.dataloader_LungInf import test_dataset
 
@@ -26,6 +26,7 @@ def inference():
                         help='Path to weights file. If `semi-sup`, edit it to `Semi-Inf-Net/Semi-Inf-Net-100.pth`')
     parser.add_argument('--save_path', type=str, default='./Results/Lung infection segmentation/Semi-Inf-Net/',
                         help='Path to save the predictions. if `semi-sup`, edit it to `Semi-Inf-Net`')
+    parser.add_argument('--run', type=int, help='the raining iteartion number')
     opt = parser.parse_args()
 
     print("#" * 20, "\nStart Testing (Inf-Net)\n{}\nThis code is written for 'Inf-Net: Automatic COVID-19 Lung "
@@ -35,15 +36,27 @@ def inference():
                     "via E-mail (gepengai.ji@gamil.com)\n----\n".format(opt), "#" * 20)
 
     model = Network()
+    # Load the state dict and filter out THOP-related keys
+    state_dict = torch.load(opt.pth_path, map_location={'cuda:1': 'cuda:0'})
+    # Remove THOP keys (total_ops, total_params) that cause loading issues
+    filtered_state_dict = {
+        k: v
+        for k, v in state_dict.items()
+        if not k.endswith(('total_ops', 'total_params'))
+    }
     # model = torch.nn.DataParallel(model, device_ids=[0, 1]) # uncomment it if you have multiply GPUs.
-    model.load_state_dict(torch.load(opt.pth_path, map_location={'cuda:1':'cuda:0'}))
+    model.load_state_dict(filtered_state_dict)
     model.cuda()
     model.eval()
 
     image_root = '{}/Imgs/'.format(opt.data_path)
     # gt_root = '{}/GT/'.format(opt.data_path)
     test_loader = test_dataset(image_root, opt.testsize)
-    os.makedirs(opt.save_path, exist_ok=True)
+    if opt.run:
+        test_saving_path = os.path.join(opt.save_path, str(opt.run))
+    else:
+        test_saving_path = opt.save_path
+    os.makedirs(test_saving_path, exist_ok=True)
 
     for i in range(test_loader.size):
         image, name = test_loader.load_data()
@@ -56,7 +69,9 @@ def inference():
         # res = F.upsample(res, size=(ori_size[1],ori_size[0]), mode='bilinear', align_corners=False)
         res = res.sigmoid().data.cpu().numpy().squeeze()
         res = (res - res.min()) / (res.max() - res.min() + 1e-8)
-        misc.imsave(opt.save_path + name, res)
+        res = (res * 255).astype(np.uint8)  # Convert to uint8 for image saving
+        save_path = os.path.join(test_saving_path, name)
+        imageio.imwrite(save_path, res)
 
     print('Test Done!')
 

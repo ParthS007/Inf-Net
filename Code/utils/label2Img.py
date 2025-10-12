@@ -1,9 +1,9 @@
 import PIL
 import io
-import scipy.misc
 import numpy as np
 from PIL import Image
 import base64
+import matplotlib.pyplot as plt
 
 def label_colormap(N=256):
 
@@ -81,5 +81,8 @@ def draw_label(label, img, label_names, colormap=None):
     plt.close()
 
     out = np.array(PIL.Image.open(f))[:, :, :3]
-    out = scipy.misc.imresize(out, img.shape[:2])
+    # Use PIL.Image.resize instead of deprecated scipy.misc.imresize (migrated from scipy.misc.imresize)
+    out_img = PIL.Image.fromarray(out)
+    out_img = out_img.resize((img.shape[1], img.shape[0]), PIL.Image.BILINEAR)
+    out = np.array(out_img)
     return out

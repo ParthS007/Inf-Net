@@ -15,7 +15,8 @@ import cv2
 import numpy as np
 import random
 import shutil
-from scipy import misc
+import imageio
+
 # ---- torch lib ----
 import torch
 from torch.autograd import Variable
@@ -157,7 +158,8 @@ def inference_module(_data_path, _save_path, _pth_path):
         #res = F.upsample(res, size=gt.shape, mode='bilinear', align_corners=False)
         res = res.sigmoid().data.cpu().numpy().squeeze()
         res = (res - res.min()) / (res.max() - res.min() + 1e-8)
-        misc.imsave(_save_path + '/' + name, res)
+        res = (res * 255).astype(np.uint8)  # Convert to uint8 for image saving
+        imageio.imwrite(_save_path + "/" + name, res)
 
 
 def movefiles(_src_dir, _dst_dir):

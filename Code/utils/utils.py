@@ -1,6 +1,5 @@
 import torch
 import numpy as np
-# `pip install thop`
 from thop import profile
 from thop import clever_format
 
@@ -44,7 +43,9 @@ class AvgMeter(object):
         self.losses.append(val)
 
     def show(self):
-        return torch.mean(torch.stack(self.losses[np.maximum(len(self.losses)-self.num, 0):]))
+        return torch.mean(
+            torch.stack(self.losses[np.maximum(len(self.losses) - self.num, 0) :])
+        )
 
 
 def CalParams(model, input_tensor):

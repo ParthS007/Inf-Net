@@ -12,19 +12,20 @@
 # Create logs directory if it doesn't exist
 mkdir -p logs
 
+# Navigate to thesis project directory
+cd /scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/
+
 # Activate conda environment
-source /scicore/home/wagner0024/shandi0000/miniconda3/etc/profile.d/conda.sh
-conda activate /scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env
+source .venv/bin/activate
 
 # Navigate to the code directory
-cd /scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net
+cd code/inf-net
 
 # Run testing with Inf-Net pre-trained weights
 python MyTest_LungInf.py \
-    --testsize 352 \
     --data_path "./Dataset/TestingSet/LungInfection-Test/" \
-    --pth_path "./Snapshots/save_weights/Inf-Net/Inf-Net-100.pth" \
-    --save_path "./Results/Lung_infection_segmentation/Inf-Net/"
+    --pth_path "./Snapshots/save_weights/Inf-Net/6/Inf-Net-100.pth" \
+    --save_path "./Results/Lung_infection_segmentation/Inf-Net/" \
+    --run 6
 
 echo "Testing completed!"
-

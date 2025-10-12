@@ -18,7 +18,7 @@ EvaluationToolPython
 ├── requirements.txt             # List of dependencies
 └── README.md                    # Project documentation
 ```
-## Directory Structure
+## Expected Directory Structure
 
 The tool expects the following directory structure relative to the main script:
 
@@ -52,15 +52,6 @@ The tool expects the following directory structure relative to the main script:
 - **S-measure**: Structure-measure evaluating region-aware and object-aware similarities
 - **E-measure**: Enhanced-alignment measure capturing pixel-level matching and image-level statistics
 - **Precision**: Positive predictive value
-
-## Installation
-
-To set up the project, clone the repository and install the required dependencies:
-
-```bash
-cd EvaluationToolPython
-pip install -r requirements.txt
-```
 
 ## Usage
 

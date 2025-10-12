@@ -15,9 +15,7 @@ import numpy as np
 import cv2
 import time
 import glob
-from pathlib import Path
 
-from calmae import cal_mae
 from enhanced_measure import enhanced_measure
 from fmeasure_calu import fmeasure_calu
 from structure_measure import structure_measure
@@ -38,7 +36,7 @@ def normalize_map(resmap):
 def main():
     # ---- 1. ResultMap Path Setting ----
     result_map_path = "../Results/"
-    results = ["Lung infection segmentation", "Multi-class lung infection segmentation"]
+    results = ["Lung_infection_segmentation", "Multi-class lung infection segmentation"]
 
     models_lung_inf = ["UNet", "UNet++", "Inf-Net", "Semi-Inf-Net"]
     models_multiclass_lung_inf = [
@@ -56,7 +54,7 @@ def main():
     datasets = ["LungInfection-Test", "MultiClassInfection-Test"]
 
     # ---- 3. Evaluation Results Save Path Setting ----
-    res_dir = "../EvaluateResults/"
+    res_dir = "../EvaluateResults/" # Add run number here
 
     res_name = "_result.txt"  # You can change the result name
 
@@ -94,12 +92,12 @@ def main():
                     if d == 0:
                         gt_path = os.path.join(data_path, dataset, "GT/")
                         res_map_path = os.path.join(
-                            result_map_path, results[d], model + "/"
+                            result_map_path, results[d], model + "/" # Add run number here
                         )
                     else:
                         gt_path = os.path.join(data_path, dataset, f"GT-{c+1}/")
                         res_map_path = os.path.join(
-                            result_map_path, results[d], multiclass[c], model + "/"
+                            result_map_path, results[d], multiclass[c], model + "/" # Add run number here
                         )
 
                     # Get list of image files

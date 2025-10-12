@@ -20,7 +20,7 @@ import torch.nn.functional as F
 
 def joint_loss(pred, mask):
     weit = 1 + 5*torch.abs(F.avg_pool2d(mask, kernel_size=31, stride=1, padding=15) - mask)
-    wbce = F.binary_cross_entropy_with_logits(pred, mask, reduce='none')
+    wbce = F.binary_cross_entropy_with_logits(pred, mask, reduction='none')
     wbce = (weit*wbce).sum(dim=(2, 3)) / weit.sum(dim=(2, 3))
 
     pred = torch.sigmoid(pred)
@@ -30,7 +30,7 @@ def joint_loss(pred, mask):
     return (wbce + wiou).mean()
 
 
-def train(train_loader, model, optimizer, epoch, train_save):
+def train(train_loader, model, optimizer, epoch, train_save, opt):
     model.train()
     # ---- multi-scale training ----
     size_rates = [0.75, 1, 1.25]    # replace your desired scale, try larger scale for better accuracy in small object
@@ -125,6 +125,7 @@ if __name__ == '__main__':
     parser.add_argument('--train_save', type=str, default=None,
                         help='If you use custom save path, please edit `--is_semi=True` and `--is_pseudo=True`')
 
+    parser.add_argument('--run', type=int, help='the raining iteartion number')
     opt = parser.parse_args()
 
     # ---- build models ----
@@ -157,7 +158,10 @@ if __name__ == '__main__':
     elif (not opt.is_pseudo) and opt.is_semi:
         train_save = 'Semi-Inf-Net'
     elif (not opt.is_pseudo) and (not opt.is_semi):
-        train_save = 'Inf-Net'
+        if opt.run:
+            train_save = f'Inf-Net/{opt.run}'
+        else:
+            train_save = 'Inf-Net'
     else:
         print('Use custom save path')
         train_save = opt.train_save
@@ -191,4 +195,4 @@ if __name__ == '__main__':
 
     for epoch in range(1, opt.epoch):
         adjust_lr(optimizer, opt.lr, epoch, opt.decay_rate, opt.decay_epoch)
-        train(train_loader, model, optimizer, epoch, train_save)
+        train(train_loader, model, optimizer, epoch, train_save, opt)

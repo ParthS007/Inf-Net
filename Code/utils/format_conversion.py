@@ -1,7 +1,6 @@
 import os
 import shutil
 # from libtiff import TIFF
-from scipy import misc
 import random
 import cv2
 import numpy as np

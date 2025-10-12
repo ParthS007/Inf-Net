@@ -13,7 +13,8 @@ from Code.utils.dataloader_MulClsLungInf_UNet import LungDataset
 from torchvision import transforms
 from torch.utils.data import DataLoader
 from Code.model_lung_infection.InfNet_UNet import *  # use U-Net for multi-class segmentation
-from scipy import misc
+import imageio
+import cv2
 from Code.utils.split_class import split_class
 import shutil
 
@@ -53,7 +54,9 @@ def inference(num_classes, input_channels, snapshot_dir, save_path):
         print('Class numbers of prediction in total:', np.unique(pred))
         # pred = misc.imresize(pred, size=(w_gt, h_gt))
         os.makedirs(save_path, exist_ok=True)
-        misc.imsave(save_path + name[0].replace('.jpg', '.png'), pred)
+        imageio.imwrite(
+            save_path + name[0].replace('.jpg', '.png'), pred.astype(np.uint8)
+        )
         split_class(save_path, name[0].replace('.jpg', '.png'), w_gt, h_gt)
 
     shutil.rmtree(save_path)

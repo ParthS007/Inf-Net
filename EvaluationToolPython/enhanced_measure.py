@@ -16,6 +16,7 @@ def enhanced_measure(fm, gt):
     Returns:
     float: The Enhanced alignment score
     """
+    # Ensure inputs are boolean for logical operations
     fm = fm.astype(bool)
     gt = gt.astype(bool)
 
@@ -26,7 +27,7 @@ def enhanced_measure(fm, gt):
     # Special cases
     if np.sum(d_gt) == 0:  # if the GT is completely black
         enhanced_matrix = 1.0 - d_fm  # only calculate the black area of intersection
-    elif np.sum(~d_gt) == 0:  # if the GT is completely white
+    elif np.sum(d_gt) == np.prod(d_gt.shape):  # if the GT is completely white (all 1s)
         enhanced_matrix = d_fm  # only calculate the white area of intersection
     else:
         # Normal case:
