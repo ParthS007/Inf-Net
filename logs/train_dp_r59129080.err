@@ -1,0 +1,40 @@
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/utils/data/dataloader.py:617: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/privacy_engine.py:96: UserWarning: Secure RNG turned off. This is perfectly fine for experimentation as it allows for much faster training performance, but remember to turn it on and retrain one last time before production with ``secure_mode`` turned on.
+  warnings.warn(
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/MyTrain_LungInfDP.py:66: UserWarning: `nn.functional.upsample` is deprecated. Use `nn.functional.interpolate` instead.
+  images = F.upsample(
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/MyTrain_LungInfDP.py:72: UserWarning: `nn.functional.upsample` is deprecated. Use `nn.functional.interpolate` instead.
+  gts = F.upsample(
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/MyTrain_LungInfDP.py:78: UserWarning: `nn.functional.upsample` is deprecated. Use `nn.functional.interpolate` instead.
+  edges = F.upsample(
+Traceback (most recent call last):
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/MyTrain_LungInfDP.py", line 377, in <module>
+    train(train_loader, model, optimizer, epoch, train_save, privacy_engine, opt)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/MyTrain_LungInfDP.py", line 87, in train
+    model(images)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/grad_sample/grad_sample_module.py", line 149, in forward
+    return self._module(*args, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Code/model_lung_infection/InfNet_Res2Net.py", line 152, in forward
+    x1 = self.resnet.layer1(x)      # bs, 256, 88, 88
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Code/model_lung_infection/backbone/Res2Net.py", line 88, in forward
+    out += residual
+RuntimeError: Output 0 of BackwardHookFunctionBackward is a view and is being modified inplace. This view was created inside a custom Function (or because an input was returned as-is) and the autograd logic to handle view+inplace would override the custom backward associated with the custom Function, leading to incorrect gradients. This behavior is forbidden. You can fix this by cloning the output of the custom Function.
