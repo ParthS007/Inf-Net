@@ -21,7 +21,7 @@ class BasicConv2d(nn.Module):
                               kernel_size=kernel_size, stride=stride,
                               padding=padding, dilation=dilation, bias=False)
         self.bn = nn.BatchNorm2d(out_planes)
-        self.relu = nn.ReLU(inplace=True)
+        self.relu = nn.ReLU(inplace=False)
 
     def forward(self, x):
         x = self.conv(x)
@@ -32,7 +32,7 @@ class BasicConv2d(nn.Module):
 class RFB_modified(nn.Module):
     def __init__(self, in_channel, out_channel):
         super(RFB_modified, self).__init__()
-        self.relu = nn.ReLU(True)
+        self.relu = nn.ReLU(False)
         self.branch0 = nn.Sequential(
             BasicConv2d(in_channel, out_channel, 1),
         )
@@ -73,7 +73,7 @@ class aggregation(nn.Module):
     # used after MSF
     def __init__(self, channel, n_class):
         super(aggregation, self).__init__()
-        self.relu = nn.ReLU(True)
+        self.relu = nn.ReLU(False)
 
         self.upsample = nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True)
         self.conv_upsample1 = BasicConv2d(channel, channel, 3, padding=1)
