@@ -17,7 +17,10 @@ from datetime import datetime
 from Code.utils.dataloader_LungInf import get_loader
 from Code.utils.utils import clip_gradient, adjust_lr, AvgMeter
 import torch.nn.functional as F
+
+# Differential Privacy
 from opacus.privacy_engine import PrivacyEngine
+from opacus.validators import ModuleValidator
 
 
 def joint_loss(pred, mask):
@@ -38,18 +41,11 @@ def train(
     train_loader, model, optimizer, epoch, train_save, privacy_engine=None, opt=None
 ):
     model.train()
-    # ---- multi-scale training ----
-
-    # Note: Multi-scale training may interfere with privacy accounting
-    # Consider using single scale when privacy is enabled
-    if opt.enable_privacy:
-        size_rates = [1.0]  # Use single scale for privacy
-    else:
-        size_rates = [
-            0.75,
-            1,
-            1.25,
-        ]  # replace your desired scale, try larger scale for better accuracy in small object
+    size_rates = [
+        0.75,
+        1,
+        1.25,
+    ]  # replace your desired scale, try larger scale for better accuracy in small object
     loss_record1, loss_record2, loss_record3, loss_record4, loss_record5 = (
         AvgMeter(),
         AvgMeter(),
@@ -62,25 +58,27 @@ def train(
             optimizer.zero_grad()
             # ---- data prepare ----
             images, gts, edges = pack
-            images = Variable(images).cuda()
-            gts = Variable(gts).cuda()
-            edges = Variable(edges).cuda()
-            # ---- rescaling the inputs (img/gt/edge) ----
+            # Move to device
+            images = images.to(opt.device)
+            gts = gts.to(opt.device)
+            edges = edges.to(opt.device)
+
+            # ---- rescaling the inputs ----
             trainsize = int(round(opt.trainsize * rate / 32) * 32)
             if rate != 1:
-                images = F.upsample(
+                images = F.interpolate(
                     images,
                     size=(trainsize, trainsize),
                     mode="bilinear",
                     align_corners=True,
                 )
-                gts = F.upsample(
+                gts = F.interpolate(
                     gts,
                     size=(trainsize, trainsize),
                     mode="bilinear",
                     align_corners=True,
                 )
-                edges = F.upsample(
+                edges = F.interpolate(
                     edges,
                     size=(trainsize, trainsize),
                     mode="bilinear",
@@ -100,9 +98,8 @@ def train(
             loss = loss1 + loss2 + loss3 + loss4 + loss5
             # ---- backward ----
             loss.backward()
-            # Use Opacus clipping if privacy is enabled, otherwise use custom clipping
-            if not opt.enable_privacy:
-                clip_gradient(optimizer, opt.clip)
+            clip_gradient(optimizer, opt.clip)
+            # ---- optimizer step ----
             optimizer.step()
             # ---- recording loss ----
             if rate == 1:
@@ -113,9 +110,12 @@ def train(
                 loss_record5.update(loss5.data, opt.batchsize)
         # ---- train logging ----
         if i % 20 == 0 or i == total_step:
+            epsilon = 0.0
+            if privacy_engine:
+                epsilon = privacy_engine.get_epsilon(delta=opt.delta)
             print(
                 "{} Epoch [{:03d}/{:03d}], Step [{:04d}/{:04d}], [lateral-edge: {:.4f}, "
-                "lateral-2: {:.4f}, lateral-3: {:0.4f}, lateral-4: {:0.4f}, lateral-5: {:0.4f}]".format(
+                "lateral-2: {:.4f}, lateral-3: {:0.4f}, lateral-4: {:0.4f}, lateral-5: {:0.4f}, epsilon: {:0.4f}]".format(
                     datetime.now(),
                     epoch,
                     opt.epoch,
@@ -126,34 +126,15 @@ def train(
                     loss_record3.show(),
                     loss_record4.show(),
                     loss_record5.show(),
+                    epsilon,
                 )
             )
 
-        # --- privacy budget logging (only if privacy is enabled)
-        if opt.enable_privacy and privacy_engine:
-            try:
-                epsilon, best_alpha = privacy_engine.get_privacy_spent(
-                    delta=opt.target_delta
-                )
-                print(f"#----Privacy Budget----#")
-                print(
-                    f"(ε = {epsilon:.3f}, δ = {opt.target_delta}) at α = {best_alpha}"
-                )
-
-                # Check if privacy budget exceeded
-                if epsilon > opt.target_epsilon:
-                    print(
-                        f"WARNING: Privacy budget exceeded! Target ε = {opt.target_epsilon}, Current ε = {epsilon:.3f}"
-                    )
-
-            except Exception as e:
-                print(f"Error computing privacy budget: {e}")
-
-    # ---- save model_lung_infection ----
+    # ---- save model ----
     save_path = "./Snapshots/save_weights/{}/".format(train_save)
     os.makedirs(save_path, exist_ok=True)
 
-    if (epoch + 1) % 10 == 0:
+    if (epoch + 1) % 2 == 0:
         torch.save(model.state_dict(), save_path + "Inf-Net-%d.pth" % (epoch + 1))
         print("[Saving Snapshot:]", save_path + "Inf-Net-%d.pth" % (epoch + 1))
 
@@ -161,7 +142,7 @@ def train(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     # hyper-parameters
-    parser.add_argument("--epoch", type=int, default=100, help="epoch number")
+    parser.add_argument("--epoch", type=int, default=2, help="epoch number")
     parser.add_argument("--lr", type=float, default=1e-4, help="learning rate")
     parser.add_argument("--batchsize", type=int, default=24, help="training batch size")
     parser.add_argument(
@@ -191,7 +172,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--num_workers",
         type=int,
-        default=8,
+        default=1,
         help="number of workers in dataloader. In windows, set num_workers=0",
     )
     # model_lung_infection parameters
@@ -234,14 +215,13 @@ if __name__ == "__main__":
         default=None,
         help="If you use custom save path, please edit `--is_semi=True` and `--is_pseudo=True`",
     )
-    parser.add_argument("--run", type=int, help="the raining iteartion number")
+    parser.add_argument("--run", type=int, help="the training iteration number")
 
     # Privacy related arguments
     parser.add_argument(
         "--enable_privacy",
         action="store_true",
-        default=False,
-        help="Enable differential privacy training (disabled by default - model has BatchNorm)",
+        help="Enable differential privacy training",
     )
     parser.add_argument(
         "--noise_multiplier",
@@ -256,13 +236,7 @@ if __name__ == "__main__":
         help="Maximum gradient norm for clipping",
     )
     parser.add_argument(
-        "--target_epsilon",
-        type=float,
-        default=10.0,
-        help="Target privacy budget (epsilon)",
-    )
-    parser.add_argument(
-        "--target_delta",
+        "--delta",
         type=float,
         default=1e-5,
         help="Target privacy parameter (delta)",
@@ -270,9 +244,13 @@ if __name__ == "__main__":
 
     opt = parser.parse_args()
 
+    # ---- setup device ----
+    opt.device = "cuda" if torch.cuda.is_available() else "cpu"
+
     # ---- build models ----
-    torch.cuda.set_device(opt.gpu_device)
-    # - please asign your prefer backbone in opt.
+    if opt.device == "cuda":
+        torch.cuda.set_device(opt.gpu_device)
+
     if opt.backbone == "Res2Net50":
         print("Backbone loading: Res2Net50")
         from Code.model_lung_infection.InfNet_Res2Net import Inf_Net
@@ -284,7 +262,33 @@ if __name__ == "__main__":
         from Code.model_lung_infection.InfNet_VGGNet import Inf_Net
     else:
         raise ValueError("Invalid backbone parameters: {}".format(opt.backbone))
-    model = Inf_Net(channel=opt.net_channel, n_class=opt.n_classes).cuda()
+
+    model = Inf_Net(channel=opt.net_channel, n_class=opt.n_classes).to(opt.device)
+
+    print("Freezing unused branches for DP compatibility...")
+    if opt.enable_privacy:
+        if opt.backbone == "Res2Net50":
+            if hasattr(model.resnet, "avgpool"):
+                for param in model.resnet.avgpool.parameters():
+                    param.requires_grad = False
+            if hasattr(model.resnet, "fc"):
+                for param in model.resnet.fc.parameters():
+                    param.requires_grad = False
+            trainable_params = sum(
+                p.numel() for p in model.parameters() if p.requires_grad
+            )
+            total_params = sum(p.numel() for p in model.parameters())
+            print(f"Trainable: {trainable_params:,} / {total_params:,} parameters")
+
+        if opt.backbone == "VGGNet16":
+            for param in model.vgg.conv4_2.parameters():
+                param.requires_grad = False
+            for param in model.vgg.conv5_2.parameters():
+                param.requires_grad = False
+
+            trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
+            total_params = sum(p.numel() for p in model.parameters())
+            print(f"Trainable: {trainable_params:,} / {total_params:,} parameters")
 
     # ---- load pre-trained weights (mode=Semi-Inf-Net) ----
     # - See Sec.2.3 of `README.md` to learn how to generate your own img/pseudo-label from scratch.
@@ -303,9 +307,9 @@ if __name__ == "__main__":
         train_save = "Semi-Inf-Net"
     elif (not opt.is_pseudo) and (not opt.is_semi):
         if opt.run:
-            train_save = f"Inf-Net/{opt.run}"
+            train_save = f"Inf-Net/DP/{opt.run}"
         else:
-            train_save = "Inf-Net"
+            train_save = "Inf-Net/DP/"
     else:
         print("Use custom save path")
         train_save = opt.train_save
@@ -314,18 +318,35 @@ if __name__ == "__main__":
     if opt.is_thop:
         from Code.utils.utils import CalParams
 
-        x = torch.randn(1, 3, opt.trainsize, opt.trainsize).cuda()
+        x = torch.randn(1, 3, opt.trainsize, opt.trainsize).to(opt.device)
         CalParams(model, x)
 
     # ---- load training sub-modules ----
     BCE = torch.nn.BCEWithLogitsLoss()
 
-    params = model.parameters()
+    # ---- Fix model for differential privacy BEFORE creating optimizer ----
     if opt.enable_privacy:
-        optimizer = torch.optim.SGD(params, opt.lr)
-    else:
-        optimizer = torch.optim.Adam(params, opt.lr)
+        try:
+            ModuleValidator.validate(model, strict=True)
+            print("Model is compatible with differential privacy")
+        except Exception as e:
+            print(f"Validator raised issues with model. Attempting auto-fix...")
+            print(f"Original error: {type(e).__name__}")
+            model = ModuleValidator.fix(model)
+            model = model.to(opt.device)
+            try:
+                ModuleValidator.validate(model, strict=True)
+                print("Model successfully fixed for differential privacy")
+            except Exception as validation_error:
+                print(
+                    f"Warning: Model may still have compatibility issues: {validation_error}"
+                )
 
+    # ---- Create optimizer AFTER model fix ----
+    params = model.parameters()
+    optimizer = torch.optim.Adam(params, opt.lr)
+
+    # ---- Load data ----
     image_root = "{}/Imgs/".format(opt.train_path)
     gt_root = "{}/GT/".format(opt.train_path)
     edge_root = "{}/Edge/".format(opt.train_path)
@@ -340,17 +361,15 @@ if __name__ == "__main__":
     )
     total_step = len(train_loader)
 
-    # ---- setup privacy engine ----
+    # ---- Setup privacy engine ----
     privacy_engine = None
     if opt.enable_privacy:
-        print(
-            f"Enabling differential privacy with noise_multiplier={opt.noise_multiplier}, max_grad_norm={opt.max_grad_norm}"
-        )
         privacy_engine = PrivacyEngine()
         model, optimizer, train_loader = privacy_engine.make_private(
             module=model,
             optimizer=optimizer,
             data_loader=train_loader,
+            epochs=opt.epoch,
             noise_multiplier=opt.noise_multiplier,
             max_grad_norm=opt.max_grad_norm,
         )
