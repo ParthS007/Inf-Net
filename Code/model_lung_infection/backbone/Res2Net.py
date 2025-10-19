@@ -49,7 +49,7 @@ class Bottle2neck(nn.Module):
         self.conv3 = nn.Conv2d(width * scale, planes * self.expansion, kernel_size=1, bias=False)
         self.bn3 = nn.BatchNorm2d(planes * self.expansion)
 
-        self.relu = nn.ReLU(inplace=True)
+        self.relu = nn.ReLU(inplace=False)
         self.downsample = downsample
         self.stype = stype
         self.scale = scale
@@ -85,7 +85,7 @@ class Bottle2neck(nn.Module):
         if self.downsample is not None:
             residual = self.downsample(x)
 
-        out += residual
+        out = out + residual
         out = self.relu(out)
 
         return out
@@ -101,14 +101,14 @@ class Res2Net(nn.Module):
         self.conv1 = nn.Sequential(
             nn.Conv2d(3, 32, 3, 2, 1, bias=False),
             nn.BatchNorm2d(32),
-            nn.ReLU(inplace=True),
+            nn.ReLU(inplace=False),
             nn.Conv2d(32, 32, 3, 1, 1, bias=False),
             nn.BatchNorm2d(32),
-            nn.ReLU(inplace=True),
+            nn.ReLU(inplace=False),
             nn.Conv2d(32, 64, 3, 1, 1, bias=False)
         )
         self.bn1 = nn.BatchNorm2d(64)
-        self.relu = nn.ReLU()
+        self.relu = nn.ReLU(False)
         self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
         self.layer1 = self._make_layer(block, 64, layers[0])
         self.layer2 = self._make_layer(block, 128, layers[1], stride=2)
