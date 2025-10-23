@@ -2,12 +2,13 @@
 
 """Preview
 Code for 'Inf-Net: Automatic COVID-19 Lung Infection Segmentation from CT Scans'
-with Morphological Operations (DP-Morph without DP-SGD)
+with optional Morphological Operations
 submit to Transactions on Medical Imaging, 2020.
 
 1st Version: Created on 2020-05-13 (@author: Ge-Peng Ji)
 2nd Version: Fix some bugs caused by THOP on 2020-06-10 (@author: Ge-Peng Ji)
 3rd Version: Add morphological operations on 2025-10-23 (@author: Parth Shandilya)
+4th Version: Unified training script with proper snapshot management on 2025-10-23
 """
 
 import torch
@@ -57,13 +58,10 @@ def joint_loss(pred, mask):
     return (wbce + wiou).mean()
 
 
-def train(train_loader, model, optimizer, epoch, train_save, opt=None):
+def train(train_loader, model, optimizer, epoch, save_path, opt):
     model.train()
-    size_rates = [
-        0.75,
-        1,
-        1.25,
-    ]
+    # ---- multi-scale training ----
+    size_rates = [0.75, 1, 1.25]
     loss_record1, loss_record2, loss_record3, loss_record4, loss_record5 = (
         AvgMeter(),
         AvgMeter(),
@@ -71,12 +69,12 @@ def train(train_loader, model, optimizer, epoch, train_save, opt=None):
         AvgMeter(),
         AvgMeter(),
     )
+
     for i, pack in enumerate(train_loader, start=1):
         for rate in size_rates:
             optimizer.zero_grad()
             # ---- data prepare ----
             images, gts, edges = pack
-            # Move to device
             images = images.to(opt.device)
             gts = gts.to(opt.device)
             edges = edges.to(opt.device)
@@ -142,7 +140,6 @@ def train(train_loader, model, optimizer, epoch, train_save, opt=None):
             # ---- backward ----
             loss.backward()
             clip_gradient(optimizer, opt.clip)
-            # ---- optimizer step ----
             optimizer.step()
 
             # ---- recording loss ----
@@ -172,18 +169,46 @@ def train(train_loader, model, optimizer, epoch, train_save, opt=None):
             )
 
     # ---- save model ----
-    save_path = "./Snapshots/save_weights/{}/".format(train_save)
     os.makedirs(save_path, exist_ok=True)
-
     if (epoch + 1) % 10 == 0:
-        torch.save(model.state_dict(), save_path + "Inf-Net-%d.pth" % (epoch + 1))
-        print("[Saving Snapshot:]", save_path + "Inf-Net-%d.pth" % (epoch + 1))
+        checkpoint_path = os.path.join(save_path, f"Inf-Net-{epoch+1}.pth")
+        torch.save(model.state_dict(), checkpoint_path)
+        print("[Saving Snapshot:]", checkpoint_path)
+
+
+def build_snapshot_path(opt):
+    """Build the snapshot save path based on configuration"""
+    if opt.is_pseudo and (not opt.is_semi):
+        base_path = "Inf-Net_Pseudo"
+    elif (not opt.is_pseudo) and opt.is_semi:
+        base_path = "Semi-Inf-Net"
+    elif (not opt.is_pseudo) and (not opt.is_semi):
+        # Determine model type
+        if opt.enable_morphology:
+            model_type = "Inf-Net_Morph"
+        else:
+            model_type = "Inf-Net"
+
+        # Add batch size subdirectory
+        batch_dir = f"batch_{opt.batchsize}"
+
+        # Add run number if specified
+        if opt.run:
+            base_path = os.path.join(model_type, batch_dir, f"run_{opt.run}")
+        else:
+            base_path = os.path.join(model_type, batch_dir, "run_1")
+    else:
+        # Custom save path
+        base_path = opt.train_save
+
+    save_path = os.path.join("./Snapshots/save_weights", base_path)
+    return save_path
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     # hyper-parameters
-    parser.add_argument("--epoch", type=int, default=10, help="epoch number")
+    parser.add_argument("--epoch", type=int, default=100, help="epoch number")
     parser.add_argument("--lr", type=float, default=1e-4, help="learning rate")
     parser.add_argument("--batchsize", type=int, default=24, help="training batch size")
     parser.add_argument(
@@ -256,7 +281,9 @@ if __name__ == "__main__":
         default=None,
         help="If you use custom save path, please edit `--is_semi=True` and `--is_pseudo=True`",
     )
-    parser.add_argument("--run", type=int, help="the training iteration number")
+    parser.add_argument(
+        "--run", type=int, default=1, help="the training iteration number"
+    )
 
     # Morphology arguments
     parser.add_argument(
@@ -310,26 +337,6 @@ if __name__ == "__main__":
     else:
         print("Not loading weights from weights file")
 
-    # weights file save path
-    if opt.is_pseudo and (not opt.is_semi):
-        train_save = "Inf-Net_Pseudo"
-    elif (not opt.is_pseudo) and opt.is_semi:
-        train_save = "Semi-Inf-Net"
-    elif (not opt.is_pseudo) and (not opt.is_semi):
-        if opt.enable_morphology:
-            if opt.run:
-                train_save = f"Inf-Net_Morph/{opt.morph_operation}/{opt.run}"
-            else:
-                train_save = f"Inf-Net_Morph/{opt.morph_operation}"
-        else:
-            if opt.run:
-                train_save = f"Inf-Net/{opt.run}"
-            else:
-                train_save = "Inf-Net"
-    else:
-        print("Use custom save path")
-        train_save = opt.train_save
-
     # ---- calculate FLOPs and Params ----
     if opt.is_thop:
         from Code.utils.utils import CalParams
@@ -359,15 +366,35 @@ if __name__ == "__main__":
     )
     total_step = len(train_loader)
 
-    # ---- start !! -----
+    # ---- Build save path ----
+    save_path = build_snapshot_path(opt)
+
+    # ---- Print training info ----
+    morph_info = (
+        f"Morphology: {opt.morph_operation}"
+        if opt.enable_morphology
+        else "Morphology: Disabled"
+    )
     print(
-        "#" * 20,
-        "\nStart Training (Inf-Net-{})\n{}\nMorphological Operation: {}\n".format(
-            opt.backbone, opt, opt.morph_operation if opt.enable_morphology else "None"
+        "#" * 50,
+        "\nStart Training (Inf-Net-{})\n"
+        "Backbone: {}\n"
+        "Batch Size: {}\n"
+        "{}\n"
+        "Save Path: {}\n"
+        "Run: {}\n"
+        "{}\n".format(
+            opt.backbone,
+            opt.backbone,
+            opt.batchsize,
+            morph_info,
+            save_path,
+            opt.run,
+            opt,
         ),
-        "#" * 20,
+        "#" * 50,
     )
 
     for epoch in range(1, opt.epoch + 1):
         adjust_lr(optimizer, opt.lr, epoch, opt.decay_rate, opt.decay_epoch)
-        train(train_loader, model, optimizer, epoch, train_save, opt)
+        train(train_loader, model, optimizer, epoch, save_path, opt)
