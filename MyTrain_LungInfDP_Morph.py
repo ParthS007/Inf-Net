@@ -234,6 +234,9 @@ def build_snapshot_path(opt):
             batch_dir = f"batch_{opt.batchsize}"
             run_dir = f"run_{opt.run}"
             base_path = os.path.join(model_type, batch_dir, run_dir)
+
+        noise_multiplier = f"noise_multiplier_{opt.noise_multiplier}"
+        base_path = os.path.join(base_path, noise_multiplier)
     else:
         # Custom save path
         base_path = opt.train_save
@@ -395,6 +398,21 @@ if __name__ == "__main__":
         raise ValueError("Invalid backbone parameters: {}".format(opt.backbone))
 
     model = Inf_Net(channel=opt.net_channel, n_class=opt.n_classes).to(opt.device)
+
+    print("Freezing unused branches for DP compatibility...")
+    if opt.enable_privacy:
+        if opt.backbone == "Res2Net50":
+            if hasattr(model.resnet, "avgpool"):
+                for param in model.resnet.avgpool.parameters():
+                    param.requires_grad = False
+            if hasattr(model.resnet, "fc"):
+                for param in model.resnet.fc.parameters():
+                    param.requires_grad = False
+            trainable_params = sum(
+                p.numel() for p in model.parameters() if p.requires_grad
+            )
+            total_params = sum(p.numel() for p in model.parameters())
+            print(f"Trainable: {trainable_params:,} / {total_params:,} parameters")
 
     # ---- load pre-trained weights ----
     if opt.is_semi and opt.backbone == "Res2Net50":
