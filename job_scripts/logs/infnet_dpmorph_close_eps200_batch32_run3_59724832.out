@@ -1,0 +1,32 @@
+Backbone loading: Res2Net50
+Freezing unused branches for DP compatibility...
+Trainable: 31,072,721 / 33,121,721 parameters
+Not loading weights from weights file
+Validator raised issues with model. Attempting auto-fix...
+Original error: UnsupportedModuleError
+Model successfully fixed for differential privacy
+###################################################################### 
+Start Training (Inf-Net-Res2Net50)
+Backbone: Res2Net50
+Batch Size: 32
+Privacy: DP Enabled (ε budget, δ=1e-05)
+Morphology: close
+Save Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/close/batch_32/run_3
+Run: 3
+Namespace(epoch=100, lr=0.0001, batchsize=32, trainsize=352, clip=0.5, decay_rate=0.1, decay_epoch=50, is_thop=False, gpu_device=0, num_workers=8, net_channel=32, n_classes=1, backbone='Res2Net50', train_path='./Dataset/TrainingSet/LungInfection-Train/Doctor-label', is_semi=False, is_pseudo=False, train_save=None, run=3, enable_privacy=True, noise_multiplier=0.05, max_grad_norm=1.0, delta=1e-05, enable_morphology=True, morph_operation='close', morph_kernel_size=3, morph_privacy_budget=1.0, device='cuda')
+ ######################################################################
+2025-10-24 12:39:38.454803 Epoch [001/100], Step [0002/0002], [lateral-edge: 0.7838, lateral-2: 1.5500, lateral-3: 1.5244, lateral-4: 1.5235, lateral-5: 1.5190, epsilon: inf]
+2025-10-24 12:39:48.541928 Epoch [002/100], Step [0002/0002], [lateral-edge: 0.7769, lateral-2: 1.4131, lateral-3: 1.4227, lateral-4: 1.4398, lateral-5: 1.4717, epsilon: inf]
+2025-10-24 12:40:01.164429 Epoch [003/100], Step [0002/0002], [lateral-edge: 0.7705, lateral-2: 1.2789, lateral-3: 1.3233, lateral-4: 1.3594, lateral-5: 1.4098, epsilon: inf]
+2025-10-24 12:40:39.385821 Epoch [004/100], Step [0002/0002], [lateral-edge: 0.7644, lateral-2: 1.1810, lateral-3: 1.2453, lateral-4: 1.2993, lateral-5: 1.3632, epsilon: inf]
+2025-10-24 12:41:03.185976 Epoch [005/100], Step [0002/0002], [lateral-edge: 0.7607, lateral-2: 1.1431, lateral-3: 1.1975, lateral-4: 1.2836, lateral-5: 1.3423, epsilon: inf]
+2025-10-24 12:41:32.846590 Epoch [006/100], Step [0002/0002], [lateral-edge: 0.7572, lateral-2: 1.0742, lateral-3: 1.1360, lateral-4: 1.2348, lateral-5: 1.3004, epsilon: inf]
+2025-10-24 12:42:52.588341 Epoch [007/100], Step [0002/0002], [lateral-edge: 0.7563, lateral-2: 1.0643, lateral-3: 1.1325, lateral-4: 1.2196, lateral-5: 1.2692, epsilon: inf]
+2025-10-24 12:43:37.456497 Epoch [008/100], Step [0002/0002], [lateral-edge: 0.7555, lateral-2: 1.0176, lateral-3: 1.0868, lateral-4: 1.1769, lateral-5: 1.2277, epsilon: inf]
+2025-10-24 12:44:33.041544 Epoch [009/100], Step [0002/0002], [lateral-edge: 0.7530, lateral-2: 1.0050, lateral-3: 1.0670, lateral-4: 1.1435, lateral-5: 1.1954, epsilon: inf]
+[Saving Snapshot:] ./Snapshots/save_weights/Inf-Net_DP_Morph/close/batch_32/run_3/Inf-Net-10.pth
+2025-10-24 12:45:39.273759 Epoch [010/100], Step [0002/0002], [lateral-edge: 0.7526, lateral-2: 0.9945, lateral-3: 1.0748, lateral-4: 1.1504, lateral-5: 1.1938, epsilon: inf]
+2025-10-24 12:46:44.574788 Epoch [011/100], Step [0002/0002], [lateral-edge: 0.7515, lateral-2: 0.9869, lateral-3: 1.0473, lateral-4: 1.1173, lateral-5: 1.1713, epsilon: inf]
+2025-10-24 12:47:54.448674 Epoch [012/100], Step [0002/0002], [lateral-edge: 0.7498, lateral-2: 0.9968, lateral-3: 1.0589, lateral-4: 1.1236, lateral-5: 1.1728, epsilon: inf]
+2025-10-24 12:50:23.202415 Epoch [013/100], Step [0002/0002], [lateral-edge: 0.7492, lateral-2: 0.9799, lateral-3: 1.0219, lateral-4: 1.0809, lateral-5: 1.1209, epsilon: inf]
+Training completed at Fri Oct 24 12:50:49 CEST 2025
