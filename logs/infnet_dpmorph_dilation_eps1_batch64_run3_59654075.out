@@ -1,0 +1,16 @@
+Backbone loading: Res2Net50
+Not loading weights from weights file
+Validator raised issues with model. Attempting auto-fix...
+Original error: UnsupportedModuleError
+Model successfully fixed for differential privacy
+###################################################################### 
+Start Training (Inf-Net-Res2Net50)
+Backbone: Res2Net50
+Batch Size: 64
+Privacy: DP Enabled (ε budget, δ=1e-05)
+Morphology: dilation
+Save Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/dilation/batch_64/run_3
+Run: 3
+Namespace(epoch=100, lr=0.0001, batchsize=64, trainsize=352, clip=0.5, decay_rate=0.1, decay_epoch=50, is_thop=False, gpu_device=0, num_workers=8, net_channel=32, n_classes=1, backbone='Res2Net50', train_path='./Dataset/TrainingSet/LungInfection-Train/Doctor-label', is_semi=False, is_pseudo=False, train_save=None, run=3, enable_privacy=True, noise_multiplier=1.5, max_grad_norm=1.0, delta=1e-05, enable_morphology=True, morph_operation='dilation', morph_kernel_size=3, morph_privacy_budget=1.0, device='cuda')
+ ######################################################################
+Training completed at Thu Oct 23 17:27:56 CEST 2025
