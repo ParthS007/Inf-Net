@@ -1,0 +1,9 @@
+Inf-Net Evaluation Summary
+Evaluation Date: 2025-10-25 00:11:31
+Total Models Evaluated: 1
+Ground Truth Path: ../Dataset/TestingSet/LungInfection-Test/GT/
+
+Results (sorted by Mean Dice):
+Rank Model                                    Mean Dice  Max Dice   S-measure  MAE      Images 
+----------------------------------------------------------------------------------------------------
+1    Inf-Net_DP_FIXED_batch64_run1_noise0.3   0.1482     0.2577     0.3236     0.4654   48     
