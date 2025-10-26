@@ -19,27 +19,8 @@ import glob
 from Code.model_lung_infection.InfNet_Res2Net import Inf_Net as Network
 from Code.utils.dataloader_LungInf import test_dataset
 
-# Morphology (for testing with morphological models)
-from kornia.morphology import opening, closing, dilation, erosion
-
-
-def apply_kornia_morphology_binary(pred, operation="close", kernel_size=3):
-    """Apply morphology to binary predictions"""
-    if operation == "none":
-        return pred
-    kernel = torch.ones(kernel_size, kernel_size).to(pred.device)
-
-    # Apply operation
-    if operation == "open":
-        return opening(pred, kernel)
-    elif operation == "close":
-        return closing(pred, kernel)
-    elif operation == "dilation":
-        return dilation(pred, kernel)
-    elif operation == "erosion":
-        return erosion(pred, kernel)
-    else:
-        return pred
+# Differential Privacy
+from opacus.validators import ModuleValidator
 
 
 def clean_state_dict(state_dict):
@@ -65,6 +46,63 @@ def clean_state_dict(state_dict):
         filtered_state_dict[new_key] = v
 
     return filtered_state_dict
+
+
+def load_model_for_inference(model_path, model_type, device="cuda"):
+    """
+    Load model with correct architecture based on training type
+
+    Args:
+        model_path: Path to checkpoint file
+        model_type: One of 'Inf-Net', 'Inf-Net_Morph', 'Inf-Net_DP', 'Inf-Net_DP_Morph'
+        device: Device to load model on
+
+    Returns:
+        model: Loaded model with correct architecture
+    """
+    # Create base model
+    model = Network()
+
+    # If model was trained with DP, convert architecture to GroupNorm
+    is_dp_model = "DP" in model_type
+
+    if is_dp_model:
+        print(
+            "DP model detected, Converting BatchNorm to GroupNorm for matching training"
+        )
+
+        # Apply the same conversion that was done during training
+        if not ModuleValidator.is_valid(model):
+            model = ModuleValidator.fix(model)
+            print("Model architecture converted to GroupNorm")
+        else:
+            print("Model already GroupNorm-compatible")
+    else:
+        print("Non-DP model, Using original BatchNorm architecture")
+
+    # Move to device
+    model = model.to(device)
+
+    # Load checkpoint
+    print(f"Loading checkpoint from: {model_path}")
+    state_dict = torch.load(model_path, map_location=device)
+
+    # Clean state dict (remove THOP keys, wrapper prefixes)
+    filtered_state_dict = clean_state_dict(state_dict)
+
+    # Load with strict=True (should work now that architectures match)
+    try:
+        model.load_state_dict(filtered_state_dict, strict=True)
+        print("Checkpoint loaded successfully (strict=True)")
+    except RuntimeError as e:
+        print(f"Warning: Could not load with strict=True: {e}")
+        print("Falling back to strict=False (may cause poor performance)")
+        model.load_state_dict(filtered_state_dict, strict=False)
+
+    # Set to evaluation mode
+    model.eval()
+
+    return model
 
 
 def build_model_path(opt):
@@ -269,17 +307,8 @@ def run_single_test(model_info, opt):
     # Setup device
     device = f"cuda:{opt.gpu_device}" if torch.cuda.is_available() else "cpu"
 
-    # Load model
-    model = Network()
-
-    # Load the state dict and clean keys (remove THOP keys, DP prefixes)
-    state_dict = torch.load(model_info["path"], map_location=device)
-    filtered_state_dict = clean_state_dict(state_dict)
-    # Use strict=False to ignore missing BatchNorm running stats (running_mean, running_var)
-    # These will be reinitialized during eval mode
-    model.load_state_dict(filtered_state_dict, strict=False)
-    model.to(device)
-    model.eval()
+    # Load model with correct architecture
+    model = load_model_for_inference(model_info["path"], model_info["type"], device)
 
     # Build result path
     base_path = "./Results/Lung_infection_segmentation"
@@ -333,19 +362,6 @@ def run_single_test(model_info, opt):
             lateral_map_5, lateral_map_4, lateral_map_3, lateral_map_2, lateral_edge = (
                 model(image)
             )
-
-            # Apply morphology during testing if enabled for morphology models
-            if opt.enable_morphology_test and model_info["type"] in [
-                "Inf-Net_Morph",
-                "Inf-Net_DP_Morph",
-            ]:
-                morph_op = model_info.get("morph_operation", "close")
-                lateral_map_2 = apply_kornia_morphology_binary(
-                    lateral_map_2,
-                    operation=morph_op,
-                    kernel_size=opt.morph_kernel_size,
-                )
-
             res = lateral_map_2
             res = res.sigmoid().data.cpu().numpy().squeeze()
             res = (res - res.min()) / (res.max() - res.min() + 1e-8)
@@ -565,17 +581,8 @@ def inference():
     device = f"cuda:{opt.gpu_device}" if torch.cuda.is_available() else "cpu"
     print(f"Using device: {device}")
 
-    # Load model
-    model = Network()
-
-    # Load the state dict and clean keys (remove THOP keys, DP prefixes)
-    state_dict = torch.load(model_path, map_location=device)
-    filtered_state_dict = clean_state_dict(state_dict)
-    # Use strict=False to ignore missing BatchNorm running stats (running_mean, running_var)
-    # These will be reinitialized during eval mode
-    model.load_state_dict(filtered_state_dict, strict=False)
-    model.to(device)
-    model.eval()
+    # Load model with correct architecture
+    model = load_model_for_inference(model_path, opt.model_type, device)
 
     # Load test data
     image_root = "{}/Imgs/".format(opt.data_path)

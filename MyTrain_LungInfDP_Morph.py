@@ -28,45 +28,34 @@ from opacus.validators import ModuleValidator
 # Morphology
 from kornia.morphology import opening, closing, dilation, erosion
 
-
-def dp_select_from_choices(choices, target_choice, privacy_budget):
-    """DP-based random operation selection"""
-    exp_eps = np.exp(privacy_budget)
-    P_D_plus = (1 / (exp_eps + 1)) + ((exp_eps - 1) / (exp_eps + 1))
-    P_D_minus = 1 / (exp_eps + 1)
-
-    probabilities = [P_D_plus if c == target_choice else P_D_minus for c in choices]
-    probabilities = np.array(probabilities) / np.sum(probabilities)
-
-    return np.random.choice(choices, p=probabilities)
-
+# Improve CUDA memory behavior to reduce fragmentation (harmless if re-set)
+os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
 
 def apply_kornia_morphology_binary(
-    pred, operation="close", kernel_size=3, privacy_budget=1.0
+    pred_mask, operation="both", kernel_size=3, privacy_budget=1.0
 ):
     """Apply morphology to binary predictions"""
-    if operation == "none":
-        return pred
+    choices = ["open", "close", "both", "none", "dilation", "erosion"]
+    if operation not in choices:
+        raise ValueError("Operation must be one of 'open', 'close', 'both', or 'none'.")
 
-    kernel = torch.ones(kernel_size, kernel_size).to(pred.device)
-
-    # Handle random selection for 'both'
-    if operation == "both":
-        operation = dp_select_from_choices(
-            ["open", "close"], target_choice="close", privacy_budget=privacy_budget
-        )
-
-    # Apply operation
-    if operation == "open":
-        return opening(pred, kernel)
+    kernel = torch.ones(kernel_size, kernel_size).to(pred_mask.device)
+    if operation == "dilation":
+        refined_mask = dilation(pred_mask, kernel)
+    elif operation == "open":
+        refined_mask = opening(pred_mask, kernel)
     elif operation == "close":
-        return closing(pred, kernel)
-    elif operation == "dilation":
-        return dilation(pred, kernel)
+        refined_mask = closing(pred_mask, kernel)
     elif operation == "erosion":
-        return erosion(pred, kernel)
+        refined_mask = erosion(pred_mask, kernel)
+    elif operation == "both":
+        refined_mask = opening(pred_mask, kernel)
+        refined_mask = closing(refined_mask, kernel)
+    elif operation == "none":
+        refined_mask = pred_mask
     else:
-        return pred
+        raise ValueError("open", "close", "both", "none", "dilation", "erosion")
+    return refined_mask
 
 
 def joint_loss(pred, mask):
@@ -137,25 +126,21 @@ def train(
                     lateral_map_5,
                     operation=opt.morph_operation,
                     kernel_size=opt.morph_kernel_size,
-                    privacy_budget=opt.morph_privacy_budget,
                 )
                 lateral_map_4 = apply_kornia_morphology_binary(
                     lateral_map_4,
                     operation=opt.morph_operation,
                     kernel_size=opt.morph_kernel_size,
-                    privacy_budget=opt.morph_privacy_budget,
                 )
                 lateral_map_3 = apply_kornia_morphology_binary(
                     lateral_map_3,
                     operation=opt.morph_operation,
                     kernel_size=opt.morph_kernel_size,
-                    privacy_budget=opt.morph_privacy_budget,
                 )
                 lateral_map_2 = apply_kornia_morphology_binary(
                     lateral_map_2,
                     operation=opt.morph_operation,
                     kernel_size=opt.morph_kernel_size,
-                    privacy_budget=opt.morph_privacy_budget,
                 )
 
             # ---- loss function ----
@@ -168,7 +153,7 @@ def train(
 
             # ---- backward ----
             loss.backward()
-            clip_gradient(optimizer, opt.clip)
+            # clip_gradient(optimizer, opt.clip)
             # ---- optimizer step ----
             optimizer.step()
 
@@ -207,8 +192,12 @@ def train(
 
     if (epoch + 1) % 10 == 0:
         checkpoint_path = os.path.join(save_path, f"Inf-Net-{epoch+1}.pth")
-        torch.save(model.state_dict(), checkpoint_path)
+        if opt.enable_privacy:
+            torch.save(model._module.state_dict(), checkpoint_path)
         print("[Saving Snapshot:]", checkpoint_path)
+        if privacy_engine:
+            epsilon = privacy_engine.get_epsilon(delta=opt.delta)
+            print(f"[Privacy Budget]: ε = {epsilon:.2f} (δ = {opt.delta})")
 
 
 def build_snapshot_path(opt):
@@ -368,12 +357,6 @@ if __name__ == "__main__":
         type=int,
         default=3,
         help="Morphological kernel size (must be odd)",
-    )
-    parser.add_argument(
-        "--morph_privacy_budget",
-        type=float,
-        default=1.0,
-        help="Privacy budget for morphology selection",
     )
 
     opt = parser.parse_args()
