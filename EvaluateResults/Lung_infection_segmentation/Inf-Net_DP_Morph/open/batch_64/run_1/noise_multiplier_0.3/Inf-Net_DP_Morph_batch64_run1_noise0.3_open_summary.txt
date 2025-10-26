@@ -4,16 +4,16 @@ Run: 1
 Noise Multiplier: 0.3
 Morph Operation: open
 Number of Images: 48
-Evaluation Date: 2025-10-24 23:15:52
+Evaluation Date: 2025-10-26 13:22:22
 
 Results:
-Mean Dice: 0.0020
-Max Dice: 0.2577
-Mean Sensitivity: 0.0044
+Mean Dice: 0.4829
+Max Dice: 0.5841
+Mean Sensitivity: 0.6599
 Max Sensitivity: 1.0000
-Mean Specificity: 0.0415
-Max Specificity: 0.0416
-S-measure: 0.4250
-Mean E-measure: 0.2574
-Max E-measure: 0.2620
-MAE: 0.1593
+Mean Specificity: 0.8354
+Max Specificity: 0.9918
+S-measure: 0.6198
+Mean E-measure: 0.6380
+Max E-measure: 0.8053
+MAE: 0.1999

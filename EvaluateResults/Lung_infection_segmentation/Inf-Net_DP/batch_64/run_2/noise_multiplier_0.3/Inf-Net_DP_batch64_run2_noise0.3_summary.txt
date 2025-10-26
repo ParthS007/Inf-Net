@@ -3,16 +3,16 @@ Batch Size: 64
 Run: 2
 Noise Multiplier: 0.3
 Number of Images: 48
-Evaluation Date: 2025-10-24 23:51:19
+Evaluation Date: 2025-10-26 01:01:09
 
 Results:
-Mean Dice: 0.0010
-Max Dice: 0.2577
-Mean Sensitivity: 0.0039
+Mean Dice: 0.4960
+Max Dice: 0.6119
+Mean Sensitivity: 0.6534
 Max Sensitivity: 1.0000
-Mean Specificity: 0.0000
-Max Specificity: 0.0000
-S-measure: 0.4259
-Mean E-measure: 0.2500
-Max E-measure: 0.2500
-MAE: 0.1591
+Mean Specificity: 0.8427
+Max Specificity: 0.9991
+S-measure: 0.6342
+Mean E-measure: 0.6485
+Max E-measure: 0.8557
+MAE: 0.1899

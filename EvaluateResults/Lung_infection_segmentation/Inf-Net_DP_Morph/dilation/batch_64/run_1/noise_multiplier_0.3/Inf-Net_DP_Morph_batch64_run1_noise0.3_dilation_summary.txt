@@ -4,16 +4,16 @@ Run: 1
 Noise Multiplier: 0.3
 Morph Operation: dilation
 Number of Images: 48
-Evaluation Date: 2025-10-24 23:23:13
+Evaluation Date: 2025-10-26 13:22:58
 
 Results:
-Mean Dice: 0.2027
-Max Dice: 0.2577
-Mean Sensitivity: 0.3165
+Mean Dice: 0.4632
+Max Dice: 0.5790
+Mean Sensitivity: 0.6216
 Max Sensitivity: 1.0000
-Mean Specificity: 0.6531
-Max Specificity: 0.6606
-S-measure: 0.3433
-Mean E-measure: 0.4980
-Max E-measure: 0.5030
-MAE: 0.3514
+Mean Specificity: 0.8391
+Max Specificity: 0.9964
+S-measure: 0.6192
+Mean E-measure: 0.6280
+Max E-measure: 0.8248
+MAE: 0.1983

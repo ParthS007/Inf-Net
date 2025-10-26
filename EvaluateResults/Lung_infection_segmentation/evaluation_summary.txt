@@ -1,9 +1,17 @@
 Inf-Net Evaluation Summary
-Evaluation Date: 2025-10-25 00:11:31
-Total Models Evaluated: 1
+Evaluation Date: 2025-10-26 13:24:48
+Total Models Evaluated: 9
 Ground Truth Path: ../Dataset/TestingSet/LungInfection-Test/GT/
 
 Results (sorted by Mean Dice):
 Rank Model                                    Mean Dice  Max Dice   S-measure  MAE      Images 
 ----------------------------------------------------------------------------------------------------
-1    Inf-Net_DP_FIXED_batch64_run1_noise0.3   0.1482     0.2577     0.3236     0.4654   48     
+1    Inf-Net_DP_Morph_batch64_run1_noise0.3_open 0.4829     0.5841     0.6198     0.1999   48     
+2    Inf-Net_DP_Morph_batch64_run1_noise0.3_close 0.4714     0.5843     0.6229     0.1955   48     
+3    Inf-Net_DP_Morph_batch64_run1_noise0.3_erosion 0.4679     0.5700     0.6139     0.1977   48     
+4    Inf-Net_DP_Morph_batch64_run1_noise0.3_dilation 0.4632     0.5790     0.6192     0.1983   48     
+5    Inf-Net_DP_Morph_batch64_run1_noise0.5_close 0.4451     0.5508     0.5937     0.2266   48     
+6    Inf-Net_DP_Morph_batch64_run1_noise1.5_open 0.3612     0.4892     0.5220     0.3396   48     
+7    Inf-Net_DP_Morph_batch64_run1_noise1.5_close 0.3388     0.4587     0.4880     0.3892   48     
+8    Inf-Net_DP_Morph_batch64_run1_noise1.5_erosion 0.3159     0.4022     0.4715     0.3876   48     
+9    Inf-Net_DP_Morph_batch64_run1_noise1.5_dilation 0.3032     0.4176     0.4732     0.3907   48     
