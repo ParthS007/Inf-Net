@@ -1,0 +1,134 @@
+================================================================================
+INPUT NORMALIZATION VERIFICATION
+================================================================================
+Data path: Dataset/TestingSet/LungInfection-Test/
+Test size: 352
+Analyzing 10 sample images...
+================================================================================
+
+Total images in dataset: 48
+
+Dataloader transform chain:
+Compose(
+    Resize(size=(352, 352), interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+
+================================================================================
+SAMPLE IMAGE STATISTICS
+================================================================================
+
+--- Sample 1: 18.png ---
+Preprocessed tensor (as fed to model)
+  Shape: torch.Size([1, 3, 352, 352])
+  Min: -2.1179
+  Max: 2.6400
+  Mean: 0.1805
+  Std: 1.3782
+
+--- Sample 2: 21.png ---
+Preprocessed tensor (as fed to model)
+  Shape: torch.Size([1, 3, 352, 352])
+  Min: -1.8782
+  Max: 2.6400
+  Mean: 0.3334
+  Std: 1.2623
+
+--- Sample 3: 36.png ---
+Preprocessed tensor (as fed to model)
+  Shape: torch.Size([1, 3, 352, 352])
+  Min: -2.1179
+  Max: 2.6400
+  Mean: 1.2053
+  Std: 1.1172
+
+--- Sample 4: 38.png ---
+Preprocessed tensor (as fed to model)
+  Shape: torch.Size([1, 3, 352, 352])
+  Min: -1.9124
+  Max: 2.6400
+  Mean: 1.0512
+  Std: 1.1798
+
+--- Sample 5: 59.png ---
+Preprocessed tensor (as fed to model)
+  Shape: torch.Size([1, 3, 352, 352])
+  Min: -2.0152
+  Max: 2.6400
+  Mean: 0.9904
+  Std: 1.2473
+
+--- Sample 6: 6.png ---
+Preprocessed tensor (as fed to model)
+  Shape: torch.Size([1, 3, 352, 352])
+  Min: -2.0837
+  Max: 2.6400
+  Mean: -0.0426
+  Std: 1.3468
+
+--- Sample 7: 60.png ---
+Preprocessed tensor (as fed to model)
+  Shape: torch.Size([1, 3, 352, 352])
+  Min: -2.1179
+  Max: 2.6400
+  Mean: 0.9681
+  Std: 1.0819
+
+--- Sample 8: 61.png ---
+Preprocessed tensor (as fed to model)
+  Shape: torch.Size([1, 3, 352, 352])
+  Min: -2.0837
+  Max: 2.6400
+  Mean: 0.3007
+  Std: 1.3862
+
+--- Sample 9: 62.png ---
+Preprocessed tensor (as fed to model)
+  Shape: torch.Size([1, 3, 352, 352])
+  Min: -2.1179
+  Max: 2.6400
+  Mean: 0.0683
+  Std: 1.5009
+
+--- Sample 10: 63.png ---
+Preprocessed tensor (as fed to model)
+  Shape: torch.Size([1, 3, 352, 352])
+  Min: -2.1179
+  Max: 2.6400
+  Mean: -0.1534
+  Std: 1.6054
+
+================================================================================
+SUMMARY ACROSS SAMPLES
+================================================================================
+Min values: -2.1179 to -1.8782 (avg: -2.0563)
+Max values: 2.6400 to 2.6400 (avg: 2.6400)
+Mean values: -0.1534 to 1.2053 (avg: 0.4902)
+Std values: 1.0819 to 1.6054 (avg: 1.3106)
+
+================================================================================
+NORMALIZATION PATTERN DETECTION
+================================================================================
+✓ Data appears to be standardized (mean≈0, std≈1)
+
+================================================================================
+RECOMMENDATIONS
+================================================================================
+For medical CT images, typical preprocessing is:
+1. Resize to target size
+2. ToTensor() → converts [0, 255] uint8 to [0, 1] float32
+3. Optional: Normalize with mean/std
+
+Common normalizations:
+- ImageNet: mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
+- No normalization: just [0, 1] range from ToTensor()
+- Custom: dataset-specific mean/std
+
+⚠ WARNING: Negative values detected!
+  This suggests normalization with mean subtraction.
+  Verify training used the SAME mean/std values.
+
+================================================================================
+VERIFICATION COMPLETE
+================================================================================

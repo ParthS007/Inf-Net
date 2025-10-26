@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "MyTest_LungInf.py", line 65, in <module>
+    inference()
+  File "MyTest_LungInf.py", line 53, in inference
+    lateral_map_5, lateral_map_4, lateral_map_3, lateral_map_2, lateral_edge = model(image)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 541, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Code/model_lung_infection/InfNet_Res2Net.py", line 145, in forward
+    x = self.resnet.conv1(x)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 541, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/site-packages/torch/nn/modules/container.py", line 92, in forward
+    input = module(input)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 541, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/site-packages/torch/nn/modules/activation.py", line 94, in forward
+    return F.relu(input, inplace=self.inplace)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/site-packages/torch/nn/functional.py", line 912, in relu
+    result = torch.relu_(input)
+RuntimeError: CUDA error: no kernel image is available for execution on the device

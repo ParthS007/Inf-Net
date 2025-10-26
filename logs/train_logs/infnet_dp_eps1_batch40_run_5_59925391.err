@@ -1,0 +1,22 @@
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/privacy_engine.py:96: UserWarning: Secure RNG turned off. This is perfectly fine for experimentation as it allows for much faster training performance, but remember to turn it on and retrain one last time before production with ``secure_mode`` turned on.
+  warnings.warn(
+sys:1: UserWarning: Full backward hook is firing when gradients are computed with respect to module outputs since no inputs require gradients. See https://docs.pytorch.org/docs/main/generated/torch.nn.Module.html#torch.nn.Module.register_full_backward_hook for more details.
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:67: RuntimeWarning: divide by zero encountered in log
+  z = np.log(np.where(t > np.log(1 - q), (np.exp(t) + q - 1) / q, 1))
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:70: RuntimeWarning: divide by zero encountered in log
+  t > np.log(1 - q),
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:67: RuntimeWarning: overflow encountered in exp
+  z = np.log(np.where(t > np.log(1 - q), (np.exp(t) + q - 1) / q, 1))
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:160: RuntimeWarning: overflow encountered in exp
+  d2 = np.flip(np.flip(p * np.exp(-t)).cumsum())
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:161: RuntimeWarning: overflow encountered in exp
+  ndelta = np.exp(t) * d2 - d1
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:161: RuntimeWarning: invalid value encountered in multiply
+  ndelta = np.exp(t) * d2 - d1
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:160: RuntimeWarning: invalid value encountered in multiply
+  d2 = np.flip(np.flip(p * np.exp(-t)).cumsum())
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:160: RuntimeWarning: invalid value encountered in accumulate
+  d2 = np.flip(np.flip(p * np.exp(-t)).cumsum())
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:167: RuntimeWarning: overflow encountered in scalar divide
+  return np.log((d1[i] - delta_target) / d2[i])
+[W1025 23:38:05.472581979 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

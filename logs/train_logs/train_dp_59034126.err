@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/MyTrain_LungInfDP.py", line 287, in <module>
+    model = Inf_Net(channel=opt.net_channel, n_class=opt.n_classes).cuda()
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Code/model_lung_infection/InfNet_Res2Net.py", line 117, in __init__
+    self.rfb2_1 = RFB_modified(512, channel)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Code/model_lung_infection/InfNet_Res2Net.py", line 40, in __init__
+    BasicConv2d(in_channel, out_channel, 1),
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Code/model_lung_infection/InfNet_Res2Net.py", line 25, in __init__
+    self.bn = group_norm(out_planes)
+TypeError: 'module' object is not callable

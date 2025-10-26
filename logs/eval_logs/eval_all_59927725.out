@@ -1,0 +1,135 @@
+====================================================================================================
+Inf-Net Evaluation Tool (New Structure)
+====================================================================================================
+Ground Truth Path: ../Dataset/TestingSet/LungInfection-Test/GT/
+Verbose: True
+Model Filter: Inf-Net_DP
+Batch Filter: 32
+Run Filter: 5
+====================================================================================================
+Scanning for result directories...
+Found 114 result directories
+After model filter: 96 directories
+After batch filter: 32 directories
+After run filter: 1 directories
+
+[1/1] Processing: Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7
+
+================================================================================
+Evaluating: Inf-Net_DP
+Batch Size: 32
+Run: 5
+Noise Multiplier: 0.7
+Result Path: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7
+Number of Images: 48
+================================================================================
+Evaluating 60.png: 1/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/60.png
+Evaluating 93.png: 2/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/93.png
+Evaluating 74.png: 3/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/74.png
+Evaluating 87.png: 4/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/87.png
+Evaluating 8.png: 5/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/8.png
+Evaluating 9.png: 6/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/9.png
+Evaluating 38.png: 7/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/38.png
+Evaluating 91.png: 8/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/91.png
+Evaluating 71.png: 9/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/71.png
+Evaluating 88.png: 10/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/88.png
+Evaluating 68.png: 11/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/68.png
+Evaluating 72.png: 12/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/72.png
+Evaluating 85.png: 13/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/85.png
+Evaluating 36.png: 14/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/36.png
+Evaluating 66.png: 15/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/66.png
+Evaluating 99.png: 16/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/99.png
+Evaluating 6.png: 17/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/6.png
+Evaluating 83.png: 18/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/83.png
+Evaluating 96.png: 19/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/96.png
+Evaluating 80.png: 20/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/80.png
+Evaluating 64.png: 21/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/64.png
+Evaluating 77.png: 22/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/77.png
+Evaluating 81.png: 23/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/81.png
+Evaluating 61.png: 24/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/61.png
+Evaluating 94.png: 25/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/94.png
+Evaluating 62.png: 26/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/62.png
+Evaluating 75.png: 27/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/75.png
+Evaluating 92.png: 28/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/92.png
+Evaluating 89.png: 29/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/89.png
+Evaluating 69.png: 30/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/69.png
+Evaluating 73.png: 31/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/73.png
+Evaluating 86.png: 32/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/86.png
+Evaluating 90.png: 33/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/90.png
+Evaluating 70.png: 34/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/70.png
+Evaluating 7.png: 35/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/7.png
+Evaluating 21.png: 36/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/21.png
+Evaluating 18.png: 37/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/18.png
+Evaluating 84.png: 38/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/84.png
+Evaluating 97.png: 39/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/97.png
+Evaluating 65.png: 40/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/65.png
+Evaluating 98.png: 41/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/98.png
+Evaluating 78.png: 42/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/78.png
+Evaluating 82.png: 43/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/82.png
+Evaluating 95.png: 44/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/95.png
+Evaluating 79.png: 45/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/79.png
+Evaluating 59.png: 46/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/59.png
+Evaluating 63.png: 47/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/63.png
+Evaluating 76.png: 48/48
+Resized result map to match ground truth: ../Results/Lung_infection_segmentation/Inf-Net_DP/batch_32/run_5/noise_multiplier_0.7/76.png
+Results: meanDic:0.410; meanSen:0.674; meanSpe:0.744; Sm:0.565; meanEm:0.543; MAE:0.274
+
+====================================================================================================
+EVALUATION SUMMARY
+====================================================================================================
+Rank Model                          Mean Dice  S-measure  MAE      Images 
+----------------------------------------------------------------------------------------------------
+1    Inf-Net_DP_batch32_run5_noi... 0.4098     0.5655     0.2739   48     
+
+Overall summary saved to: ../EvaluateResults/Lung_infection_segmentation/evaluation_summary.txt
+
+Total evaluation time: 18.08 seconds
+Successfully evaluated 1 models
+Evaluation completed! Reports saved under ../EvaluateResults/Lung_infection_segmentation

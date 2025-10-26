@@ -1,0 +1,11 @@
+Backbone loading: Res2Net50
+Not loading weights from weights file
+#################### 
+Start Training (Inf-Net-Res2Net50)
+Namespace(backbone='Res2Net50', batchsize=4, clip=0.5, decay_epoch=50, decay_rate=0.1, epoch=100, gpu_device=0, is_pseudo=False, is_semi=False, is_thop=False, lr=0.0001, n_classes=1, net_channel=32, num_workers=2, train_path='./Dataset/TrainingSet/LungInfection-Train/Doctor-label', train_save=None, trainsize=320)
+This code is written for 'Inf-Net: Automatic COVID-19 Lung Infection Segmentation from CT Scans', 2020, TMI.
+----
+Please cite the paper if you use this code and dataset. And any questions feel free to contact me via E-mail (gepengai.ji@gmail.com)
+----
+ ####################
+Training completed!

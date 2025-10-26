@@ -1,0 +1,16 @@
+Backbone loading: VGGNet16
+DP training: Loading model without pretrained weights
+Not loading weights from weights file
+[INFO] Register count_convNd() for <class 'torch.nn.modules.conv.Conv2d'>.
+[INFO] Register zero_ops() for <class 'torch.nn.modules.activation.ReLU'>.
+[INFO] Register zero_ops() for <class 'torch.nn.modules.container.Sequential'>.
+[INFO] Register count_avgpool() for <class 'torch.nn.modules.pooling.AvgPool2d'>.
+[INFO] Register count_normalization() for <class 'torch.nn.modules.batchnorm.BatchNorm2d'>.
+[INFO] Register count_upsample() for <class 'torch.nn.modules.upsampling.Upsample'>.
+#################### 
+[Statistics Information]
+FLOPs: 47.744G
+Params: 21.299M
+ ####################
+Enabling differential privacy with noise_multiplier=1.1, max_grad_norm=1.0
+Training completed!

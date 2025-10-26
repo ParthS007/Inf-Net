@@ -278,7 +278,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--num_workers",
         type=int,
-        default=8,
+        default=4,
         help="number of workers in dataloader. In windows, set num_workers=0",
     )
     # model parameters

@@ -1,0 +1,23 @@
+######################################################################
+Start Testing (Inf-Net_DP_Morph)
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/close/batch_64/run_1/noise_multiplier_0.5/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/close/batch_64/run_1/noise_multiplier_0.5
+Batch Size: 64
+Run: 1
+Epoch: 70
+Noise Multiplier: 0.5
+Morph Operation: close
+Test Morphology: False
+######################################################################
+Using device: cuda:0
+DP model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/close/batch_64/run_1/noise_multiplier_0.5/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/close/batch_64/run_1/noise_multiplier_0.5
+Batch testing of all models completed!

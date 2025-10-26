@@ -1,0 +1,56 @@
+Downloading: "https://download.pytorch.org/models/resnet50-19c8e357.pth" to /scicore/home/wagner0024/shandi0000/.cache/torch/checkpoints/resnet50-19c8e357.pth
+Traceback (most recent call last):
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/urllib/request.py", line 1349, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/http/client.py", line 1291, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/http/client.py", line 1337, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/http/client.py", line 1286, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/http/client.py", line 1046, in _send_output
+    self.send(msg)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/http/client.py", line 984, in send
+    self.connect()
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/http/client.py", line 1452, in connect
+    server_hostname=server_hostname)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/ssl.py", line 407, in wrap_socket
+    _context=self, _session=session)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/ssl.py", line 817, in __init__
+    self.do_handshake()
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/ssl.py", line 1077, in do_handshake
+    self._sslobj.do_handshake()
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/ssl.py", line 689, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:852)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "MyTrain_LungInf.py", line 144, in <module>
+    model = Inf_Net(channel=opt.net_channel, n_class=opt.n_classes).cuda()
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Code/model_lung_infection/InfNet_ResNet.py", line 146, in __init__
+    self.initialize_weights()
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Code/model_lung_infection/InfNet_ResNet.py", line 225, in initialize_weights
+    res50 = models.resnet50(pretrained=True)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/site-packages/torchvision/models/resnet.py", line 255, in resnet50
+    **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/site-packages/torchvision/models/resnet.py", line 217, in _resnet
+    progress=progress)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/site-packages/torch/hub.py", line 485, in load_state_dict_from_url
+    download_url_to_file(url, cached_file, hash_prefix, progress=progress)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/site-packages/torch/hub.py", line 384, in download_url_to_file
+    u = urlopen(url)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/urllib/request.py", line 1392, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/env/lib/python3.6/urllib/request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:852)>
