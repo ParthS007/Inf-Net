@@ -1,46 +1,0 @@
-================================================================================
-FIXING DP CHECKPOINT: Computing BatchNorm Running Statistics
-================================================================================
-Checkpoint: code/inf-net/Snapshots/save_weights/Inf-Net_DP/batch_64/run_1/noise_multiplier_0.3/Inf-Net-100.pth
-Test data: code/inf-net/Dataset/TestingSet/LungInfection-Test/
-Device: cpu
-
-1. Loading model...
-   Loaded checkpoint (missing: 314, unexpected: 0)
-
-2. Checking BatchNorm statistics BEFORE fix...
-   Total BatchNorm layers: 157
-   With running stats: 157
-   WITHOUT running stats: 0
-
-ℹ️  Checkpoint contains NO running_mean/var keys. We'll compute fresh running stats from data.
-
-3. Loading test data...
-   Found 48 test images
-
-4. Computing running statistics...
-
-Computing BatchNorm running statistics...
-================================================================================
-Processing images:   0%|          | 0/48 [00:00<?, ?it/s]Processing images:   2%|▏         | 1/48 [00:02<02:01,  2.58s/it]Processing images:   4%|▍         | 2/48 [00:03<01:02,  1.36s/it]Processing images:   6%|▋         | 3/48 [00:08<02:22,  3.16s/it]Processing images:   8%|▊         | 4/48 [00:12<02:30,  3.43s/it]Processing images:  10%|█         | 5/48 [00:12<01:39,  2.31s/it]Processing images:  12%|█▎        | 6/48 [00:12<01:07,  1.61s/it]Processing images:  15%|█▍        | 7/48 [00:13<00:47,  1.16s/it]Processing images:  17%|█▋        | 8/48 [00:13<00:34,  1.16it/s]Processing images:  19%|█▉        | 9/48 [00:22<02:11,  3.38s/it]Processing images:  21%|██        | 10/48 [00:30<03:05,  4.88s/it]Processing images:  23%|██▎       | 11/48 [00:39<03:48,  6.18s/it]Processing images:  25%|██▌       | 12/48 [00:40<02:41,  4.49s/it]Processing images:  27%|██▋       | 13/48 [00:40<01:53,  3.24s/it]Processing images:  29%|██▉       | 14/48 [00:41<01:24,  2.49s/it]Processing images:  31%|███▏      | 15/48 [00:43<01:16,  2.32s/it]Processing images:  33%|███▎      | 16/48 [00:43<00:56,  1.78s/it]Processing images:  35%|███▌      | 17/48 [00:44<00:45,  1.48s/it]Processing images:  38%|███▊      | 18/48 [00:46<00:47,  1.58s/it]Processing images:  40%|███▉      | 19/48 [00:46<00:34,  1.20s/it]Processing images:  42%|████▏     | 20/48 [00:47<00:30,  1.11s/it]Processing images:  44%|████▍     | 21/48 [00:47<00:22,  1.17it/s]Processing images:  46%|████▌     | 22/48 [00:48<00:24,  1.05it/s]Processing images:  48%|████▊     | 23/48 [00:50<00:28,  1.12s/it]Processing images:  50%|█████     | 24/48 [00:50<00:22,  1.08it/s]Processing images:  52%|█████▏    | 25/48 [00:51<00:16,  1.39it/s]Processing images:  54%|█████▍    | 26/48 [00:51<00:12,  1.70it/s]Processing images:  56%|█████▋    | 27/48 [00:52<00:13,  1.60it/s]Processing images:  58%|█████▊    | 28/48 [00:52<00:10,  1.90it/s]Processing images:  60%|██████    | 29/48 [00:52<00:08,  2.12it/s]Processing images:  62%|██████▎   | 30/48 [00:53<00:11,  1.58it/s]Processing images:  65%|██████▍   | 31/48 [00:54<00:08,  1.91it/s]Processing images:  67%|██████▋   | 32/48 [00:54<00:07,  2.24it/s]Processing images:  69%|██████▉   | 33/48 [00:58<00:22,  1.52s/it]Processing images:  71%|███████   | 34/48 [01:00<00:24,  1.75s/it]Processing images:  73%|███████▎  | 35/48 [01:02<00:24,  1.90s/it]Processing images:  75%|███████▌  | 36/48 [01:03<00:17,  1.44s/it]Processing images:  77%|███████▋  | 37/48 [01:03<00:13,  1.18s/it]Processing images:  79%|███████▉  | 38/48 [01:04<00:08,  1.11it/s]Processing images:  81%|████████▏ | 39/48 [01:05<00:09,  1.06s/it]Processing images:  83%|████████▎ | 40/48 [01:05<00:06,  1.17it/s]Processing images:  85%|████████▌ | 41/48 [01:06<00:05,  1.24it/s]Processing images:  88%|████████▊ | 42/48 [01:06<00:03,  1.55it/s]Processing images:  90%|████████▉ | 43/48 [01:08<00:04,  1.11it/s]Processing images:  92%|█████████▏| 44/48 [01:10<00:04,  1.21s/it]Processing images:  94%|█████████▍| 45/48 [01:13<00:04,  1.64s/it]Processing images:  96%|█████████▌| 46/48 [01:13<00:02,  1.30s/it]Processing images:  98%|█████████▊| 47/48 [01:14<00:01,  1.07s/it]Processing images: 100%|██████████| 48/48 [01:14<00:00,  1.07it/s]Processing images: 100%|██████████| 48/48 [01:14<00:00,  1.56s/it]
-Processed 48 batches
-================================================================================
-
-5. Checking BatchNorm statistics AFTER fix...
-   Total BatchNorm layers: 157
-   With running stats: 157
-   WITHOUT running stats: 0
-
-✅ SUCCESS! All BatchNorm layers now have running statistics!
-
-6. Saving fixed checkpoint...
-   Output: code/inf-net/Snapshots/save_weights/Inf-Net_DP/batch_64/run_1/noise_multiplier_0.3/Inf-Net-100_FIXED.pth
-   Saved 946 keys
-
-================================================================================
-DONE! Checkpoint fixed.
-================================================================================
-
-You can now use this checkpoint with model.eval() for proper inference.
-Original checkpoint: code/inf-net/Snapshots/save_weights/Inf-Net_DP/batch_64/run_1/noise_multiplier_0.3/Inf-Net-100.pth
-Fixed checkpoint: code/inf-net/Snapshots/save_weights/Inf-Net_DP/batch_64/run_1/noise_multiplier_0.3/Inf-Net-100_FIXED.pth
