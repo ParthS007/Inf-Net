@@ -106,11 +106,11 @@ def load_model_for_inference(model_path, model_type, device="cuda"):
 
 
 def build_model_path(opt):
-    """Build the model path based on configuration"""
+    """Build the model path based on configuration (matching snapshot structure)"""
     base_path = "./Snapshots/save_weights"
 
     if opt.model_type == "Inf-Net":
-        # Regular Inf-Net: Inf-Net/batch_X/run_Y/Inf-Net-100.pth
+        # Structure: Inf-Net/batch_X/run_Y/Inf-Net-Z.pth
         model_path = os.path.join(
             base_path,
             "Inf-Net",
@@ -119,16 +119,17 @@ def build_model_path(opt):
             f"Inf-Net-{opt.epoch}.pth",
         )
     elif opt.model_type == "Inf-Net_Morph":
-        # Morphology Inf-Net: Inf-Net_Morph/batch_X/run_Y/Inf-Net-100.pth
+        # Structure: Inf-Net_Morph/morph_op/batch_X/run_Y/Inf-Net-Z.pth
         model_path = os.path.join(
             base_path,
             "Inf-Net_Morph",
+            opt.morph_operation,
             f"batch_{opt.batchsize}",
             f"run_{opt.run}",
             f"Inf-Net-{opt.epoch}.pth",
         )
     elif opt.model_type == "Inf-Net_DP":
-        # DP Inf-Net: Inf-Net_DP/batch_X/run_Y/noise_multiplier_X/Inf-Net-100.pth
+        # Structure: Inf-Net_DP/batch_X/run_Y/noise_multiplier_Z/Inf-Net-E.pth
         model_path = os.path.join(
             base_path,
             "Inf-Net_DP",
@@ -138,7 +139,7 @@ def build_model_path(opt):
             f"Inf-Net-{opt.epoch}.pth",
         )
     elif opt.model_type == "Inf-Net_DP_Morph":
-        # DP+Morph Inf-Net: Inf-Net_DP_Morph/morph_operation/batch_X/run_Y/noise_multiplier_X/Inf-Net-100.pth
+        # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/noise_multiplier_Z/Inf-Net-E.pth
         model_path = os.path.join(
             base_path,
             "Inf-Net_DP_Morph",
@@ -156,18 +157,25 @@ def build_model_path(opt):
 
 
 def build_result_path(opt):
-    """Build the result save path based on configuration"""
+    """Build the result save path based on configuration (matching snapshot structure)"""
     base_path = "./Results/Lung_infection_segmentation"
 
     if opt.model_type == "Inf-Net":
+        # Structure: Inf-Net/batch_X/run_Y/
         result_path = os.path.join(
             base_path, "Inf-Net", f"batch_{opt.batchsize}", f"run_{opt.run}"
         )
     elif opt.model_type == "Inf-Net_Morph":
+        # Structure: Inf-Net_Morph/morph_op/batch_X/run_Y/
         result_path = os.path.join(
-            base_path, "Inf-Net_Morph", f"batch_{opt.batchsize}", f"run_{opt.run}"
+            base_path,
+            "Inf-Net_Morph",
+            opt.morph_operation,
+            f"batch_{opt.batchsize}",
+            f"run_{opt.run}",
         )
     elif opt.model_type == "Inf-Net_DP":
+        # Structure: Inf-Net_DP/batch_X/run_Y/noise_multiplier_Z/
         result_path = os.path.join(
             base_path,
             "Inf-Net_DP",
@@ -176,6 +184,7 @@ def build_result_path(opt):
             f"noise_multiplier_{opt.noise_multiplier}",
         )
     elif opt.model_type == "Inf-Net_DP_Morph":
+        # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/noise_multiplier_Z/
         result_path = os.path.join(
             base_path,
             "Inf-Net_DP_Morph",
@@ -243,12 +252,12 @@ def list_available_models():
 
 
 def find_final_epoch_models():
-    """Find all final epoch models (100.pth) for batch testing"""
+    """Find all final epoch models for batch testing"""
     base_path = "./Snapshots/save_weights"
     final_models = []
 
     # Find all final epoch model files
-    pattern = os.path.join(base_path, "**", "Inf-Net-100.pth")
+    pattern = os.path.join(base_path, "**", "Inf-Net-70.pth")
     model_files = glob.glob(pattern, recursive=True)
 
     for model_file in model_files:
@@ -256,29 +265,41 @@ def find_final_epoch_models():
         rel_path = os.path.relpath(model_file, base_path)
         parts = rel_path.split(os.sep)
 
-        if len(parts) >= 3:
-            model_info = {
-                "path": model_file,
-                "type": parts[0],
-                "batch_size": (
-                    parts[1].replace("batch_", "")
-                    if "batch_" in parts[1]
-                    else "unknown"
-                ),
-                "run": (
-                    parts[2].replace("run_", "") if "run_" in parts[2] else "unknown"
-                ),
-                "epoch": "100",
-            }
+        model_info = {
+            "path": model_file,
+            "epoch": "70",
+        }
 
-            # Add additional info for DP models
-            if "DP" in parts[0] and len(parts) >= 4:
+        # Parse based on model type
+        if parts[0] == "Inf-Net":
+            # Structure: Inf-Net/batch_X/run_Y/Inf-Net-70.pth
+            if len(parts) >= 4:
+                model_info["type"] = parts[0]
+                model_info["batch_size"] = parts[1].replace("batch_", "")
+                model_info["run"] = parts[2].replace("run_", "")
+
+        elif parts[0] == "Inf-Net_Morph":
+            # Structure: Inf-Net_Morph/morph_op/batch_X/run_Y/Inf-Net-70.pth
+            if len(parts) >= 5:
+                model_info["type"] = parts[0]
+                model_info["morph_operation"] = parts[1]
+                model_info["batch_size"] = parts[2].replace("batch_", "")
+                model_info["run"] = parts[3].replace("run_", "")
+
+        elif parts[0] == "Inf-Net_DP":
+            # Structure: Inf-Net_DP/batch_X/run_Y/noise_multiplier_Z/Inf-Net-70.pth
+            if len(parts) >= 5:
+                model_info["type"] = parts[0]
+                model_info["batch_size"] = parts[1].replace("batch_", "")
+                model_info["run"] = parts[2].replace("run_", "")
                 model_info["noise_multiplier"] = parts[3].replace(
                     "noise_multiplier_", ""
                 )
 
-            # Add morphology info for DP_Morph models
-            if "DP_Morph" in parts[0] and len(parts) >= 5:
+        elif parts[0] == "Inf-Net_DP_Morph":
+            # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/noise_multiplier_Z/Inf-Net-70.pth
+            if len(parts) >= 6:
+                model_info["type"] = parts[0]
                 model_info["morph_operation"] = parts[1]
                 model_info["batch_size"] = parts[2].replace("batch_", "")
                 model_info["run"] = parts[3].replace("run_", "")
@@ -286,6 +307,8 @@ def find_final_epoch_models():
                     "noise_multiplier_", ""
                 )
 
+        # Only add if we successfully parsed all required fields
+        if "type" in model_info and "batch_size" in model_info and "run" in model_info:
             final_models.append(model_info)
 
     return final_models
@@ -310,9 +333,10 @@ def run_single_test(model_info, opt):
     # Load model with correct architecture
     model = load_model_for_inference(model_info["path"], model_info["type"], device)
 
-    # Build result path
+    # Build result path matching the snapshot structure
     base_path = "./Results/Lung_infection_segmentation"
     if model_info["type"] == "Inf-Net":
+        # Structure: Inf-Net/batch_X/run_Y/
         result_path = os.path.join(
             base_path,
             "Inf-Net",
@@ -320,13 +344,16 @@ def run_single_test(model_info, opt):
             f"run_{model_info['run']}",
         )
     elif model_info["type"] == "Inf-Net_Morph":
+        # Structure: Inf-Net_Morph/morph_op/batch_X/run_Y/
         result_path = os.path.join(
             base_path,
             "Inf-Net_Morph",
+            model_info["morph_operation"],
             f"batch_{model_info['batch_size']}",
             f"run_{model_info['run']}",
         )
     elif model_info["type"] == "Inf-Net_DP":
+        # Structure: Inf-Net_DP/batch_X/run_Y/noise_multiplier_Z/
         result_path = os.path.join(
             base_path,
             "Inf-Net_DP",
@@ -335,6 +362,7 @@ def run_single_test(model_info, opt):
             f"noise_multiplier_{model_info['noise_multiplier']}",
         )
     elif model_info["type"] == "Inf-Net_DP_Morph":
+        # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/noise_multiplier_Z/
         result_path = os.path.join(
             base_path,
             "Inf-Net_DP_Morph",
@@ -454,14 +482,14 @@ def inference():
     parser.add_argument(
         "--test_all_final",
         action="store_true",
-        help="Test all final epoch models (100.pth) for different configurations",
+        help="Test all final epoch models for different configurations",
     )
 
     opt = parser.parse_args()
 
     # Test all final epoch models if requested
     if opt.test_all_final:
-        print("Finding all final epoch models (100.pth)...")
+        print("Finding all final epoch models...")
         final_models = find_final_epoch_models()
 
         if not final_models:
@@ -602,18 +630,6 @@ def inference():
             lateral_map_5, lateral_map_4, lateral_map_3, lateral_map_2, lateral_edge = (
                 model(image)
             )
-
-            # Apply morphology during testing if enabled
-            if opt.enable_morphology_test and opt.model_type in [
-                "Inf-Net_Morph",
-                "Inf-Net_DP_Morph",
-            ]:
-                lateral_map_2 = apply_kornia_morphology_binary(
-                    lateral_map_2,
-                    operation=opt.morph_operation,
-                    kernel_size=opt.morph_kernel_size,
-                )
-
             res = lateral_map_2
             res = res.sigmoid().data.cpu().numpy().squeeze()
             res = (res - res.min()) / (res.max() - res.min() + 1e-8)

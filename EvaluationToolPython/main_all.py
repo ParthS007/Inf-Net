@@ -83,46 +83,44 @@ def parse_result_path(relative_path):
         "morph_operation": None,
     }
 
-    if len(parts) >= 2:
-        # Extract batch size
-        for part in parts:
-            if part.startswith("batch_"):
-                model_info["batch_size"] = part.replace("batch_", "")
-                break
+    # Parse based on model type structure
+    if parts[0] == "Inf-Net":
+        # Structure: Inf-Net/batch_X/run_Y
+        if len(parts) >= 3:
+            model_info["batch_size"] = parts[1].replace("batch_", "")
+            model_info["run"] = parts[2].replace("run_", "")
 
-    if len(parts) >= 3:
-        # Extract run number
-        for part in parts:
-            if part.startswith("run_"):
-                model_info["run"] = part.replace("run_", "")
-                break
-
-    # Extract DP-specific info
-    if "DP" in model_info["model_type"]:
-        for part in parts:
-            if part.startswith("noise_multiplier_"):
-                model_info["noise_multiplier"] = part.replace("noise_multiplier_", "")
-                break
-
-    # Extract morphology-specific info
-    if "Morph" in model_info["model_type"]:
-        # Morphology operation is usually the second part for DP_Morph
-        if "DP_Morph" in model_info["model_type"] and len(parts) >= 2:
+    elif parts[0] == "Inf-Net_Morph":
+        # Structure: Inf-Net_Morph/morph_op/batch_X/run_Y
+        if len(parts) >= 4:
             model_info["morph_operation"] = parts[1]
-        elif len(parts) >= 2:
-            # For regular Morph models, check if second part is a morphology operation
-            morph_ops = ["open", "close", "dilation", "erosion"]
-            if parts[1] in morph_ops:
-                model_info["morph_operation"] = parts[1]
+            model_info["batch_size"] = parts[2].replace("batch_", "")
+            model_info["run"] = parts[3].replace("run_", "")
+
+    elif parts[0] == "Inf-Net_DP":
+        # Structure: Inf-Net_DP/batch_X/run_Y/noise_multiplier_Z
+        if len(parts) >= 4:
+            model_info["batch_size"] = parts[1].replace("batch_", "")
+            model_info["run"] = parts[2].replace("run_", "")
+            model_info["noise_multiplier"] = parts[3].replace("noise_multiplier_", "")
+
+    elif parts[0] == "Inf-Net_DP_Morph":
+        # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/noise_multiplier_Z
+        if len(parts) >= 5:
+            model_info["morph_operation"] = parts[1]
+            model_info["batch_size"] = parts[2].replace("batch_", "")
+            model_info["run"] = parts[3].replace("run_", "")
+            model_info["noise_multiplier"] = parts[4].replace("noise_multiplier_", "")
 
     return model_info
 
 
 def build_evaluation_result_path(model_info):
-    """Build the evaluation result save path based on model info"""
+    """Build the evaluation result save path based on model info (matching structure)"""
     base_path = "../EvaluateResults/Lung_infection_segmentation"
 
     if model_info["model_type"] == "Inf-Net":
+        # Structure: Inf-Net/batch_X/run_Y/
         result_path = os.path.join(
             base_path,
             "Inf-Net",
@@ -130,13 +128,16 @@ def build_evaluation_result_path(model_info):
             f"run_{model_info['run']}",
         )
     elif model_info["model_type"] == "Inf-Net_Morph":
+        # Structure: Inf-Net_Morph/morph_op/batch_X/run_Y/
         result_path = os.path.join(
             base_path,
             "Inf-Net_Morph",
+            model_info["morph_operation"],
             f"batch_{model_info['batch_size']}",
             f"run_{model_info['run']}",
         )
     elif model_info["model_type"] == "Inf-Net_DP":
+        # Structure: Inf-Net_DP/batch_X/run_Y/noise_multiplier_Z/
         result_path = os.path.join(
             base_path,
             "Inf-Net_DP",
@@ -145,6 +146,7 @@ def build_evaluation_result_path(model_info):
             f"noise_multiplier_{model_info['noise_multiplier']}",
         )
     elif model_info["model_type"] == "Inf-Net_DP_Morph":
+        # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/noise_multiplier_Z/
         result_path = os.path.join(
             base_path,
             "Inf-Net_DP_Morph",

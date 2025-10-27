@@ -22,12 +22,12 @@ def create_sbatch_script(
     error_log,
     python_script,
     python_args,
-    time_limit="12:00:00",
-    mem="32G",
+    time_limit="00:15:00",
+    mem="64G",
     cpus=4,
     gpus=1,
-    partition="a100",
-    qos="a100-6hours",
+    partition="a100-80g",
+    qos="gpu30min",
 ):
     """Create an SBATCH script content"""
 
@@ -43,7 +43,7 @@ def create_sbatch_script(
 #SBATCH --qos={qos}
 
 # Create logs directory if it doesn't exist
-mkdir -p logs
+mkdir -p logs/train
 
 # Navigate to project directory
 cd /scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/
@@ -91,9 +91,11 @@ def generate_training_configs():
     """Generate all training configurations"""
     configs = []
 
-    batch_sizes = [32, 64, 128]
-    morph_operations = ["open", "close", "dilation", "erosion"]
-    epsilon_values = [1, 8, 200]
+    batch_sizes = [24, 48, 64, 72]
+    morph_operations = ["open", "close", "both", "dilation", "erosion"]
+    noise_multiplier = [0.3, 0.5, 0.7]
+    epoch = 70
+    max_grad_norm = 1.2
 
     # Standard Inf-Net (no morphology, no DP)
     for batch_size in batch_sizes:
@@ -103,10 +105,10 @@ def generate_training_configs():
                 "model_type": "Inf-Net",
                 "batch_size": batch_size,
                 "run": run,
+                "epoch": epoch,
                 "enable_morphology": False,
                 "enable_privacy": False,
                 "morph_operation": None,
-                "epsilon": None,
                 "script": "MyTrain_LungInf_Morph.py",
             }
             configs.append(config)
@@ -120,26 +122,28 @@ def generate_training_configs():
                     "model_type": "Inf-Net_Morph",
                     "batch_size": batch_size,
                     "morph_operation": morph_op,
+                    "epoch": epoch,
                     "run": run,
                     "enable_morphology": True,
                     "enable_privacy": False,
-                    "epsilon": None,
                     "script": "MyTrain_LungInf_Morph.py",
                 }
                 configs.append(config)
 
     # Inf-Net with DP (no morphology)
     for batch_size in batch_sizes:
-        for epsilon in epsilon_values:
+        for nm in noise_multiplier:
             for run in range(1, 4):  # 3 runs per configuration
                 config = {
-                    "name": f"infnet_dp_eps{epsilon}_batch{batch_size}_run{run}",
+                    "name": f"infnet_dp_nm{nm}_batch{batch_size}_run{run}",
                     "model_type": "Inf-Net_DP",
                     "batch_size": batch_size,
                     "run": run,
+                    "epoch": epoch,
                     "enable_morphology": False,
                     "enable_privacy": True,
-                    "epsilon": epsilon,
+                    "noise_multiplier": nm,
+                    "max_grad_norm": max_grad_norm,
                     "morph_operation": None,
                     "script": "MyTrain_LungInfDP_Morph.py",
                 }
@@ -147,18 +151,20 @@ def generate_training_configs():
 
     # Inf-Net with DP and Morphology
     for batch_size in batch_sizes:
-        for epsilon in epsilon_values:
+        for nm in noise_multiplier:
             for morph_op in morph_operations:
                 for run in range(1, 4):  # 3 runs per configuration
                     config = {
-                        "name": f"infnet_dpmorph_{morph_op}_eps{epsilon}_batch{batch_size}_run{run}",
+                        "name": f"infnet_dpmorph_{morph_op}_nm{nm}_batch{batch_size}_run{run}",
                         "model_type": "Inf-Net_DP_Morph",
                         "batch_size": batch_size,
                         "morph_operation": morph_op,
                         "run": run,
+                        "epoch": epoch,
                         "enable_morphology": True,
                         "enable_privacy": True,
-                        "epsilon": epsilon,
+                        "noise_multiplier": nm,
+                        "max_grad_norm": max_grad_norm,
                         "script": "MyTrain_LungInfDP_Morph.py",
                     }
                     configs.append(config)
@@ -171,19 +177,13 @@ def build_python_args(config):
     args = [
         f"--batchsize {config['batch_size']}",
         f"--run {config['run']}",
+        f"--epoch {config['epoch']}",
     ]
 
     if config["enable_privacy"]:
         args.append("--enable_privacy")
-        # Map epsilon to noise_multiplier (rough approximation)
-        # epsilon ≈ noise_multiplier for DP-SGD
-        epsilon = config["epsilon"]
-        if epsilon == 1:
-            args.append("--noise_multiplier 1.5")
-        elif epsilon == 8:
-            args.append("--noise_multiplier 0.3")
-        elif epsilon == 200:
-            args.append("--noise_multiplier 0.05")
+        args.append(f"--noise_multiplier {config['noise_multiplier']}")
+        args.append(f"--max_grad_norm {config['max_grad_norm']}")
 
     if config["enable_morphology"]:
         args.append("--enable_morphology")
@@ -211,21 +211,21 @@ def main():
     parser.add_argument(
         "--time-limit",
         type=str,
-        default="12:00:00",
+        default="00:15:00",
         help="SLURM time limit (format: HH:MM:SS)",
     )
     parser.add_argument(
         "--batch-sizes",
         type=int,
         nargs="+",
-        default=[32, 64, 128],
+        default=[24, 48, 64, 72],
         help="Batch sizes to train with",
     )
     parser.add_argument(
         "--morph-operations",
         type=str,
         nargs="+",
-        default=["open", "close", "dilation", "erosion"],
+        default=["open", "close", "both", "dilation", "erosion"],
         help="Morphological operations to apply",
     )
     parser.add_argument(
@@ -245,7 +245,7 @@ def main():
 
     # Create script directory
     os.makedirs(args.script_dir, exist_ok=True)
-    os.makedirs("logs", exist_ok=True)
+    os.makedirs("logs/train", exist_ok=True)
 
     print(f"\n{'=' * 70}")
     print(f"Inf-Net Training Job Submission Script")
@@ -278,11 +278,11 @@ def main():
         configs = all_configs
 
     # Update batch sizes if specified
-    if args.batch_sizes != [32, 64, 128]:
+    if args.batch_sizes != [24, 48, 64, 72]:
         configs = [c for c in configs if c["batch_size"] in args.batch_sizes]
 
     # Update morphology operations if specified
-    if args.morph_operations != ["open", "close", "dilation", "erosion"]:
+    if args.morph_operations != ["open", "close", "both", "dilation", "erosion"]:
         configs = [
             c
             for c in configs
@@ -305,7 +305,9 @@ def main():
             if config["enable_morphology"]
             else ""
         )
-        privacy_info = f" | ε={config['epsilon']}" if config["enable_privacy"] else ""
+        privacy_info = (
+            f" | NM={config['noise_multiplier']}" if config["enable_privacy"] else ""
+        )
 
         print(
             f"{i:3d}. {model_type:20s} | Batch: {batch_size:3d} | Run: {run}{privacy_info}{morph_info}"
@@ -317,8 +319,8 @@ def main():
         script_name = f"{job_name}.sh"
         script_path = os.path.join(args.script_dir, script_name)
 
-        output_log = f"logs/{job_name}_%j.out"
-        error_log = f"logs/{job_name}_%j.err"
+        output_log = f"logs/train/{job_name}_%j.out"
+        error_log = f"logs/train/{job_name}_%j.err"
 
         sbatch_script = create_sbatch_script(
             job_name=job_name,

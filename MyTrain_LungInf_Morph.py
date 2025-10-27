@@ -23,25 +23,32 @@ import torch.nn.functional as F
 # Morphology
 from kornia.morphology import opening, closing, dilation, erosion
 
+os.environ.setdefault("PYTORCH_ALLOC_CONF", "expandable_segments:True")
 
-def apply_kornia_morphology_binary(pred, operation="close", kernel_size=3):
+
+def apply_kornia_morphology_binary(pred_mask, operation="both", kernel_size=3):
     """Apply morphology to binary predictions"""
-    if operation == "none":
-        return pred
+    choices = ["open", "close", "both", "none", "dilation", "erosion"]
+    if operation not in choices:
+        raise ValueError("Operation must be one of 'open', 'close', 'both', or 'none'.")
 
-    kernel = torch.ones(kernel_size, kernel_size).to(pred.device)
-
-    # Apply operation
-    if operation == "open":
-        return opening(pred, kernel)
+    kernel = torch.ones(kernel_size, kernel_size).to(pred_mask.device)
+    if operation == "dilation":
+        refined_mask = dilation(pred_mask, kernel)
+    elif operation == "open":
+        refined_mask = opening(pred_mask, kernel)
     elif operation == "close":
-        return closing(pred, kernel)
-    elif operation == "dilation":
-        return dilation(pred, kernel)
+        refined_mask = closing(pred_mask, kernel)
     elif operation == "erosion":
-        return erosion(pred, kernel)
+        refined_mask = erosion(pred_mask, kernel)
+    elif operation == "both":
+        refined_mask = opening(pred_mask, kernel)
+        refined_mask = closing(refined_mask, kernel)
+    elif operation == "none":
+        refined_mask = pred_mask
     else:
-        return pred
+        raise ValueError("open", "close", "both", "none", "dilation", "erosion")
+    return refined_mask
 
 
 def joint_loss(pred, mask):
@@ -186,17 +193,15 @@ def build_snapshot_path(opt):
         # Determine model type
         if opt.enable_morphology:
             model_type = "Inf-Net_Morph"
+            morph_dir = opt.morph_operation
+            batch_dir = f"batch_{opt.batchsize}"
+            run_dir = f"run_{opt.run}"
+            base_path = os.path.join(model_type, morph_dir, batch_dir, run_dir)
         else:
             model_type = "Inf-Net"
-
-        # Add batch size subdirectory
-        batch_dir = f"batch_{opt.batchsize}"
-
-        # Add run number if specified
-        if opt.run:
-            base_path = os.path.join(model_type, batch_dir, f"run_{opt.run}")
-        else:
-            base_path = os.path.join(model_type, batch_dir, "run_1")
+            batch_dir = f"batch_{opt.batchsize}"
+            run_dir = f"run_{opt.run}"
+            base_path = os.path.join(model_type, batch_dir, run_dir)
     else:
         # Custom save path
         base_path = opt.train_save
@@ -295,7 +300,7 @@ if __name__ == "__main__":
         "--morph_operation",
         type=str,
         default="close",
-        choices=["open", "close", "dilation", "erosion", "none"],
+        choices=["open", "close", "dilation", "erosion", "both"],
         help="Morphological operation to apply",
     )
     parser.add_argument(

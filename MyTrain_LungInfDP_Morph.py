@@ -29,11 +29,10 @@ from opacus.validators import ModuleValidator
 from kornia.morphology import opening, closing, dilation, erosion
 
 # Improve CUDA memory behavior to reduce fragmentation (harmless if re-set)
-os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
+os.environ.setdefault("PYTORCH_ALLOC_CONF", "expandable_segments:True")
 
-def apply_kornia_morphology_binary(
-    pred_mask, operation="both", kernel_size=3, privacy_budget=1.0
-):
+
+def apply_kornia_morphology_binary(pred_mask, operation="both", kernel_size=3):
     """Apply morphology to binary predictions"""
     choices = ["open", "close", "both", "none", "dilation", "erosion"]
     if operation not in choices:
