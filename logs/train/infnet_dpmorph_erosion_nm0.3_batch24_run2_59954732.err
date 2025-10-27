@@ -1,0 +1,24 @@
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/privacy_engine.py:96: UserWarning: Secure RNG turned off. This is perfectly fine for experimentation as it allows for much faster training performance, but remember to turn it on and retrain one last time before production with ``secure_mode`` turned on.
+  warnings.warn(
+sys:1: UserWarning: Full backward hook is firing when gradients are computed with respect to module outputs since no inputs require gradients. See https://docs.pytorch.org/docs/main/generated/torch.nn.Module.html#torch.nn.Module.register_full_backward_hook for more details.
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/rdp.py:332: UserWarning: Optimal order is the smallest alpha. Please consider expanding the range of alphas to get a tighter privacy bound.
+  warnings.warn(
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:67: RuntimeWarning: overflow encountered in exp
+  z = np.log(np.where(t > np.log(1 - q), (np.exp(t) + q - 1) / q, 1))
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:67: RuntimeWarning: overflow encountered in divide
+  z = np.log(np.where(t > np.log(1 - q), (np.exp(t) + q - 1) / q, 1))
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:67: RuntimeWarning: overflow encountered in scalar divide
+  z = np.log(np.where(t > np.log(1 - q), (np.exp(t) + q - 1) / q, 1))
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:160: RuntimeWarning: overflow encountered in exp
+  d2 = np.flip(np.flip(p * np.exp(-t)).cumsum())
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:161: RuntimeWarning: overflow encountered in exp
+  ndelta = np.exp(t) * d2 - d1
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:161: RuntimeWarning: invalid value encountered in multiply
+  ndelta = np.exp(t) * d2 - d1
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:160: RuntimeWarning: invalid value encountered in accumulate
+  d2 = np.flip(np.flip(p * np.exp(-t)).cumsum())
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:160: RuntimeWarning: invalid value encountered in multiply
+  d2 = np.flip(np.flip(p * np.exp(-t)).cumsum())
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:167: RuntimeWarning: overflow encountered in scalar divide
+  return np.log((d1[i] - delta_target) / d2[i])
+[2025-10-26T22:59:54.007] error: *** JOB 59954732 ON sgb01 CANCELLED AT 2025-10-26T22:59:54 DUE TO TIME LIMIT ***

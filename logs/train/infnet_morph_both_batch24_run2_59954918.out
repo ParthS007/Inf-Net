@@ -1,0 +1,89 @@
+Backbone loading: Res2Net50
+Not loading weights from weights file
+################################################## 
+Start Training (Inf-Net-Res2Net50)
+Backbone: Res2Net50
+Batch Size: 24
+Morphology: both
+Save Path: ./Snapshots/save_weights/Inf-Net_Morph/both/batch_24/run_2
+Run: 2
+Namespace(epoch=70, lr=0.0001, batchsize=24, trainsize=352, clip=0.5, decay_rate=0.1, decay_epoch=50, is_thop=False, gpu_device=0, num_workers=8, net_channel=32, n_classes=1, backbone='Res2Net50', train_path='./Dataset/TrainingSet/LungInfection-Train/Doctor-label', is_semi=False, is_pseudo=False, train_save=None, run=2, enable_morphology=True, morph_operation='both', morph_kernel_size=3, device='cuda')
+ ##################################################
+2025-10-27 00:58:43.540396 Epoch [001/070], Step [0003/0003], [lateral-edge: 0.7560, lateral-2: 1.4592, lateral-3: 1.4870, lateral-4: 1.5444, lateral-5: 1.5266]
+2025-10-27 00:58:45.269629 Epoch [002/070], Step [0003/0003], [lateral-edge: 0.7487, lateral-2: 1.4889, lateral-3: 1.4876, lateral-4: 1.5443, lateral-5: 1.5531]
+2025-10-27 00:58:47.062635 Epoch [003/070], Step [0003/0003], [lateral-edge: 0.7432, lateral-2: 1.4425, lateral-3: 1.4772, lateral-4: 1.5176, lateral-5: 1.5627]
+2025-10-27 00:58:48.847487 Epoch [004/070], Step [0003/0003], [lateral-edge: 0.7388, lateral-2: 1.3810, lateral-3: 1.4270, lateral-4: 1.4810, lateral-5: 1.5821]
+2025-10-27 00:58:50.625421 Epoch [005/070], Step [0003/0003], [lateral-edge: 0.7323, lateral-2: 1.1827, lateral-3: 1.2467, lateral-4: 1.3284, lateral-5: 1.6309]
+2025-10-27 00:58:52.405396 Epoch [006/070], Step [0003/0003], [lateral-edge: 0.7329, lateral-2: 1.1442, lateral-3: 1.1874, lateral-4: 1.2557, lateral-5: 1.7043]
+2025-10-27 00:58:54.221416 Epoch [007/070], Step [0003/0003], [lateral-edge: 0.7289, lateral-2: 1.0098, lateral-3: 1.0694, lateral-4: 1.1922, lateral-5: 1.6692]
+2025-10-27 00:58:56.038646 Epoch [008/070], Step [0003/0003], [lateral-edge: 0.7272, lateral-2: 1.0195, lateral-3: 1.0737, lateral-4: 1.1718, lateral-5: 1.6545]
+2025-10-27 00:58:57.837363 Epoch [009/070], Step [0003/0003], [lateral-edge: 0.7250, lateral-2: 1.0930, lateral-3: 1.1296, lateral-4: 1.1984, lateral-5: 1.6473]
+[Saving Snapshot:] ./Snapshots/save_weights/Inf-Net_Morph/both/batch_24/run_2/Inf-Net-10.pth
+2025-10-27 00:58:59.933471 Epoch [010/070], Step [0003/0003], [lateral-edge: 0.7213, lateral-2: 1.0599, lateral-3: 1.1233, lateral-4: 1.2426, lateral-5: 1.5517]
+2025-10-27 00:59:01.725771 Epoch [011/070], Step [0003/0003], [lateral-edge: 0.7218, lateral-2: 1.1158, lateral-3: 1.1609, lateral-4: 1.2484, lateral-5: 1.5992]
+2025-10-27 00:59:03.531784 Epoch [012/070], Step [0003/0003], [lateral-edge: 0.7198, lateral-2: 0.9873, lateral-3: 1.0495, lateral-4: 1.1562, lateral-5: 1.6200]
+2025-10-27 00:59:05.311726 Epoch [013/070], Step [0003/0003], [lateral-edge: 0.7187, lateral-2: 1.0193, lateral-3: 1.0676, lateral-4: 1.1621, lateral-5: 1.6364]
+2025-10-27 00:59:07.099350 Epoch [014/070], Step [0003/0003], [lateral-edge: 0.7161, lateral-2: 0.8839, lateral-3: 0.9609, lateral-4: 1.0948, lateral-5: 1.5154]
+2025-10-27 00:59:08.890715 Epoch [015/070], Step [0003/0003], [lateral-edge: 0.7159, lateral-2: 0.9971, lateral-3: 1.0606, lateral-4: 1.1624, lateral-5: 1.6265]
+2025-10-27 00:59:10.698292 Epoch [016/070], Step [0003/0003], [lateral-edge: 0.7142, lateral-2: 0.9261, lateral-3: 1.0167, lateral-4: 1.1625, lateral-5: 1.6603]
+2025-10-27 00:59:12.494365 Epoch [017/070], Step [0003/0003], [lateral-edge: 0.7132, lateral-2: 0.9870, lateral-3: 1.0489, lateral-4: 1.1561, lateral-5: 1.5102]
+2025-10-27 00:59:14.292576 Epoch [018/070], Step [0003/0003], [lateral-edge: 0.7127, lateral-2: 0.9540, lateral-3: 1.0116, lateral-4: 1.1206, lateral-5: 1.4418]
+2025-10-27 00:59:16.073246 Epoch [019/070], Step [0003/0003], [lateral-edge: 0.7108, lateral-2: 0.9563, lateral-3: 1.0355, lateral-4: 1.1608, lateral-5: 1.4896]
+[Saving Snapshot:] ./Snapshots/save_weights/Inf-Net_Morph/both/batch_24/run_2/Inf-Net-20.pth
+2025-10-27 00:59:18.087726 Epoch [020/070], Step [0003/0003], [lateral-edge: 0.7094, lateral-2: 0.8983, lateral-3: 0.9802, lateral-4: 1.1045, lateral-5: 1.5803]
+2025-10-27 00:59:19.869815 Epoch [021/070], Step [0003/0003], [lateral-edge: 0.7084, lateral-2: 0.8522, lateral-3: 0.9134, lateral-4: 1.0210, lateral-5: 1.4874]
+2025-10-27 00:59:21.649648 Epoch [022/070], Step [0003/0003], [lateral-edge: 0.7057, lateral-2: 0.9077, lateral-3: 0.9757, lateral-4: 1.0772, lateral-5: 1.5271]
+2025-10-27 00:59:23.417545 Epoch [023/070], Step [0003/0003], [lateral-edge: 0.7066, lateral-2: 0.8207, lateral-3: 0.9132, lateral-4: 1.0534, lateral-5: 1.5801]
+2025-10-27 00:59:25.201327 Epoch [024/070], Step [0003/0003], [lateral-edge: 0.7030, lateral-2: 0.8899, lateral-3: 0.9752, lateral-4: 1.0981, lateral-5: 1.4743]
+2025-10-27 00:59:26.975587 Epoch [025/070], Step [0003/0003], [lateral-edge: 0.7051, lateral-2: 0.9209, lateral-3: 1.0015, lateral-4: 1.1154, lateral-5: 1.4977]
+2025-10-27 00:59:28.765809 Epoch [026/070], Step [0003/0003], [lateral-edge: 0.7032, lateral-2: 0.7994, lateral-3: 0.8910, lateral-4: 1.0190, lateral-5: 1.4937]
+2025-10-27 00:59:30.533939 Epoch [027/070], Step [0003/0003], [lateral-edge: 0.7028, lateral-2: 0.8834, lateral-3: 0.9592, lateral-4: 1.0735, lateral-5: 1.5069]
+2025-10-27 00:59:32.330944 Epoch [028/070], Step [0003/0003], [lateral-edge: 0.7009, lateral-2: 0.8364, lateral-3: 0.9084, lateral-4: 1.0285, lateral-5: 1.5046]
+2025-10-27 00:59:34.245782 Epoch [029/070], Step [0003/0003], [lateral-edge: 0.7002, lateral-2: 0.8126, lateral-3: 0.8858, lateral-4: 1.0212, lateral-5: 1.4060]
+[Saving Snapshot:] ./Snapshots/save_weights/Inf-Net_Morph/both/batch_24/run_2/Inf-Net-30.pth
+2025-10-27 00:59:36.329390 Epoch [030/070], Step [0003/0003], [lateral-edge: 0.6986, lateral-2: 0.8039, lateral-3: 0.8960, lateral-4: 1.0136, lateral-5: 1.3821]
+2025-10-27 00:59:38.120523 Epoch [031/070], Step [0003/0003], [lateral-edge: 0.6986, lateral-2: 0.8003, lateral-3: 0.8788, lateral-4: 0.9904, lateral-5: 1.4662]
+2025-10-27 00:59:39.923226 Epoch [032/070], Step [0003/0003], [lateral-edge: 0.6965, lateral-2: 0.7394, lateral-3: 0.8440, lateral-4: 0.9855, lateral-5: 1.5230]
+2025-10-27 00:59:41.721607 Epoch [033/070], Step [0003/0003], [lateral-edge: 0.6972, lateral-2: 0.7161, lateral-3: 0.8021, lateral-4: 0.9278, lateral-5: 1.4491]
+2025-10-27 00:59:43.503939 Epoch [034/070], Step [0003/0003], [lateral-edge: 0.6956, lateral-2: 0.7515, lateral-3: 0.8394, lateral-4: 0.9673, lateral-5: 1.4649]
+2025-10-27 00:59:45.292511 Epoch [035/070], Step [0003/0003], [lateral-edge: 0.6958, lateral-2: 0.7364, lateral-3: 0.8373, lateral-4: 0.9684, lateral-5: 1.4558]
+2025-10-27 00:59:47.070682 Epoch [036/070], Step [0003/0003], [lateral-edge: 0.6949, lateral-2: 0.7820, lateral-3: 0.8651, lateral-4: 0.9846, lateral-5: 1.5266]
+2025-10-27 00:59:48.855790 Epoch [037/070], Step [0003/0003], [lateral-edge: 0.6944, lateral-2: 0.7507, lateral-3: 0.8361, lateral-4: 0.9516, lateral-5: 1.3744]
+2025-10-27 00:59:50.639575 Epoch [038/070], Step [0003/0003], [lateral-edge: 0.6936, lateral-2: 0.8714, lateral-3: 0.9422, lateral-4: 1.0551, lateral-5: 1.3759]
+2025-10-27 00:59:52.434186 Epoch [039/070], Step [0003/0003], [lateral-edge: 0.6924, lateral-2: 0.8575, lateral-3: 0.9523, lateral-4: 1.0780, lateral-5: 1.4366]
+[Saving Snapshot:] ./Snapshots/save_weights/Inf-Net_Morph/both/batch_24/run_2/Inf-Net-40.pth
+2025-10-27 00:59:54.532209 Epoch [040/070], Step [0003/0003], [lateral-edge: 0.6921, lateral-2: 0.7750, lateral-3: 0.8752, lateral-4: 1.0108, lateral-5: 1.4527]
+2025-10-27 00:59:56.334226 Epoch [041/070], Step [0003/0003], [lateral-edge: 0.6909, lateral-2: 0.7519, lateral-3: 0.8482, lateral-4: 0.9806, lateral-5: 1.3450]
+2025-10-27 00:59:58.114711 Epoch [042/070], Step [0003/0003], [lateral-edge: 0.6890, lateral-2: 0.7215, lateral-3: 0.8157, lateral-4: 0.9425, lateral-5: 1.3685]
+2025-10-27 00:59:59.882957 Epoch [043/070], Step [0003/0003], [lateral-edge: 0.6897, lateral-2: 0.6968, lateral-3: 0.8077, lateral-4: 0.9527, lateral-5: 1.2647]
+2025-10-27 01:00:01.654895 Epoch [044/070], Step [0003/0003], [lateral-edge: 0.6898, lateral-2: 0.6648, lateral-3: 0.7613, lateral-4: 0.8888, lateral-5: 1.2618]
+2025-10-27 01:00:03.470242 Epoch [045/070], Step [0003/0003], [lateral-edge: 0.6891, lateral-2: 0.7460, lateral-3: 0.8343, lateral-4: 0.9678, lateral-5: 1.2630]
+2025-10-27 01:00:05.269304 Epoch [046/070], Step [0003/0003], [lateral-edge: 0.6879, lateral-2: 0.8009, lateral-3: 0.8853, lateral-4: 1.0065, lateral-5: 1.2831]
+2025-10-27 01:00:07.051208 Epoch [047/070], Step [0003/0003], [lateral-edge: 0.6878, lateral-2: 0.8133, lateral-3: 0.9096, lateral-4: 1.0477, lateral-5: 1.2510]
+2025-10-27 01:00:08.844071 Epoch [048/070], Step [0003/0003], [lateral-edge: 0.6880, lateral-2: 0.7524, lateral-3: 0.8542, lateral-4: 0.9832, lateral-5: 1.2485]
+2025-10-27 01:00:10.612637 Epoch [049/070], Step [0003/0003], [lateral-edge: 0.6872, lateral-2: 0.7006, lateral-3: 0.8053, lateral-4: 0.9437, lateral-5: 1.2648]
+[Saving Snapshot:] ./Snapshots/save_weights/Inf-Net_Morph/both/batch_24/run_2/Inf-Net-50.pth
+2025-10-27 01:00:12.716455 Epoch [050/070], Step [0003/0003], [lateral-edge: 0.6861, lateral-2: 0.7222, lateral-3: 0.8378, lateral-4: 0.9717, lateral-5: 1.3118]
+2025-10-27 01:00:14.520763 Epoch [051/070], Step [0003/0003], [lateral-edge: 0.6868, lateral-2: 0.7070, lateral-3: 0.8210, lateral-4: 0.9638, lateral-5: 1.2106]
+2025-10-27 01:00:16.314997 Epoch [052/070], Step [0003/0003], [lateral-edge: 0.6872, lateral-2: 0.7284, lateral-3: 0.8213, lateral-4: 0.9458, lateral-5: 1.4210]
+2025-10-27 01:00:18.104197 Epoch [053/070], Step [0003/0003], [lateral-edge: 0.6861, lateral-2: 0.7127, lateral-3: 0.7890, lateral-4: 0.9005, lateral-5: 1.3694]
+2025-10-27 01:00:19.891717 Epoch [054/070], Step [0003/0003], [lateral-edge: 0.6870, lateral-2: 0.6734, lateral-3: 0.7883, lateral-4: 0.9304, lateral-5: 1.2534]
+2025-10-27 01:00:21.702935 Epoch [055/070], Step [0003/0003], [lateral-edge: 0.6872, lateral-2: 0.8898, lateral-3: 0.9560, lateral-4: 1.0618, lateral-5: 1.2739]
+2025-10-27 01:00:23.512236 Epoch [056/070], Step [0003/0003], [lateral-edge: 0.6864, lateral-2: 0.7418, lateral-3: 0.8249, lateral-4: 0.9443, lateral-5: 1.2954]
+2025-10-27 01:00:25.317573 Epoch [057/070], Step [0003/0003], [lateral-edge: 0.6869, lateral-2: 0.7329, lateral-3: 0.8107, lateral-4: 0.9157, lateral-5: 1.2571]
+2025-10-27 01:00:27.109641 Epoch [058/070], Step [0003/0003], [lateral-edge: 0.6864, lateral-2: 0.6784, lateral-3: 0.7789, lateral-4: 0.9129, lateral-5: 1.2067]
+2025-10-27 01:00:28.920713 Epoch [059/070], Step [0003/0003], [lateral-edge: 0.6868, lateral-2: 0.6758, lateral-3: 0.7755, lateral-4: 0.8969, lateral-5: 1.2571]
+[Saving Snapshot:] ./Snapshots/save_weights/Inf-Net_Morph/both/batch_24/run_2/Inf-Net-60.pth
+2025-10-27 01:00:30.979924 Epoch [060/070], Step [0003/0003], [lateral-edge: 0.6863, lateral-2: 0.6603, lateral-3: 0.7761, lateral-4: 0.9265, lateral-5: 1.2093]
+2025-10-27 01:00:32.781336 Epoch [061/070], Step [0003/0003], [lateral-edge: 0.6861, lateral-2: 0.6936, lateral-3: 0.7949, lateral-4: 0.9264, lateral-5: 1.3336]
+2025-10-27 01:00:34.574008 Epoch [062/070], Step [0003/0003], [lateral-edge: 0.6860, lateral-2: 0.7205, lateral-3: 0.8232, lateral-4: 0.9574, lateral-5: 1.2707]
+2025-10-27 01:00:36.358692 Epoch [063/070], Step [0003/0003], [lateral-edge: 0.6867, lateral-2: 0.6430, lateral-3: 0.7610, lateral-4: 0.9001, lateral-5: 1.2273]
+2025-10-27 01:00:38.149264 Epoch [064/070], Step [0003/0003], [lateral-edge: 0.6851, lateral-2: 0.7123, lateral-3: 0.8152, lateral-4: 0.9522, lateral-5: 1.2700]
+2025-10-27 01:00:39.918330 Epoch [065/070], Step [0003/0003], [lateral-edge: 0.6872, lateral-2: 0.7951, lateral-3: 0.8888, lateral-4: 1.0059, lateral-5: 1.3213]
+2025-10-27 01:00:41.691011 Epoch [066/070], Step [0003/0003], [lateral-edge: 0.6864, lateral-2: 0.7297, lateral-3: 0.8158, lateral-4: 0.9363, lateral-5: 1.2758]
+2025-10-27 01:00:43.481402 Epoch [067/070], Step [0003/0003], [lateral-edge: 0.6873, lateral-2: 0.7585, lateral-3: 0.8564, lateral-4: 0.9769, lateral-5: 1.3911]
+2025-10-27 01:00:45.267312 Epoch [068/070], Step [0003/0003], [lateral-edge: 0.6871, lateral-2: 0.7505, lateral-3: 0.8250, lateral-4: 0.9352, lateral-5: 1.4455]
+2025-10-27 01:00:47.053908 Epoch [069/070], Step [0003/0003], [lateral-edge: 0.6871, lateral-2: 0.7216, lateral-3: 0.8142, lateral-4: 0.9394, lateral-5: 1.4196]
+[Saving Snapshot:] ./Snapshots/save_weights/Inf-Net_Morph/both/batch_24/run_2/Inf-Net-70.pth
+2025-10-27 01:00:49.168222 Epoch [070/070], Step [0003/0003], [lateral-edge: 0.6858, lateral-2: 0.6987, lateral-3: 0.8199, lateral-4: 0.9688, lateral-5: 1.2534]
+Training completed at Mon Oct 27 01:00:50 CET 2025
