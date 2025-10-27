@@ -1,0 +1,19 @@
+Model: Inf-Net_DP_Morph
+Batch Size: 64
+Run: 1
+Noise Multiplier: 0.5
+Morph Operation: both
+Number of Images: 48
+Evaluation Date: 2025-10-27 11:50:15
+
+Results:
+Mean Dice: 0.4301
+Max Dice: 0.5533
+Mean Sensitivity: 0.6402
+Max Sensitivity: 1.0000
+Mean Specificity: 0.7797
+Max Specificity: 0.9699
+S-measure: 0.5872
+Mean E-measure: 0.5797
+Max E-measure: 0.7976
+MAE: 0.2408

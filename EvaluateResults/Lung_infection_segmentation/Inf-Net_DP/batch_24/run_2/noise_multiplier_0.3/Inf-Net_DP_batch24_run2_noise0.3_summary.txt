@@ -1,0 +1,18 @@
+Model: Inf-Net_DP
+Batch Size: 24
+Run: 2
+Noise Multiplier: 0.3
+Number of Images: 48
+Evaluation Date: 2025-10-27 13:07:19
+
+Results:
+Mean Dice: 0.4858
+Max Dice: 0.5874
+Mean Sensitivity: 0.6384
+Max Sensitivity: 1.0000
+Mean Specificity: 0.8513
+Max Specificity: 0.9987
+S-measure: 0.6292
+Mean E-measure: 0.6465
+Max E-measure: 0.8147
+MAE: 0.1888
