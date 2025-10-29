@@ -1,0 +1,1442 @@
+Starting GroupNorm batch testing at Mon Oct 27 23:05:35 CET 2025
+Testing Inf-Net_GroupNorm | batch=24 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_GroupNorm/batch_24/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_24/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_24/run_1
+Batch Size: 24
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_24/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_24/run_1
+Testing Inf-Net_GroupNorm | batch=24 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_GroupNorm/batch_24/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_24/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_24/run_2
+Batch Size: 24
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_24/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_24/run_2
+Testing Inf-Net_GroupNorm | batch=24 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_GroupNorm/batch_24/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_24/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_24/run_3
+Batch Size: 24
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_24/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_24/run_3
+Testing Inf-Net_GroupNorm | batch=48 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_GroupNorm/batch_48/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_48/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_48/run_1
+Batch Size: 48
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_48/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_48/run_1
+Testing Inf-Net_GroupNorm | batch=48 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_GroupNorm/batch_48/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_48/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_48/run_2
+Batch Size: 48
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_48/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_48/run_2
+Testing Inf-Net_GroupNorm | batch=48 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_GroupNorm/batch_48/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_48/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_48/run_3
+Batch Size: 48
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_48/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_48/run_3
+Testing Inf-Net_GroupNorm | batch=64 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_GroupNorm/batch_64/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_64/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_64/run_1
+Batch Size: 64
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_64/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_64/run_1
+Testing Inf-Net_GroupNorm | batch=64 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_GroupNorm/batch_64/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_64/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_64/run_2
+Batch Size: 64
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_64/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_64/run_2
+Testing Inf-Net_GroupNorm | batch=64 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_GroupNorm/batch_64/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_64/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_64/run_3
+Batch Size: 64
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_64/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_64/run_3
+Testing Inf-Net_GroupNorm | batch=72 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_GroupNorm/batch_72/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_72/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_72/run_1
+Batch Size: 72
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_72/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_72/run_1
+Testing Inf-Net_GroupNorm | batch=72 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_GroupNorm/batch_72/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_72/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_72/run_2
+Batch Size: 72
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_72/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_72/run_2
+Testing Inf-Net_GroupNorm | batch=72 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_GroupNorm/batch_72/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_72/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_72/run_3
+Batch Size: 72
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_GroupNorm/batch_72/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_GroupNorm/batch_72/run_3
+Testing Inf-Net_Morph_GroupNorm | op=both | batch=24 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_24/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_24/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_24/run_1
+Batch Size: 24
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_24/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_24/run_1
+Testing Inf-Net_Morph_GroupNorm | op=both | batch=24 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_24/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_24/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_24/run_2
+Batch Size: 24
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_24/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_24/run_2
+Testing Inf-Net_Morph_GroupNorm | op=both | batch=24 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_24/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_24/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_24/run_3
+Batch Size: 24
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_24/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_24/run_3
+Testing Inf-Net_Morph_GroupNorm | op=both | batch=48 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_48/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_48/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_48/run_1
+Batch Size: 48
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_48/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_48/run_1
+Testing Inf-Net_Morph_GroupNorm | op=both | batch=48 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_48/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_48/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_48/run_2
+Batch Size: 48
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_48/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_48/run_2
+Testing Inf-Net_Morph_GroupNorm | op=both | batch=48 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_48/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_48/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_48/run_3
+Batch Size: 48
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_48/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_48/run_3
+Testing Inf-Net_Morph_GroupNorm | op=both | batch=64 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_64/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_64/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_64/run_1
+Batch Size: 64
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_64/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_64/run_1
+Testing Inf-Net_Morph_GroupNorm | op=both | batch=64 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_64/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_64/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_64/run_2
+Batch Size: 64
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_64/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_64/run_2
+Testing Inf-Net_Morph_GroupNorm | op=both | batch=64 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_64/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_64/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_64/run_3
+Batch Size: 64
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_64/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_64/run_3
+Testing Inf-Net_Morph_GroupNorm | op=both | batch=72 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_72/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_72/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_72/run_1
+Batch Size: 72
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_72/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_72/run_1
+Testing Inf-Net_Morph_GroupNorm | op=both | batch=72 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_72/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_72/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_72/run_2
+Batch Size: 72
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_72/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_72/run_2
+Testing Inf-Net_Morph_GroupNorm | op=both | batch=72 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_72/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_72/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_72/run_3
+Batch Size: 72
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/both/batch_72/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/both/batch_72/run_3
+Testing Inf-Net_Morph_GroupNorm | op=close | batch=24 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_24/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_24/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_24/run_1
+Batch Size: 24
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_24/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_24/run_1
+Testing Inf-Net_Morph_GroupNorm | op=close | batch=24 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_24/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_24/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_24/run_2
+Batch Size: 24
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_24/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_24/run_2
+Testing Inf-Net_Morph_GroupNorm | op=close | batch=24 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_24/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_24/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_24/run_3
+Batch Size: 24
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_24/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_24/run_3
+Testing Inf-Net_Morph_GroupNorm | op=close | batch=48 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_48/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_48/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_48/run_1
+Batch Size: 48
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_48/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_48/run_1
+Testing Inf-Net_Morph_GroupNorm | op=close | batch=48 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_48/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_48/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_48/run_2
+Batch Size: 48
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_48/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_48/run_2
+Testing Inf-Net_Morph_GroupNorm | op=close | batch=48 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_48/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_48/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_48/run_3
+Batch Size: 48
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_48/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_48/run_3
+Testing Inf-Net_Morph_GroupNorm | op=close | batch=64 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_64/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_64/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_64/run_1
+Batch Size: 64
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_64/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_64/run_1
+Testing Inf-Net_Morph_GroupNorm | op=close | batch=64 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_64/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_64/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_64/run_2
+Batch Size: 64
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_64/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_64/run_2
+Testing Inf-Net_Morph_GroupNorm | op=close | batch=64 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_64/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_64/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_64/run_3
+Batch Size: 64
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_64/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_64/run_3
+Testing Inf-Net_Morph_GroupNorm | op=close | batch=72 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_72/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_72/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_72/run_1
+Batch Size: 72
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_72/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_72/run_1
+Testing Inf-Net_Morph_GroupNorm | op=close | batch=72 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_72/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_72/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_72/run_2
+Batch Size: 72
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_72/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_72/run_2
+Testing Inf-Net_Morph_GroupNorm | op=close | batch=72 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_72/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_72/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_72/run_3
+Batch Size: 72
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/close/batch_72/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/close/batch_72/run_3
+Testing Inf-Net_Morph_GroupNorm | op=dilation | batch=24 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_24/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_24/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_24/run_1
+Batch Size: 24
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_24/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_24/run_1
+Testing Inf-Net_Morph_GroupNorm | op=dilation | batch=24 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_24/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_24/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_24/run_2
+Batch Size: 24
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_24/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_24/run_2
+Testing Inf-Net_Morph_GroupNorm | op=dilation | batch=24 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_24/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_24/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_24/run_3
+Batch Size: 24
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_24/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_24/run_3
+Testing Inf-Net_Morph_GroupNorm | op=dilation | batch=48 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_48/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_48/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_48/run_1
+Batch Size: 48
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_48/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_48/run_1
+Testing Inf-Net_Morph_GroupNorm | op=dilation | batch=48 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_48/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_48/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_48/run_2
+Batch Size: 48
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_48/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_48/run_2
+Testing Inf-Net_Morph_GroupNorm | op=dilation | batch=48 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_48/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_48/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_48/run_3
+Batch Size: 48
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_48/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_48/run_3
+Testing Inf-Net_Morph_GroupNorm | op=dilation | batch=64 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_64/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_64/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_64/run_1
+Batch Size: 64
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_64/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_64/run_1
+Testing Inf-Net_Morph_GroupNorm | op=dilation | batch=64 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_64/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_64/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_64/run_2
+Batch Size: 64
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_64/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_64/run_2
+Testing Inf-Net_Morph_GroupNorm | op=dilation | batch=64 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_64/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_64/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_64/run_3
+Batch Size: 64
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_64/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_64/run_3
+Testing Inf-Net_Morph_GroupNorm | op=dilation | batch=72 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_72/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_72/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_72/run_1
+Batch Size: 72
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_72/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_72/run_1
+Testing Inf-Net_Morph_GroupNorm | op=dilation | batch=72 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_72/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_72/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_72/run_2
+Batch Size: 72
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_72/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_72/run_2
+Testing Inf-Net_Morph_GroupNorm | op=dilation | batch=72 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_72/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_72/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_72/run_3
+Batch Size: 72
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/dilation/batch_72/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/dilation/batch_72/run_3
+Testing Inf-Net_Morph_GroupNorm | op=erosion | batch=24 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_24/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_24/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_24/run_1
+Batch Size: 24
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_24/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_24/run_1
+Testing Inf-Net_Morph_GroupNorm | op=erosion | batch=24 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_24/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_24/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_24/run_2
+Batch Size: 24
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_24/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_24/run_2
+Testing Inf-Net_Morph_GroupNorm | op=erosion | batch=24 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_24/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_24/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_24/run_3
+Batch Size: 24
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_24/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_24/run_3
+Testing Inf-Net_Morph_GroupNorm | op=erosion | batch=48 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_48/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_48/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_48/run_1
+Batch Size: 48
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_48/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_48/run_1
+Testing Inf-Net_Morph_GroupNorm | op=erosion | batch=48 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_48/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_48/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_48/run_2
+Batch Size: 48
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_48/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_48/run_2
+Testing Inf-Net_Morph_GroupNorm | op=erosion | batch=48 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_48/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_48/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_48/run_3
+Batch Size: 48
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_48/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_48/run_3
+Testing Inf-Net_Morph_GroupNorm | op=erosion | batch=64 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_64/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_64/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_64/run_1
+Batch Size: 64
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_64/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_64/run_1
+Testing Inf-Net_Morph_GroupNorm | op=erosion | batch=64 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_64/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_64/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_64/run_2
+Batch Size: 64
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_64/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_64/run_2
+Testing Inf-Net_Morph_GroupNorm | op=erosion | batch=64 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_64/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_64/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_64/run_3
+Batch Size: 64
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_64/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_64/run_3
+Testing Inf-Net_Morph_GroupNorm | op=erosion | batch=72 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_72/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_72/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_72/run_1
+Batch Size: 72
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_72/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_72/run_1
+Testing Inf-Net_Morph_GroupNorm | op=erosion | batch=72 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_72/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_72/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_72/run_2
+Batch Size: 72
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_72/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_72/run_2
+Testing Inf-Net_Morph_GroupNorm | op=erosion | batch=72 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_72/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_72/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_72/run_3
+Batch Size: 72
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/erosion/batch_72/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/erosion/batch_72/run_3
+Testing Inf-Net_Morph_GroupNorm | op=open | batch=24 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_24/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_24/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_24/run_1
+Batch Size: 24
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_24/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_24/run_1
+Testing Inf-Net_Morph_GroupNorm | op=open | batch=24 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_24/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_24/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_24/run_2
+Batch Size: 24
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_24/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_24/run_2
+Testing Inf-Net_Morph_GroupNorm | op=open | batch=24 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_24/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_24/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_24/run_3
+Batch Size: 24
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_24/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_24/run_3
+Testing Inf-Net_Morph_GroupNorm | op=open | batch=48 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_48/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_48/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_48/run_1
+Batch Size: 48
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_48/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_48/run_1
+Testing Inf-Net_Morph_GroupNorm | op=open | batch=48 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_48/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_48/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_48/run_2
+Batch Size: 48
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_48/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_48/run_2
+Testing Inf-Net_Morph_GroupNorm | op=open | batch=48 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_48/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_48/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_48/run_3
+Batch Size: 48
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_48/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_48/run_3
+Testing Inf-Net_Morph_GroupNorm | op=open | batch=64 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_64/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_64/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_64/run_1
+Batch Size: 64
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_64/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_64/run_1
+Testing Inf-Net_Morph_GroupNorm | op=open | batch=64 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_64/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_64/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_64/run_2
+Batch Size: 64
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_64/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_64/run_2
+Testing Inf-Net_Morph_GroupNorm | op=open | batch=64 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_64/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_64/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_64/run_3
+Batch Size: 64
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_64/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_64/run_3
+Testing Inf-Net_Morph_GroupNorm | op=open | batch=72 | run=1 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_72/run_1/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_72/run_1/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_72/run_1
+Batch Size: 72
+Run: 1
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_72/run_1/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_72/run_1
+Testing Inf-Net_Morph_GroupNorm | op=open | batch=72 | run=2 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_72/run_2/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_72/run_2/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_72/run_2
+Batch Size: 72
+Run: 2
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_72/run_2/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_72/run_2
+Testing Inf-Net_Morph_GroupNorm | op=open | batch=72 | run=3 | weights=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_72/run_3/Inf-Net-70.pth
+######################################################################
+Start Testing (Inf-Net_Morph_GroupNorm)
+Model Path: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_72/run_3/Inf-Net-70.pth
+Result Path: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_72/run_3
+Batch Size: 72
+Run: 3
+Epoch: 70
+######################################################################
+Using device: cuda:0
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_Morph_GroupNorm/open/batch_72/run_3/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_Morph_GroupNorm/open/batch_72/run_3
+GroupNorm batch testing complete at Mon Oct 27 23:13:37 CET 2025
