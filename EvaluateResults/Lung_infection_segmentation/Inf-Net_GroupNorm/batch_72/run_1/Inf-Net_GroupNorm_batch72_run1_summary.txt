@@ -1,0 +1,17 @@
+Model: Inf-Net_GroupNorm
+Batch Size: 72
+Run: 1
+Number of Images: 48
+Evaluation Date: 2025-10-27 23:28:17
+
+Results:
+Mean Dice: 0.6387
+Max Dice: 0.7027
+Mean Sensitivity: 0.6339
+Max Sensitivity: 1.0000
+Mean Specificity: 0.9496
+Max Specificity: 0.9998
+S-measure: 0.7438
+Mean E-measure: 0.8231
+Max E-measure: 0.9112
+MAE: 0.0912
