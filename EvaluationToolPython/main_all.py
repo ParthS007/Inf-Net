@@ -90,8 +90,21 @@ def parse_result_path(relative_path):
             model_info["batch_size"] = parts[1].replace("batch_", "")
             model_info["run"] = parts[2].replace("run_", "")
 
+    elif parts[0] == "Inf-Net_GroupNorm":
+        # Structure: Inf-Net_GroupNorm/batch_X/run_Y
+        if len(parts) >= 3:
+            model_info["batch_size"] = parts[1].replace("batch_", "")
+            model_info["run"] = parts[2].replace("run_", "")
+
     elif parts[0] == "Inf-Net_Morph":
         # Structure: Inf-Net_Morph/morph_op/batch_X/run_Y
+        if len(parts) >= 4:
+            model_info["morph_operation"] = parts[1]
+            model_info["batch_size"] = parts[2].replace("batch_", "")
+            model_info["run"] = parts[3].replace("run_", "")
+
+    elif parts[0] == "Inf-Net_Morph_GroupNorm":
+        # Structure: Inf-Net_Morph_GroupNorm/morph_op/batch_X/run_Y
         if len(parts) >= 4:
             model_info["morph_operation"] = parts[1]
             model_info["batch_size"] = parts[2].replace("batch_", "")
@@ -127,11 +140,28 @@ def build_evaluation_result_path(model_info):
             f"batch_{model_info['batch_size']}",
             f"run_{model_info['run']}",
         )
+    elif model_info["model_type"] == "Inf-Net_GroupNorm":
+        # Structure: Inf-Net_GroupNorm/batch_X/run_Y/
+        result_path = os.path.join(
+            base_path,
+            "Inf-Net_GroupNorm",
+            f"batch_{model_info['batch_size']}",
+            f"run_{model_info['run']}",
+        )
     elif model_info["model_type"] == "Inf-Net_Morph":
         # Structure: Inf-Net_Morph/morph_op/batch_X/run_Y/
         result_path = os.path.join(
             base_path,
             "Inf-Net_Morph",
+            model_info["morph_operation"],
+            f"batch_{model_info['batch_size']}",
+            f"run_{model_info['run']}",
+        )
+    elif model_info["model_type"] == "Inf-Net_Morph_GroupNorm":
+        # Structure: Inf-Net_Morph_GroupNorm/morph_op/batch_X/run_Y/
+        result_path = os.path.join(
+            base_path,
+            "Inf-Net_Morph_GroupNorm",
             model_info["morph_operation"],
             f"batch_{model_info['batch_size']}",
             f"run_{model_info['run']}",

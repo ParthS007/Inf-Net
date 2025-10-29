@@ -54,7 +54,8 @@ def load_model_for_inference(model_path, model_type, device="cuda"):
 
     Args:
         model_path: Path to checkpoint file
-        model_type: One of 'Inf-Net', 'Inf-Net_Morph', 'Inf-Net_DP', 'Inf-Net_DP_Morph'
+        model_type: One of 'Inf-Net', 'Inf-Net_Morph', 'Inf-Net_DP', 'Inf-Net_DP_Morph',
+                    'Inf-Net_GroupNorm', 'Inf-Net_Morph_GroupNorm'
         device: Device to load model on
 
     Returns:
@@ -63,12 +64,12 @@ def load_model_for_inference(model_path, model_type, device="cuda"):
     # Create base model
     model = Network()
 
-    # If model was trained with DP, convert architecture to GroupNorm
-    is_dp_model = "DP" in model_type
+    # If model was trained with DP or GroupNorm, convert architecture to GroupNorm
+    is_groupnorm_model = "DP" in model_type or "GroupNorm" in model_type
 
-    if is_dp_model:
+    if is_groupnorm_model:
         print(
-            "DP model detected, Converting BatchNorm to GroupNorm for matching training"
+            "GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training"
         )
 
         # Apply the same conversion that was done during training
@@ -78,7 +79,7 @@ def load_model_for_inference(model_path, model_type, device="cuda"):
         else:
             print("Model already GroupNorm-compatible")
     else:
-        print("Non-DP model, Using original BatchNorm architecture")
+        print("Non-GroupNorm model, Using original BatchNorm architecture")
 
     # Move to device
     model = model.to(device)
@@ -128,6 +129,25 @@ def build_model_path(opt):
             f"run_{opt.run}",
             f"Inf-Net-{opt.epoch}.pth",
         )
+    elif opt.model_type == "Inf-Net_GroupNorm":
+        # Structure: Inf-Net_GroupNorm/batch_X/run_Y/Inf-Net-Z.pth
+        model_path = os.path.join(
+            base_path,
+            "Inf-Net_GroupNorm",
+            f"batch_{opt.batchsize}",
+            f"run_{opt.run}",
+            f"Inf-Net-{opt.epoch}.pth",
+        )
+    elif opt.model_type == "Inf-Net_Morph_GroupNorm":
+        # Structure: Inf-Net_Morph_GroupNorm/morph_op/batch_X/run_Y/Inf-Net-Z.pth
+        model_path = os.path.join(
+            base_path,
+            "Inf-Net_Morph_GroupNorm",
+            opt.morph_operation,
+            f"batch_{opt.batchsize}",
+            f"run_{opt.run}",
+            f"Inf-Net-{opt.epoch}.pth",
+        )
     elif opt.model_type == "Inf-Net_DP":
         # Structure: Inf-Net_DP/batch_X/run_Y/noise_multiplier_Z/Inf-Net-E.pth
         model_path = os.path.join(
@@ -170,6 +190,20 @@ def build_result_path(opt):
         result_path = os.path.join(
             base_path,
             "Inf-Net_Morph",
+            opt.morph_operation,
+            f"batch_{opt.batchsize}",
+            f"run_{opt.run}",
+        )
+    elif opt.model_type == "Inf-Net_GroupNorm":
+        # Structure: Inf-Net_GroupNorm/batch_X/run_Y/
+        result_path = os.path.join(
+            base_path, "Inf-Net_GroupNorm", f"batch_{opt.batchsize}", f"run_{opt.run}"
+        )
+    elif opt.model_type == "Inf-Net_Morph_GroupNorm":
+        # Structure: Inf-Net_Morph_GroupNorm/morph_op/batch_X/run_Y/
+        result_path = os.path.join(
+            base_path,
+            "Inf-Net_Morph_GroupNorm",
             opt.morph_operation,
             f"batch_{opt.batchsize}",
             f"run_{opt.run}",
@@ -417,6 +451,8 @@ def inference():
         choices=[
             "Inf-Net",
             "Inf-Net_Morph",
+            "Inf-Net_GroupNorm",
+            "Inf-Net_Morph_GroupNorm",
             "Inf-Net_DP",
             "Inf-Net_DP_Morph",
             "custom",
@@ -445,7 +481,7 @@ def inference():
         "--morph_operation",
         type=str,
         default="close",
-        choices=["open", "close", "dilation", "erosion", "none"],
+        choices=["open", "close", "dilation", "both", "erosion", "none"],
         help="Morphological operation (for morphology models)",
     )
     parser.add_argument(

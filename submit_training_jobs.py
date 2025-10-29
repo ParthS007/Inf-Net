@@ -4,10 +4,14 @@
 """
 Cluster Job Submission Script for Inf-Net Training Variants
 Submits jobs for:
-- Inf-Net (standard)
-- Inf-Net-Morph (with morphological operations)
-- Different batch sizes (32, 64, 128)
-- Different morphology operations (open, close, dilation, erosion)
+- Inf-Net (standard with BatchNorm)
+- Inf-Net-Morph (with morphological operations and BatchNorm)
+- Inf-Net-GroupNorm (GroupNorm without DP)
+- Inf-Net-Morph-GroupNorm (GroupNorm + Morphology without DP)
+- Inf-Net-DP (with Differential Privacy)
+- Inf-Net-DP-Morph (DP + Morphology)
+- Different batch sizes (24, 48, 64, 72)
+- Different morphology operations (open, close, dilation, erosion, both)
 """
 
 import os
@@ -108,6 +112,7 @@ def generate_training_configs():
                 "epoch": epoch,
                 "enable_morphology": False,
                 "enable_privacy": False,
+                "enable_groupnorm": False,
                 "morph_operation": None,
                 "script": "MyTrain_LungInf_Morph.py",
             }
@@ -126,7 +131,43 @@ def generate_training_configs():
                     "run": run,
                     "enable_morphology": True,
                     "enable_privacy": False,
+                    "enable_groupnorm": False,
                     "script": "MyTrain_LungInf_Morph.py",
+                }
+                configs.append(config)
+
+    # Inf-Net with GroupNorm (no DP, no morphology)
+    for batch_size in batch_sizes:
+        for run in range(1, 4):  # 3 runs per configuration
+            config = {
+                "name": f"infnet_groupnorm_batch{batch_size}_run{run}",
+                "model_type": "Inf-Net_GroupNorm",
+                "batch_size": batch_size,
+                "run": run,
+                "epoch": epoch,
+                "enable_morphology": False,
+                "enable_privacy": False,
+                "enable_groupnorm": True,
+                "morph_operation": None,
+                "script": "MyTrain_LungInf_GroupNorm.py",
+            }
+            configs.append(config)
+
+    # Inf-Net with GroupNorm and Morphology (no DP)
+    for batch_size in batch_sizes:
+        for morph_op in morph_operations:
+            for run in range(1, 4):  # 3 runs per configuration
+                config = {
+                    "name": f"infnet_groupnorm_morph_{morph_op}_batch{batch_size}_run{run}",
+                    "model_type": "Inf-Net_Morph_GroupNorm",
+                    "batch_size": batch_size,
+                    "morph_operation": morph_op,
+                    "epoch": epoch,
+                    "run": run,
+                    "enable_morphology": True,
+                    "enable_privacy": False,
+                    "enable_groupnorm": True,
+                    "script": "MyTrain_LungInf_GroupNorm.py",
                 }
                 configs.append(config)
 
@@ -142,6 +183,7 @@ def generate_training_configs():
                     "epoch": epoch,
                     "enable_morphology": False,
                     "enable_privacy": True,
+                    "enable_groupnorm": False,
                     "noise_multiplier": nm,
                     "max_grad_norm": max_grad_norm,
                     "morph_operation": None,
@@ -163,6 +205,7 @@ def generate_training_configs():
                         "epoch": epoch,
                         "enable_morphology": True,
                         "enable_privacy": True,
+                        "enable_groupnorm": False,
                         "noise_multiplier": nm,
                         "max_grad_norm": max_grad_norm,
                         "script": "MyTrain_LungInfDP_Morph.py",
@@ -204,7 +247,15 @@ def main():
     parser.add_argument(
         "--configs",
         type=str,
-        choices=["standard", "morph", "dp", "dpmorph", "all"],
+        choices=[
+            "standard",
+            "morph",
+            "groupnorm",
+            "groupnorm_morph",
+            "dp",
+            "dpmorph",
+            "all",
+        ],
         default="all",
         help="Which configurations to submit",
     )
@@ -260,11 +311,27 @@ def main():
         configs = [
             c
             for c in all_configs
-            if not c["enable_morphology"] and not c["enable_privacy"]
+            if not c["enable_morphology"]
+            and not c["enable_privacy"]
+            and not c["enable_groupnorm"]
         ]
     elif args.configs == "morph":
         configs = [
-            c for c in all_configs if c["enable_morphology"] and not c["enable_privacy"]
+            c
+            for c in all_configs
+            if c["enable_morphology"]
+            and not c["enable_privacy"]
+            and not c["enable_groupnorm"]
+        ]
+    elif args.configs == "groupnorm":
+        configs = [
+            c
+            for c in all_configs
+            if c["enable_groupnorm"] and not c["enable_morphology"]
+        ]
+    elif args.configs == "groupnorm_morph":
+        configs = [
+            c for c in all_configs if c["enable_groupnorm"] and c["enable_morphology"]
         ]
     elif args.configs == "dp":
         configs = [
