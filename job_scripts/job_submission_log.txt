@@ -1,7 +1,7 @@
 
 ======================================================================
 Submission: 2025-10-26 21:43:46
-Configurations: 288
+Configurations: 360
   infnet_batch24_run1: 59954611
   infnet_batch24_run2: 59954612
   infnet_batch24_run3: 59954613
@@ -290,5 +290,76 @@ Configurations: 288
   infnet_dpmorph_erosion_nm0.7_batch72_run1: 59954896
   infnet_dpmorph_erosion_nm0.7_batch72_run2: 59954897
   infnet_dpmorph_erosion_nm0.7_batch72_run3: 59954898
-
+  infnet_groupnorm_batch24_run1: 59971266
+  infnet_groupnorm_batch24_run2: 59971267
+  infnet_groupnorm_batch24_run3: 59971268
+  infnet_groupnorm_batch48_run1: 59971269
+  infnet_groupnorm_batch48_run2: 59971270
+  infnet_groupnorm_batch48_run3: 59971271
+  infnet_groupnorm_batch64_run1: 59971272
+  infnet_groupnorm_batch64_run2: 59971273
+  infnet_groupnorm_batch64_run3: 59971274
+  infnet_groupnorm_batch72_run1: 59971275
+  infnet_groupnorm_batch72_run2: 59971276
+  infnet_groupnorm_batch72_run3: 59971277
+  infnet_groupnorm_morph_open_batch24_run1: 59971278
+  infnet_groupnorm_morph_open_batch24_run2: 59971279
+  infnet_groupnorm_morph_open_batch24_run3: 59971280
+  infnet_groupnorm_morph_close_batch24_run1: 59971281
+  infnet_groupnorm_morph_close_batch24_run2: 59971282
+  infnet_groupnorm_morph_close_batch24_run3: 59971283
+  infnet_groupnorm_morph_both_batch24_run1: 59971284
+  infnet_groupnorm_morph_both_batch24_run2: 59971285
+  infnet_groupnorm_morph_both_batch24_run3: 59971286
+  infnet_groupnorm_morph_dilation_batch24_run1: 59971287
+  infnet_groupnorm_morph_dilation_batch24_run2: 59971288
+  infnet_groupnorm_morph_dilation_batch24_run3: 59971289
+  infnet_groupnorm_morph_erosion_batch24_run1: 59971290
+  infnet_groupnorm_morph_erosion_batch24_run2: 59971291
+  infnet_groupnorm_morph_erosion_batch24_run3: 59971292
+  infnet_groupnorm_morph_open_batch48_run1: 59971293
+  infnet_groupnorm_morph_open_batch48_run2: 59971294
+  infnet_groupnorm_morph_open_batch48_run3: 59971295
+  infnet_groupnorm_morph_close_batch48_run1: 59971296
+  infnet_groupnorm_morph_close_batch48_run2: 59971297
+  infnet_groupnorm_morph_close_batch48_run3: 59971298
+  infnet_groupnorm_morph_both_batch48_run1: 59971299
+  infnet_groupnorm_morph_both_batch48_run2: 59971300
+  infnet_groupnorm_morph_both_batch48_run3: 59971301
+  infnet_groupnorm_morph_dilation_batch48_run1: 59971302
+  infnet_groupnorm_morph_dilation_batch48_run2: 59971303
+  infnet_groupnorm_morph_dilation_batch48_run3: 59971304
+  infnet_groupnorm_morph_erosion_batch48_run1: 59971305
+  infnet_groupnorm_morph_erosion_batch48_run2: 59971306
+  infnet_groupnorm_morph_erosion_batch48_run3: 59971307
+  infnet_groupnorm_morph_open_batch64_run1: 59971308
+  infnet_groupnorm_morph_open_batch64_run2: 59971309
+  infnet_groupnorm_morph_open_batch64_run3: 59971310
+  infnet_groupnorm_morph_close_batch64_run1: 59971311
+  infnet_groupnorm_morph_close_batch64_run2: 59971312
+  infnet_groupnorm_morph_close_batch64_run3: 59971313
+  infnet_groupnorm_morph_both_batch64_run1: 59971314
+  infnet_groupnorm_morph_both_batch64_run2: 59971315
+  infnet_groupnorm_morph_both_batch64_run3: 59971316
+  infnet_groupnorm_morph_dilation_batch64_run1: 59971317
+  infnet_groupnorm_morph_dilation_batch64_run2: 59971318
+  infnet_groupnorm_morph_dilation_batch64_run3: 59971319
+  infnet_groupnorm_morph_erosion_batch64_run1: 59971320
+  infnet_groupnorm_morph_erosion_batch64_run2: 59971321
+  infnet_groupnorm_morph_erosion_batch64_run3: 59971322
+  infnet_groupnorm_morph_open_batch72_run1: 59971323
+  infnet_groupnorm_morph_open_batch72_run2: 59971324
+  infnet_groupnorm_morph_open_batch72_run3: 59971325
+  infnet_groupnorm_morph_close_batch72_run1: 59971326
+  infnet_groupnorm_morph_close_batch72_run2: 59971327
+  infnet_groupnorm_morph_close_batch72_run3: 59971328
+  infnet_groupnorm_morph_both_batch72_run1: 59971329
+  infnet_groupnorm_morph_both_batch72_run2: 59971330
+  infnet_groupnorm_morph_both_batch72_run3: 59971331
+  infnet_groupnorm_morph_dilation_batch72_run1: 59971332
+  infnet_groupnorm_morph_dilation_batch72_run2: 59971333
+  infnet_groupnorm_morph_dilation_batch72_run3: 59971334
+  infnet_groupnorm_morph_erosion_batch72_run1: 59971335
+  infnet_groupnorm_morph_erosion_batch72_run2: 59971336
+  infnet_groupnorm_morph_erosion_batch72_run3: 59971337
 ======================================================================
