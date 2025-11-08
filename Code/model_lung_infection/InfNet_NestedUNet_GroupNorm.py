@@ -16,7 +16,7 @@ class VGGBlock(nn.Module):
 
     def __init__(self, in_channels, middle_channels, out_channels, num_groups=32):
         super().__init__()
-        self.relu = nn.ReLU(inplace=True)
+        self.relu = nn.ReLU(inplace=False)
         self.conv1 = nn.Conv2d(in_channels, middle_channels, 3, padding=1)
         self.bn1 = nn.GroupNorm(num_groups, middle_channels)
         self.conv2 = nn.Conv2d(middle_channels, out_channels, 3, padding=1)
