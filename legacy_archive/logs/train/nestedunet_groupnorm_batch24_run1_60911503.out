@@ -1,0 +1,17 @@
+Model loading: NestedUNet (UNet++) with GroupNorm
+Converting BatchNorm to GroupNorm for fair comparison with DP models
+Model already GroupNorm-compatible
+Not loading weights from weights file (training from scratch)
+################################################## 
+Start Training (NestedUNet-GroupNorm)
+Input Channels: 3
+Output Classes: 1
+Deep Supervision: False
+Batch Size: 24
+Morphology: Disabled
+Architecture: GroupNorm (no DP)
+Save Path: ./Snapshots/save_weights/NestedUNet_GroupNorm/batch_24/run_1
+Run: 1
+Namespace(epoch=70, lr=0.0001, batchsize=24, trainsize=352, clip=0.5, decay_rate=0.1, decay_epoch=50, is_thop=False, gpu_device=0, num_workers=8, n_classes=1, in_channels=3, deep_supervision=False, train_path='./Dataset/TrainingSet/LungInfection-Train/Doctor-label', is_semi=False, is_pseudo=False, train_save=None, run=1, enable_morphology=False, morph_operation='close', morph_kernel_size=3, device='cuda')
+ ##################################################
+Training completed at Sat Nov  8 23:10:33 CET 2025

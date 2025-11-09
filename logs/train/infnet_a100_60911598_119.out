@@ -1,0 +1,17 @@
+Model loading: NestedUNet (UNet++) with GroupNorm
+Model is compatible with differential privacy
+Not loading weights from weights file
+###################################################################### 
+Start Training (NestedUNet-DP)
+Network: NestedUNet
+Batch Size: 24
+DP Enabled (ε=200.0, δ=1e-05, clipping=base)
+Morphology: Disabled
+Architecture: GroupNorm (with DP)
+Save Path: ./Snapshots/save_weights/NestedUNet_DP/batch_24/run_2/epsilon_200/base
+Run: 2
+Namespace(network='NestedUNet', epoch=100, lr=0.0001, batchsize=24, trainsize=352, clip=0.5, decay_rate=0.1, decay_epoch=50, is_thop=False, gpu_device=0, num_workers=8, net_channel=32, init_features=32, n_classes=1, in_channels=3, backbone='Res2Net50', deep_supervision=False, train_path='./Dataset/TrainingSet/LungInfection-Train/Doctor-label', is_semi=False, is_pseudo=False, train_save=None, run=2, enable_privacy=True, epsilon=200.0, max_grad_norm=1.2, delta=1e-05, clipping_strategy='base', enable_morphology=False, morph_operation='both', morph_kernel_size=3, device='cuda')
+ ######################################################################
+2025-11-09 01:11:24.216359 Epoch [001/100], Step [0003/0003], Loss: 1.4389, ε: 14.0873
+2025-11-09 01:11:27.970731 Epoch [002/100], Step [0003/0003], Loss: 1.4092, ε: 19.2258
+Training completed at Sun Nov  9 01:11:30 CET 2025

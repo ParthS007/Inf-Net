@@ -1,0 +1,43 @@
+Model loading: UNet with GroupNorm
+Model is compatible with differential privacy
+Not loading weights from weights file
+###################################################################### 
+Start Training (UNet-DP)
+Network: UNet
+Batch Size: 48
+DP Enabled (ε=200.0, δ=1e-05, clipping=automatic)
+Morphology: both
+Architecture: GroupNorm (with DP)
+Save Path: ./Snapshots/save_weights/UNet_DP_Morph/both/batch_48/run_3/epsilon_200/automatic
+Run: 3
+Namespace(network='UNet', epoch=100, lr=0.0001, batchsize=48, trainsize=352, clip=0.5, decay_rate=0.1, decay_epoch=50, is_thop=False, gpu_device=0, num_workers=8, net_channel=32, init_features=32, n_classes=1, in_channels=3, backbone='Res2Net50', deep_supervision=False, train_path='./Dataset/TrainingSet/LungInfection-Train/Doctor-label', is_semi=False, is_pseudo=False, train_save=None, run=3, enable_privacy=True, epsilon=200.0, max_grad_norm=1.2, delta=1e-05, clipping_strategy='automatic', enable_morphology=True, morph_operation='both', morph_kernel_size=3, device='cuda')
+ ######################################################################
+2025-11-09 00:50:41.201041 Epoch [001/100], Step [0002/0002], Loss: 1.4671, ε: 11.8573
+2025-11-09 00:50:42.657469 Epoch [002/100], Step [0002/0002], Loss: 1.4569, ε: 17.0473
+2025-11-09 00:50:44.044224 Epoch [003/100], Step [0002/0002], Loss: 1.4392, ε: 21.0900
+2025-11-09 00:50:45.600810 Epoch [004/100], Step [0002/0002], Loss: 1.4382, ε: 24.6100
+2025-11-09 00:50:47.135642 Epoch [005/100], Step [0002/0002], Loss: 1.4279, ε: 27.8145
+2025-11-09 00:50:48.534002 Epoch [006/100], Step [0002/0002], Loss: 1.4174, ε: 30.8019
+2025-11-09 00:50:50.102001 Epoch [007/100], Step [0002/0002], Loss: 1.4051, ε: 33.6283
+2025-11-09 00:50:51.501189 Epoch [008/100], Step [0002/0002], Loss: 1.4034, ε: 36.3292
+2025-11-09 00:50:52.902656 Epoch [009/100], Step [0002/0002], Loss: 1.3880, ε: 38.9286
+[Saving Snapshot:] ./Snapshots/save_weights/UNet_DP_Morph/both/batch_48/run_3/epsilon_200/automatic/UNet-10.pth
+[Privacy Budget]: ε = 38.93 (δ = 1e-05)
+2025-11-09 00:50:54.477532 Epoch [010/100], Step [0002/0002], Loss: 1.3882, ε: 41.4440
+2025-11-09 00:50:55.869137 Epoch [011/100], Step [0002/0002], Loss: 1.3797, ε: 43.8880
+2025-11-09 00:50:57.360956 Epoch [012/100], Step [0002/0002], Loss: 1.3697, ε: 46.2706
+2025-11-09 00:50:58.812331 Epoch [013/100], Step [0002/0002], Loss: 1.3570, ε: 48.5997
+2025-11-09 00:51:00.161869 Epoch [014/100], Step [0002/0002], Loss: 1.3625, ε: 50.8815
+2025-11-09 00:51:01.461972 Epoch [015/100], Step [0002/0002], Loss: 1.3538, ε: 53.1211
+2025-11-09 00:51:02.785644 Epoch [016/100], Step [0002/0002], Loss: 1.3365, ε: 55.3228
+2025-11-09 00:51:04.091941 Epoch [017/100], Step [0002/0002], Loss: 1.3459, ε: 57.4902
+2025-11-09 00:51:05.320858 Epoch [018/100], Step [0002/0002], Loss: 1.3417, ε: 59.6264
+2025-11-09 00:51:06.733845 Epoch [019/100], Step [0002/0002], Loss: 1.3212, ε: 61.7340
+[Saving Snapshot:] ./Snapshots/save_weights/UNet_DP_Morph/both/batch_48/run_3/epsilon_200/automatic/UNet-20.pth
+[Privacy Budget]: ε = 61.73 (δ = 1e-05)
+2025-11-09 00:51:08.609810 Epoch [020/100], Step [0002/0002], Loss: 1.3222, ε: 63.8153
+2025-11-09 00:51:10.043610 Epoch [021/100], Step [0002/0002], Loss: 1.3181, ε: 65.8722
+2025-11-09 00:51:11.348176 Epoch [022/100], Step [0002/0002], Loss: 1.3126, ε: 67.9066
+2025-11-09 00:51:12.682056 Epoch [023/100], Step [0002/0002], Loss: 1.2998, ε: 69.9200
+2025-11-09 00:51:14.188663 Epoch [024/100], Step [0002/0002], Loss: 1.2938, ε: 71.9138
+Training completed at Sun Nov  9 00:51:16 CET 2025

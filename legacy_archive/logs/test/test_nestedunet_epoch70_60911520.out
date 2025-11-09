@@ -1,0 +1,24 @@
+################################################## 
+Start Testing
+Model Type: NestedUNet_GroupNorm
+Batch Size: 12
+Run: 1
+Epoch: 70
+
+Namespace(testsize=352, data_path='./Dataset/TestingSet/LungInfection-Test/', model_type='NestedUNet_GroupNorm', batchsize=12, run=1, epoch=70, morph_operation=None, pth_path=None, save_path=None, device='cuda')
+ ##################################################
+Using model: ./Snapshots/save_weights/NestedUNet_GroupNorm/batch_12/run_1/NestedUNet-70.pth
+Epoch: 70
+Converting BatchNorm to GroupNorm for compatibility
+Model already GroupNorm-compatible
+Loading checkpoint from: ./Snapshots/save_weights/NestedUNet_GroupNorm/batch_12/run_1/NestedUNet-70.pth
+Checkpoint loaded successfully
+Results will be saved to: ./Results/Lung_infection_segmentation/NestedUNet_GroupNorm/batch_12/run_1
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+
+Test Done! Results saved to: ./Results/Lung_infection_segmentation/NestedUNet_GroupNorm/batch_12/run_1
+Testing completed at Sat Nov  8 23:24:22 CET 2025

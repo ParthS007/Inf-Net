@@ -1,0 +1,94 @@
+Model loading: NestedUNet (UNet++) with GroupNorm
+Converting BatchNorm to GroupNorm for fair comparison with DP models
+Model already GroupNorm-compatible
+Not loading weights from weights file (training from scratch)
+################################################## 
+Start Training (NestedUNet-GroupNorm)
+Input Channels: 3
+Output Classes: 1
+Deep Supervision: False
+Batch Size: 12
+Morphology: Disabled
+Architecture: GroupNorm (no DP)
+Save Path: ./Snapshots/save_weights/NestedUNet_GroupNorm/batch_12/run_1
+Run: 1
+Namespace(epoch=70, lr=0.0001, batchsize=12, trainsize=352, clip=0.5, decay_rate=0.1, decay_epoch=50, is_thop=False, gpu_device=0, num_workers=8, n_classes=1, in_channels=3, deep_supervision=False, train_path='./Dataset/TrainingSet/LungInfection-Train/Doctor-label', is_semi=False, is_pseudo=False, train_save=None, run=1, enable_morphology=False, morph_operation='close', morph_kernel_size=3, device='cuda')
+ ##################################################
+2025-11-08 23:15:11.447077 Epoch [001/070], Step [0005/0005], Loss: 1.2676
+2025-11-08 23:15:12.679163 Epoch [002/070], Step [0005/0005], Loss: 1.1536
+2025-11-08 23:15:13.957590 Epoch [003/070], Step [0005/0005], Loss: 1.1316
+2025-11-08 23:15:15.222047 Epoch [004/070], Step [0005/0005], Loss: 1.0844
+2025-11-08 23:15:16.511508 Epoch [005/070], Step [0005/0005], Loss: 1.0403
+2025-11-08 23:15:17.793589 Epoch [006/070], Step [0005/0005], Loss: 1.0163
+2025-11-08 23:15:19.078184 Epoch [007/070], Step [0005/0005], Loss: 0.9954
+2025-11-08 23:15:20.367328 Epoch [008/070], Step [0005/0005], Loss: 0.9999
+2025-11-08 23:15:21.642224 Epoch [009/070], Step [0005/0005], Loss: 0.9689
+[Saving Snapshot:] ./Snapshots/save_weights/NestedUNet_GroupNorm/batch_12/run_1/NestedUNet-10.pth
+2025-11-08 23:15:23.083634 Epoch [010/070], Step [0005/0005], Loss: 0.9622
+2025-11-08 23:15:24.349917 Epoch [011/070], Step [0005/0005], Loss: 0.9233
+2025-11-08 23:15:25.642181 Epoch [012/070], Step [0005/0005], Loss: 0.9561
+2025-11-08 23:15:26.911352 Epoch [013/070], Step [0005/0005], Loss: 0.9488
+2025-11-08 23:15:28.194597 Epoch [014/070], Step [0005/0005], Loss: 0.9326
+2025-11-08 23:15:29.462452 Epoch [015/070], Step [0005/0005], Loss: 0.9364
+2025-11-08 23:15:30.755699 Epoch [016/070], Step [0005/0005], Loss: 0.9465
+2025-11-08 23:15:32.042346 Epoch [017/070], Step [0005/0005], Loss: 0.9060
+2025-11-08 23:15:33.319918 Epoch [018/070], Step [0005/0005], Loss: 0.9482
+2025-11-08 23:15:34.598808 Epoch [019/070], Step [0005/0005], Loss: 0.9111
+[Saving Snapshot:] ./Snapshots/save_weights/NestedUNet_GroupNorm/batch_12/run_1/NestedUNet-20.pth
+2025-11-08 23:15:36.012910 Epoch [020/070], Step [0005/0005], Loss: 0.9239
+2025-11-08 23:15:37.303893 Epoch [021/070], Step [0005/0005], Loss: 0.9116
+2025-11-08 23:15:38.583819 Epoch [022/070], Step [0005/0005], Loss: 0.8698
+2025-11-08 23:15:39.870846 Epoch [023/070], Step [0005/0005], Loss: 0.8853
+2025-11-08 23:15:41.152722 Epoch [024/070], Step [0005/0005], Loss: 0.8967
+2025-11-08 23:15:42.445550 Epoch [025/070], Step [0005/0005], Loss: 0.8840
+2025-11-08 23:15:43.710014 Epoch [026/070], Step [0005/0005], Loss: 0.8843
+2025-11-08 23:15:44.995232 Epoch [027/070], Step [0005/0005], Loss: 0.8865
+2025-11-08 23:15:46.269216 Epoch [028/070], Step [0005/0005], Loss: 0.8522
+2025-11-08 23:15:47.550949 Epoch [029/070], Step [0005/0005], Loss: 0.8509
+[Saving Snapshot:] ./Snapshots/save_weights/NestedUNet_GroupNorm/batch_12/run_1/NestedUNet-30.pth
+2025-11-08 23:15:48.878264 Epoch [030/070], Step [0005/0005], Loss: 0.8585
+2025-11-08 23:15:50.157864 Epoch [031/070], Step [0005/0005], Loss: 0.8178
+2025-11-08 23:15:51.444335 Epoch [032/070], Step [0005/0005], Loss: 0.8199
+2025-11-08 23:15:52.728356 Epoch [033/070], Step [0005/0005], Loss: 0.8143
+2025-11-08 23:15:54.021693 Epoch [034/070], Step [0005/0005], Loss: 0.8394
+2025-11-08 23:15:55.319608 Epoch [035/070], Step [0005/0005], Loss: 0.8434
+2025-11-08 23:15:56.610876 Epoch [036/070], Step [0005/0005], Loss: 0.7970
+2025-11-08 23:15:57.907570 Epoch [037/070], Step [0005/0005], Loss: 0.7834
+2025-11-08 23:15:59.196655 Epoch [038/070], Step [0005/0005], Loss: 0.7941
+2025-11-08 23:16:00.499203 Epoch [039/070], Step [0005/0005], Loss: 0.7904
+[Saving Snapshot:] ./Snapshots/save_weights/NestedUNet_GroupNorm/batch_12/run_1/NestedUNet-40.pth
+2025-11-08 23:16:01.825998 Epoch [040/070], Step [0005/0005], Loss: 0.7775
+2025-11-08 23:16:03.119251 Epoch [041/070], Step [0005/0005], Loss: 0.7867
+2025-11-08 23:16:04.407345 Epoch [042/070], Step [0005/0005], Loss: 0.7862
+2025-11-08 23:16:05.688539 Epoch [043/070], Step [0005/0005], Loss: 0.7648
+2025-11-08 23:16:06.976710 Epoch [044/070], Step [0005/0005], Loss: 0.7337
+2025-11-08 23:16:08.262394 Epoch [045/070], Step [0005/0005], Loss: 0.7756
+2025-11-08 23:16:09.553270 Epoch [046/070], Step [0005/0005], Loss: 0.7556
+2025-11-08 23:16:10.854003 Epoch [047/070], Step [0005/0005], Loss: 0.7214
+2025-11-08 23:16:12.122152 Epoch [048/070], Step [0005/0005], Loss: 0.7232
+2025-11-08 23:16:13.408399 Epoch [049/070], Step [0005/0005], Loss: 0.7196
+[Saving Snapshot:] ./Snapshots/save_weights/NestedUNet_GroupNorm/batch_12/run_1/NestedUNet-50.pth
+2025-11-08 23:16:14.759546 Epoch [050/070], Step [0005/0005], Loss: 0.6942
+2025-11-08 23:16:16.049112 Epoch [051/070], Step [0005/0005], Loss: 0.7005
+2025-11-08 23:16:17.332053 Epoch [052/070], Step [0005/0005], Loss: 0.6971
+2025-11-08 23:16:18.627859 Epoch [053/070], Step [0005/0005], Loss: 0.7010
+2025-11-08 23:16:19.909617 Epoch [054/070], Step [0005/0005], Loss: 0.6886
+2025-11-08 23:16:21.194665 Epoch [055/070], Step [0005/0005], Loss: 0.6847
+2025-11-08 23:16:22.481817 Epoch [056/070], Step [0005/0005], Loss: 0.6916
+2025-11-08 23:16:23.787460 Epoch [057/070], Step [0005/0005], Loss: 0.6964
+2025-11-08 23:16:25.083348 Epoch [058/070], Step [0005/0005], Loss: 0.7036
+2025-11-08 23:16:26.377789 Epoch [059/070], Step [0005/0005], Loss: 0.6897
+[Saving Snapshot:] ./Snapshots/save_weights/NestedUNet_GroupNorm/batch_12/run_1/NestedUNet-60.pth
+2025-11-08 23:16:27.734447 Epoch [060/070], Step [0005/0005], Loss: 0.6826
+2025-11-08 23:16:29.025795 Epoch [061/070], Step [0005/0005], Loss: 0.6852
+2025-11-08 23:16:30.317365 Epoch [062/070], Step [0005/0005], Loss: 0.6989
+2025-11-08 23:16:31.611524 Epoch [063/070], Step [0005/0005], Loss: 0.7032
+2025-11-08 23:16:32.903853 Epoch [064/070], Step [0005/0005], Loss: 0.7026
+2025-11-08 23:16:34.192137 Epoch [065/070], Step [0005/0005], Loss: 0.6911
+2025-11-08 23:16:35.486868 Epoch [066/070], Step [0005/0005], Loss: 0.7055
+2025-11-08 23:16:36.786003 Epoch [067/070], Step [0005/0005], Loss: 0.7053
+2025-11-08 23:16:38.050094 Epoch [068/070], Step [0005/0005], Loss: 0.7000
+2025-11-08 23:16:39.319723 Epoch [069/070], Step [0005/0005], Loss: 0.7065
+[Saving Snapshot:] ./Snapshots/save_weights/NestedUNet_GroupNorm/batch_12/run_1/NestedUNet-70.pth
+2025-11-08 23:16:40.678429 Epoch [070/070], Step [0005/0005], Loss: 0.6870
+Training completed at Sat Nov  8 23:16:41 CET 2025

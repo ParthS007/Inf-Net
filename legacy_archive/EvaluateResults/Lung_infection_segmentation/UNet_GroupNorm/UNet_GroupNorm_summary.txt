@@ -1,0 +1,15 @@
+Model: UNet_GroupNorm
+Number of Images: 48
+Evaluation Date: 2025-11-08 23:26:48
+
+Results:
+Mean Dice: 0.5424
+Max Dice: 0.7016
+Mean Sensitivity: 0.7455
+Max Sensitivity: 1.0000
+Mean Specificity: 0.7436
+Max Specificity: 0.9994
+S-measure: 0.6214
+Mean E-measure: 0.6407
+Max E-measure: 0.8654
+MAE: 0.2590

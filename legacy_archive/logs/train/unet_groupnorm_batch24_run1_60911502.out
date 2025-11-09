@@ -1,0 +1,94 @@
+Model loading: UNet with GroupNorm
+Converting BatchNorm to GroupNorm for fair comparison with DP models
+Model already GroupNorm-compatible
+Not loading weights from weights file (training from scratch)
+################################################## 
+Start Training (UNet-GroupNorm)
+Input Channels: 3
+Output Classes: 1
+Init Features: 32
+Batch Size: 24
+Morphology: Disabled
+Architecture: GroupNorm (no DP)
+Save Path: ./Snapshots/save_weights/UNet_GroupNorm/batch_24/run_1
+Run: 1
+Namespace(epoch=70, lr=0.0001, batchsize=24, trainsize=352, clip=0.5, decay_rate=0.1, decay_epoch=50, is_thop=False, gpu_device=0, num_workers=8, init_features=32, n_classes=1, in_channels=3, train_path='./Dataset/TrainingSet/LungInfection-Train/Doctor-label', is_semi=False, is_pseudo=False, train_save=None, run=1, enable_morphology=False, morph_operation='close', morph_kernel_size=3, device='cuda')
+ ##################################################
+2025-11-08 23:10:31.002845 Epoch [001/070], Step [0003/0003], Loss: 1.5151
+2025-11-08 23:10:31.837676 Epoch [002/070], Step [0003/0003], Loss: 1.4953
+2025-11-08 23:10:32.694610 Epoch [003/070], Step [0003/0003], Loss: 1.4869
+2025-11-08 23:10:33.732246 Epoch [004/070], Step [0003/0003], Loss: 1.4741
+2025-11-08 23:10:34.503393 Epoch [005/070], Step [0003/0003], Loss: 1.3711
+2025-11-08 23:10:35.241988 Epoch [006/070], Step [0003/0003], Loss: 1.3593
+2025-11-08 23:10:36.005123 Epoch [007/070], Step [0003/0003], Loss: 1.3730
+2025-11-08 23:10:36.736980 Epoch [008/070], Step [0003/0003], Loss: 1.3228
+2025-11-08 23:10:37.468112 Epoch [009/070], Step [0003/0003], Loss: 1.3063
+[Saving Snapshot:] ./Snapshots/save_weights/UNet_GroupNorm/batch_24/run_1/UNet-10.pth
+2025-11-08 23:10:38.392090 Epoch [010/070], Step [0003/0003], Loss: 1.3443
+2025-11-08 23:10:39.131001 Epoch [011/070], Step [0003/0003], Loss: 1.3369
+2025-11-08 23:10:39.866984 Epoch [012/070], Step [0003/0003], Loss: 1.2597
+2025-11-08 23:10:40.618344 Epoch [013/070], Step [0003/0003], Loss: 1.3323
+2025-11-08 23:10:41.360470 Epoch [014/070], Step [0003/0003], Loss: 1.2363
+2025-11-08 23:10:42.093559 Epoch [015/070], Step [0003/0003], Loss: 1.2238
+2025-11-08 23:10:42.816352 Epoch [016/070], Step [0003/0003], Loss: 1.2671
+2025-11-08 23:10:43.564144 Epoch [017/070], Step [0003/0003], Loss: 1.2573
+2025-11-08 23:10:44.316258 Epoch [018/070], Step [0003/0003], Loss: 1.2446
+2025-11-08 23:10:45.060827 Epoch [019/070], Step [0003/0003], Loss: 1.2242
+[Saving Snapshot:] ./Snapshots/save_weights/UNet_GroupNorm/batch_24/run_1/UNet-20.pth
+2025-11-08 23:10:45.912774 Epoch [020/070], Step [0003/0003], Loss: 1.2638
+2025-11-08 23:10:46.646687 Epoch [021/070], Step [0003/0003], Loss: 1.2476
+2025-11-08 23:10:47.363226 Epoch [022/070], Step [0003/0003], Loss: 1.2484
+2025-11-08 23:10:48.116225 Epoch [023/070], Step [0003/0003], Loss: 1.2409
+2025-11-08 23:10:48.835763 Epoch [024/070], Step [0003/0003], Loss: 1.2086
+2025-11-08 23:10:49.569163 Epoch [025/070], Step [0003/0003], Loss: 1.2373
+2025-11-08 23:10:50.289035 Epoch [026/070], Step [0003/0003], Loss: 1.1756
+2025-11-08 23:10:51.014158 Epoch [027/070], Step [0003/0003], Loss: 1.1757
+2025-11-08 23:10:51.763048 Epoch [028/070], Step [0003/0003], Loss: 1.1849
+2025-11-08 23:10:52.494545 Epoch [029/070], Step [0003/0003], Loss: 1.1887
+[Saving Snapshot:] ./Snapshots/save_weights/UNet_GroupNorm/batch_24/run_1/UNet-30.pth
+2025-11-08 23:10:53.325363 Epoch [030/070], Step [0003/0003], Loss: 1.2197
+2025-11-08 23:10:54.034075 Epoch [031/070], Step [0003/0003], Loss: 1.1267
+2025-11-08 23:10:54.766609 Epoch [032/070], Step [0003/0003], Loss: 1.1875
+2025-11-08 23:10:55.474288 Epoch [033/070], Step [0003/0003], Loss: 1.2320
+2025-11-08 23:10:56.211430 Epoch [034/070], Step [0003/0003], Loss: 1.2011
+2025-11-08 23:10:56.952297 Epoch [035/070], Step [0003/0003], Loss: 1.1578
+2025-11-08 23:10:57.696043 Epoch [036/070], Step [0003/0003], Loss: 1.1525
+2025-11-08 23:10:58.439039 Epoch [037/070], Step [0003/0003], Loss: 1.1880
+2025-11-08 23:10:59.160501 Epoch [038/070], Step [0003/0003], Loss: 1.1117
+2025-11-08 23:10:59.898420 Epoch [039/070], Step [0003/0003], Loss: 1.1458
+[Saving Snapshot:] ./Snapshots/save_weights/UNet_GroupNorm/batch_24/run_1/UNet-40.pth
+2025-11-08 23:11:00.706484 Epoch [040/070], Step [0003/0003], Loss: 1.1391
+2025-11-08 23:11:01.430214 Epoch [041/070], Step [0003/0003], Loss: 1.1455
+2025-11-08 23:11:02.151337 Epoch [042/070], Step [0003/0003], Loss: 1.1219
+2025-11-08 23:11:02.865900 Epoch [043/070], Step [0003/0003], Loss: 1.1370
+2025-11-08 23:11:03.604256 Epoch [044/070], Step [0003/0003], Loss: 1.1767
+2025-11-08 23:11:04.355096 Epoch [045/070], Step [0003/0003], Loss: 1.1331
+2025-11-08 23:11:05.098325 Epoch [046/070], Step [0003/0003], Loss: 1.1368
+2025-11-08 23:11:05.831367 Epoch [047/070], Step [0003/0003], Loss: 1.1171
+2025-11-08 23:11:06.567337 Epoch [048/070], Step [0003/0003], Loss: 1.1271
+2025-11-08 23:11:07.294696 Epoch [049/070], Step [0003/0003], Loss: 1.0917
+[Saving Snapshot:] ./Snapshots/save_weights/UNet_GroupNorm/batch_24/run_1/UNet-50.pth
+2025-11-08 23:11:08.126355 Epoch [050/070], Step [0003/0003], Loss: 1.0925
+2025-11-08 23:11:08.893632 Epoch [051/070], Step [0003/0003], Loss: 1.0996
+2025-11-08 23:11:09.608890 Epoch [052/070], Step [0003/0003], Loss: 1.1005
+2025-11-08 23:11:10.328329 Epoch [053/070], Step [0003/0003], Loss: 1.0524
+2025-11-08 23:11:11.071359 Epoch [054/070], Step [0003/0003], Loss: 1.0617
+2025-11-08 23:11:11.796743 Epoch [055/070], Step [0003/0003], Loss: 1.0766
+2025-11-08 23:11:12.538639 Epoch [056/070], Step [0003/0003], Loss: 1.0539
+2025-11-08 23:11:13.276226 Epoch [057/070], Step [0003/0003], Loss: 1.1529
+2025-11-08 23:11:14.021702 Epoch [058/070], Step [0003/0003], Loss: 1.1059
+2025-11-08 23:11:14.770911 Epoch [059/070], Step [0003/0003], Loss: 1.0832
+[Saving Snapshot:] ./Snapshots/save_weights/UNet_GroupNorm/batch_24/run_1/UNet-60.pth
+2025-11-08 23:11:15.553198 Epoch [060/070], Step [0003/0003], Loss: 1.0923
+2025-11-08 23:11:16.271933 Epoch [061/070], Step [0003/0003], Loss: 1.0942
+2025-11-08 23:11:16.992545 Epoch [062/070], Step [0003/0003], Loss: 1.1102
+2025-11-08 23:11:17.702458 Epoch [063/070], Step [0003/0003], Loss: 1.1513
+2025-11-08 23:11:18.456480 Epoch [064/070], Step [0003/0003], Loss: 1.1027
+2025-11-08 23:11:19.223288 Epoch [065/070], Step [0003/0003], Loss: 1.1176
+2025-11-08 23:11:19.946992 Epoch [066/070], Step [0003/0003], Loss: 1.1175
+2025-11-08 23:11:20.668559 Epoch [067/070], Step [0003/0003], Loss: 1.0965
+2025-11-08 23:11:21.379428 Epoch [068/070], Step [0003/0003], Loss: 1.0897
+2025-11-08 23:11:22.102585 Epoch [069/070], Step [0003/0003], Loss: 1.0419
+[Saving Snapshot:] ./Snapshots/save_weights/UNet_GroupNorm/batch_24/run_1/UNet-70.pth
+2025-11-08 23:11:22.905870 Epoch [070/070], Step [0003/0003], Loss: 1.0471
+Training completed at Sat Nov  8 23:11:23 CET 2025

@@ -1,0 +1,1710 @@
+Starting batch testing of all final epoch models...
+Timestamp: Sun Nov  9 01:31:23 CET 2025
+Finding all final epoch models...
+Found 77 final epoch models:
+  1. Inf-Net_DP_Morph | Batch: 64 | Run: 2
+     Epsilon: 8
+     Morph Operation: both
+  2. Inf-Net_DP_Morph | Batch: 64 | Run: 2
+     Epsilon: 8
+     Morph Operation: both
+  3. Inf-Net_DP_Morph | Batch: 64 | Run: 2
+     Epsilon: 8
+     Morph Operation: both
+  4. Inf-Net_DP_Morph | Batch: 64 | Run: 2
+     Epsilon: 8
+     Morph Operation: both
+  5. Inf-Net_DP_Morph | Batch: 64 | Run: 2
+     Epsilon: 200
+     Morph Operation: both
+  6. Inf-Net_DP_Morph | Batch: 64 | Run: 2
+     Epsilon: 200
+     Morph Operation: both
+  7. Inf-Net_DP_Morph | Batch: 64 | Run: 2
+     Epsilon: 200
+     Morph Operation: both
+  8. Inf-Net_DP_Morph | Batch: 64 | Run: 2
+     Epsilon: 200
+     Morph Operation: both
+  9. Inf-Net_DP_Morph | Batch: 48 | Run: 3
+     Epsilon: 8
+     Morph Operation: both
+ 10. Inf-Net_DP_Morph | Batch: 48 | Run: 3
+     Epsilon: 8
+     Morph Operation: both
+ 11. Inf-Net_DP_Morph | Batch: 48 | Run: 3
+     Epsilon: 200
+     Morph Operation: both
+ 12. Inf-Net_DP_Morph | Batch: 48 | Run: 3
+     Epsilon: 200
+     Morph Operation: both
+ 13. Inf-Net_DP_Morph | Batch: 48 | Run: 3
+     Epsilon: 200
+     Morph Operation: both
+ 14. Inf-Net_DP_Morph | Batch: 48 | Run: 2
+     Epsilon: 8
+     Morph Operation: both
+ 15. Inf-Net_DP_Morph | Batch: 48 | Run: 2
+     Epsilon: 8
+     Morph Operation: both
+ 16. Inf-Net_DP_Morph | Batch: 48 | Run: 2
+     Epsilon: 8
+     Morph Operation: both
+ 17. Inf-Net_DP_Morph | Batch: 48 | Run: 2
+     Epsilon: 8
+     Morph Operation: both
+ 18. Inf-Net_DP_Morph | Batch: 48 | Run: 2
+     Epsilon: 200
+     Morph Operation: both
+ 19. Inf-Net_DP_Morph | Batch: 48 | Run: 2
+     Epsilon: 200
+     Morph Operation: both
+ 20. Inf-Net_DP_Morph | Batch: 48 | Run: 2
+     Epsilon: 200
+     Morph Operation: both
+ 21. Inf-Net_DP_Morph | Batch: 48 | Run: 2
+     Epsilon: 200
+     Morph Operation: both
+ 22. Inf-Net_DP_Morph | Batch: 24 | Run: 3
+     Epsilon: 8
+     Morph Operation: both
+ 23. Inf-Net_DP_Morph | Batch: 24 | Run: 3
+     Epsilon: 8
+     Morph Operation: both
+ 24. Inf-Net_DP_Morph | Batch: 24 | Run: 3
+     Epsilon: 8
+     Morph Operation: both
+ 25. Inf-Net_DP_Morph | Batch: 24 | Run: 3
+     Epsilon: 8
+     Morph Operation: both
+ 26. Inf-Net_DP_Morph | Batch: 24 | Run: 3
+     Epsilon: 200
+     Morph Operation: both
+ 27. Inf-Net_DP_Morph | Batch: 24 | Run: 3
+     Epsilon: 200
+     Morph Operation: both
+ 28. Inf-Net_DP_Morph | Batch: 24 | Run: 3
+     Epsilon: 200
+     Morph Operation: both
+ 29. Inf-Net_DP_Morph | Batch: 24 | Run: 3
+     Epsilon: 200
+     Morph Operation: both
+ 30. Inf-Net_DP_Morph | Batch: 24 | Run: 2
+     Epsilon: 8
+     Morph Operation: both
+ 31. Inf-Net_DP_Morph | Batch: 24 | Run: 2
+     Epsilon: 8
+     Morph Operation: both
+ 32. Inf-Net_DP_Morph | Batch: 24 | Run: 2
+     Epsilon: 8
+     Morph Operation: both
+ 33. Inf-Net_DP_Morph | Batch: 24 | Run: 2
+     Epsilon: 8
+     Morph Operation: both
+ 34. Inf-Net_DP_Morph | Batch: 24 | Run: 2
+     Epsilon: 200
+     Morph Operation: both
+ 35. Inf-Net_DP_Morph | Batch: 24 | Run: 2
+     Epsilon: 200
+     Morph Operation: both
+ 36. Inf-Net_DP_Morph | Batch: 24 | Run: 2
+     Epsilon: 200
+     Morph Operation: both
+ 37. Inf-Net_DP_Morph | Batch: 24 | Run: 2
+     Epsilon: 200
+     Morph Operation: both
+ 38. Inf-Net_DP | Batch: 64 | Run: 2
+     Epsilon: 8
+ 39. Inf-Net_DP | Batch: 64 | Run: 2
+     Epsilon: 8
+ 40. Inf-Net_DP | Batch: 64 | Run: 2
+     Epsilon: 8
+ 41. Inf-Net_DP | Batch: 64 | Run: 2
+     Epsilon: 8
+ 42. Inf-Net_DP | Batch: 64 | Run: 2
+     Epsilon: 200
+ 43. Inf-Net_DP | Batch: 64 | Run: 2
+     Epsilon: 200
+ 44. Inf-Net_DP | Batch: 64 | Run: 2
+     Epsilon: 200
+ 45. Inf-Net_DP | Batch: 64 | Run: 2
+     Epsilon: 200
+ 46. Inf-Net_DP | Batch: 48 | Run: 3
+     Epsilon: 8
+ 47. Inf-Net_DP | Batch: 48 | Run: 3
+     Epsilon: 8
+ 48. Inf-Net_DP | Batch: 48 | Run: 3
+     Epsilon: 8
+ 49. Inf-Net_DP | Batch: 48 | Run: 3
+     Epsilon: 8
+ 50. Inf-Net_DP | Batch: 48 | Run: 3
+     Epsilon: 200
+ 51. Inf-Net_DP | Batch: 48 | Run: 3
+     Epsilon: 200
+ 52. Inf-Net_DP | Batch: 48 | Run: 3
+     Epsilon: 200
+ 53. Inf-Net_DP | Batch: 48 | Run: 3
+     Epsilon: 200
+ 54. Inf-Net_DP | Batch: 48 | Run: 2
+     Epsilon: 8
+ 55. Inf-Net_DP | Batch: 48 | Run: 2
+     Epsilon: 8
+ 56. Inf-Net_DP | Batch: 48 | Run: 2
+     Epsilon: 8
+ 57. Inf-Net_DP | Batch: 48 | Run: 2
+     Epsilon: 8
+ 58. Inf-Net_DP | Batch: 48 | Run: 2
+     Epsilon: 200
+ 59. Inf-Net_DP | Batch: 48 | Run: 2
+     Epsilon: 200
+ 60. Inf-Net_DP | Batch: 48 | Run: 2
+     Epsilon: 200
+ 61. Inf-Net_DP | Batch: 48 | Run: 2
+     Epsilon: 200
+ 62. Inf-Net_DP | Batch: 24 | Run: 3
+     Epsilon: 8
+ 63. Inf-Net_DP | Batch: 24 | Run: 3
+     Epsilon: 8
+ 64. Inf-Net_DP | Batch: 24 | Run: 3
+     Epsilon: 8
+ 65. Inf-Net_DP | Batch: 24 | Run: 3
+     Epsilon: 8
+ 66. Inf-Net_DP | Batch: 24 | Run: 3
+     Epsilon: 200
+ 67. Inf-Net_DP | Batch: 24 | Run: 3
+     Epsilon: 200
+ 68. Inf-Net_DP | Batch: 24 | Run: 3
+     Epsilon: 200
+ 69. Inf-Net_DP | Batch: 24 | Run: 3
+     Epsilon: 200
+ 70. Inf-Net_DP | Batch: 24 | Run: 2
+     Epsilon: 8
+ 71. Inf-Net_DP | Batch: 24 | Run: 2
+     Epsilon: 8
+ 72. Inf-Net_DP | Batch: 24 | Run: 2
+     Epsilon: 8
+ 73. Inf-Net_DP | Batch: 24 | Run: 2
+     Epsilon: 8
+ 74. Inf-Net_DP | Batch: 24 | Run: 2
+     Epsilon: 200
+ 75. Inf-Net_DP | Batch: 24 | Run: 2
+     Epsilon: 200
+ 76. Inf-Net_DP | Batch: 24 | Run: 2
+     Epsilon: 200
+ 77. Inf-Net_DP | Batch: 24 | Run: 2
+     Epsilon: 200
+
+Starting batch testing of 77 models...
+====================================================================================================
+
+[1/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 64 | Run: 2
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_8/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_8/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_8
+
+[2/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 64 | Run: 2
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_8/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_8/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_8
+
+[3/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 64 | Run: 2
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_8/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_8/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_8
+
+[4/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 64 | Run: 2
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_8/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_8/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_8
+
+[5/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 64 | Run: 2
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_200/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_200/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_200
+
+[6/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 64 | Run: 2
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_200/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_200/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_200
+
+[7/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 64 | Run: 2
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_200/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_200/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_200
+
+[8/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 64 | Run: 2
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_200/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_200/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_200
+
+[9/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 48 | Run: 3
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_8/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_8/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_8
+
+[10/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 48 | Run: 3
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_8/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_8/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_8
+
+[11/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 48 | Run: 3
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_200/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_200/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_200
+
+[12/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 48 | Run: 3
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_200/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_200/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_200
+
+[13/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 48 | Run: 3
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_200/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_200/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_200
+
+[14/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 48 | Run: 2
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_8/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_8/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_8
+
+[15/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 48 | Run: 2
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_8/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_8/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_8
+
+[16/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 48 | Run: 2
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_8/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_8/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_8
+
+[17/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 48 | Run: 2
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_8/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_8/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_8
+
+[18/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 48 | Run: 2
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_200/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_200/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_200
+
+[19/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 48 | Run: 2
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_200/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_200/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_200
+
+[20/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 48 | Run: 2
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_200/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_200/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_200
+
+[21/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 48 | Run: 2
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_200/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_200/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_200
+
+[22/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 24 | Run: 3
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_8/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_8/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_8
+
+[23/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 24 | Run: 3
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_8/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_8/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_8
+
+[24/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 24 | Run: 3
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_8/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_8/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_8
+
+[25/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 24 | Run: 3
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_8/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_8/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_8
+
+[26/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 24 | Run: 3
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_200/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_200/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_200
+
+[27/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 24 | Run: 3
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_200/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_200/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_200
+
+[28/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 24 | Run: 3
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_200/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_200/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_200
+
+[29/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 24 | Run: 3
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_200/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_200/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_200
+
+[30/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 24 | Run: 2
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_8/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_8/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_8
+
+[31/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 24 | Run: 2
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_8/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_8/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_8
+
+[32/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 24 | Run: 2
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_8/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_8/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_8
+
+[33/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 24 | Run: 2
+Epsilon: 8
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_8/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_8/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_8
+
+[34/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 24 | Run: 2
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_200/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_200/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_200
+
+[35/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 24 | Run: 2
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_200/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_200/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_200
+
+[36/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 24 | Run: 2
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_200/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_200/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_200
+
+[37/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP_Morph | Batch: 24 | Run: 2
+Epsilon: 200
+Morph Operation: both
+Model Path: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_200/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_200/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_200
+
+[38/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 64 | Run: 2
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_64/run_2/epsilon_8/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_64/run_2/epsilon_8/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_64/run_2/epsilon_8
+
+[39/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 64 | Run: 2
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_64/run_2/epsilon_8/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_64/run_2/epsilon_8/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_64/run_2/epsilon_8
+
+[40/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 64 | Run: 2
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_64/run_2/epsilon_8/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_64/run_2/epsilon_8/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_64/run_2/epsilon_8
+
+[41/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 64 | Run: 2
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_64/run_2/epsilon_8/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_64/run_2/epsilon_8/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_64/run_2/epsilon_8
+
+[42/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 64 | Run: 2
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_64/run_2/epsilon_200/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_64/run_2/epsilon_200/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_64/run_2/epsilon_200
+
+[43/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 64 | Run: 2
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_64/run_2/epsilon_200/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_64/run_2/epsilon_200/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_64/run_2/epsilon_200
+
+[44/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 64 | Run: 2
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_64/run_2/epsilon_200/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_64/run_2/epsilon_200/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_64/run_2/epsilon_200
+
+[45/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 64 | Run: 2
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_64/run_2/epsilon_200/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_64/run_2/epsilon_200/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_64/run_2/epsilon_200
+
+[46/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 48 | Run: 3
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_3/epsilon_8/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_3/epsilon_8/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_3/epsilon_8
+
+[47/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 48 | Run: 3
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_3/epsilon_8/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_3/epsilon_8/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_3/epsilon_8
+
+[48/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 48 | Run: 3
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_3/epsilon_8/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_3/epsilon_8/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_3/epsilon_8
+
+[49/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 48 | Run: 3
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_3/epsilon_8/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_3/epsilon_8/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_3/epsilon_8
+
+[50/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 48 | Run: 3
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_3/epsilon_200/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_3/epsilon_200/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_3/epsilon_200
+
+[51/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 48 | Run: 3
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_3/epsilon_200/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_3/epsilon_200/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_3/epsilon_200
+
+[52/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 48 | Run: 3
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_3/epsilon_200/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_3/epsilon_200/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_3/epsilon_200
+
+[53/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 48 | Run: 3
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_3/epsilon_200/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_3/epsilon_200/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_3/epsilon_200
+
+[54/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 48 | Run: 2
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_2/epsilon_8/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_2/epsilon_8/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_2/epsilon_8
+
+[55/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 48 | Run: 2
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_2/epsilon_8/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_2/epsilon_8/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_2/epsilon_8
+
+[56/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 48 | Run: 2
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_2/epsilon_8/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_2/epsilon_8/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_2/epsilon_8
+
+[57/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 48 | Run: 2
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_2/epsilon_8/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_2/epsilon_8/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_2/epsilon_8
+
+[58/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 48 | Run: 2
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_2/epsilon_200/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_2/epsilon_200/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_2/epsilon_200
+
+[59/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 48 | Run: 2
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_2/epsilon_200/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_2/epsilon_200/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_2/epsilon_200
+
+[60/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 48 | Run: 2
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_2/epsilon_200/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_2/epsilon_200/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_2/epsilon_200
+
+[61/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 48 | Run: 2
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_2/epsilon_200/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_48/run_2/epsilon_200/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_2/epsilon_200
+
+[62/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 24 | Run: 3
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_3/epsilon_8/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_3/epsilon_8/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_3/epsilon_8
+
+[63/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 24 | Run: 3
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_3/epsilon_8/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_3/epsilon_8/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_3/epsilon_8
+
+[64/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 24 | Run: 3
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_3/epsilon_8/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_3/epsilon_8/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_3/epsilon_8
+
+[65/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 24 | Run: 3
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_3/epsilon_8/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_3/epsilon_8/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_3/epsilon_8
+
+[66/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 24 | Run: 3
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_3/epsilon_200/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_3/epsilon_200/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_3/epsilon_200
+
+[67/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 24 | Run: 3
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_3/epsilon_200/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_3/epsilon_200/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_3/epsilon_200
+
+[68/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 24 | Run: 3
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_3/epsilon_200/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_3/epsilon_200/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_3/epsilon_200
+
+[69/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 24 | Run: 3
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_3/epsilon_200/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_3/epsilon_200/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_3/epsilon_200
+
+[70/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 24 | Run: 2
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_2/epsilon_8/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_2/epsilon_8/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_2/epsilon_8
+
+[71/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 24 | Run: 2
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_2/epsilon_8/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_2/epsilon_8/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_2/epsilon_8
+
+[72/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 24 | Run: 2
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_2/epsilon_8/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_2/epsilon_8/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_2/epsilon_8
+
+[73/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 24 | Run: 2
+Epsilon: 8
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_2/epsilon_8/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_2/epsilon_8/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_2/epsilon_8
+
+[74/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 24 | Run: 2
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_2/epsilon_200/automatic/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_2/epsilon_200/automatic/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_2/epsilon_200
+
+[75/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 24 | Run: 2
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_2/epsilon_200/nsgd/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_2/epsilon_200/nsgd/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_2/epsilon_200
+
+[76/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 24 | Run: 2
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_2/epsilon_200/psac/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_2/epsilon_200/psac/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_2/epsilon_200
+
+[77/77] Starting test...
+
+================================================================================
+Testing: Inf-Net_DP | Batch: 24 | Run: 2
+Epsilon: 200
+Model Path: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_2/epsilon_200/base/Inf-Net-70.pth
+================================================================================
+GroupNorm model detected, Converting BatchNorm to GroupNorm for matching training
+Model architecture converted to GroupNorm
+Loading checkpoint from: ./Snapshots/save_weights/Inf-Net_DP/batch_24/run_2/epsilon_200/base/Inf-Net-70.pth
+Checkpoint loaded successfully (strict=True)
+Testing on 48 images...
+Processed 10/48 images
+Processed 20/48 images
+Processed 30/48 images
+Processed 40/48 images
+Test completed! Results saved to: ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_2/epsilon_200
+
+====================================================================================================
+BATCH TESTING SUMMARY
+====================================================================================================
+Total models tested: 77
+Successful: 77
+Failed: 0
+
+Successful tests:
+  ✓ Inf-Net_DP_Morph_batch64_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch64_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch64_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch64_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch64_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch64_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch64_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch64_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_64/run_2/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch48_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch48_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch48_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch48_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch48_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_3/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch48_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch48_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch48_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch48_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch48_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch48_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch48_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch48_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_48/run_2/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch24_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch24_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch24_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch24_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch24_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch24_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch24_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch24_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_3/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch24_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch24_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch24_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch24_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_8
+  ✓ Inf-Net_DP_Morph_batch24_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch24_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch24_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_200
+  ✓ Inf-Net_DP_Morph_batch24_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP_Morph/both/batch_24/run_2/epsilon_200
+  ✓ Inf-Net_DP_batch64_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_64/run_2/epsilon_8
+  ✓ Inf-Net_DP_batch64_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_64/run_2/epsilon_8
+  ✓ Inf-Net_DP_batch64_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_64/run_2/epsilon_8
+  ✓ Inf-Net_DP_batch64_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_64/run_2/epsilon_8
+  ✓ Inf-Net_DP_batch64_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_64/run_2/epsilon_200
+  ✓ Inf-Net_DP_batch64_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_64/run_2/epsilon_200
+  ✓ Inf-Net_DP_batch64_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_64/run_2/epsilon_200
+  ✓ Inf-Net_DP_batch64_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_64/run_2/epsilon_200
+  ✓ Inf-Net_DP_batch48_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_3/epsilon_8
+  ✓ Inf-Net_DP_batch48_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_3/epsilon_8
+  ✓ Inf-Net_DP_batch48_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_3/epsilon_8
+  ✓ Inf-Net_DP_batch48_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_3/epsilon_8
+  ✓ Inf-Net_DP_batch48_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_3/epsilon_200
+  ✓ Inf-Net_DP_batch48_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_3/epsilon_200
+  ✓ Inf-Net_DP_batch48_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_3/epsilon_200
+  ✓ Inf-Net_DP_batch48_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_3/epsilon_200
+  ✓ Inf-Net_DP_batch48_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_2/epsilon_8
+  ✓ Inf-Net_DP_batch48_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_2/epsilon_8
+  ✓ Inf-Net_DP_batch48_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_2/epsilon_8
+  ✓ Inf-Net_DP_batch48_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_2/epsilon_8
+  ✓ Inf-Net_DP_batch48_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_2/epsilon_200
+  ✓ Inf-Net_DP_batch48_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_2/epsilon_200
+  ✓ Inf-Net_DP_batch48_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_2/epsilon_200
+  ✓ Inf-Net_DP_batch48_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_48/run_2/epsilon_200
+  ✓ Inf-Net_DP_batch24_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_3/epsilon_8
+  ✓ Inf-Net_DP_batch24_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_3/epsilon_8
+  ✓ Inf-Net_DP_batch24_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_3/epsilon_8
+  ✓ Inf-Net_DP_batch24_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_3/epsilon_8
+  ✓ Inf-Net_DP_batch24_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_3/epsilon_200
+  ✓ Inf-Net_DP_batch24_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_3/epsilon_200
+  ✓ Inf-Net_DP_batch24_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_3/epsilon_200
+  ✓ Inf-Net_DP_batch24_run3 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_3/epsilon_200
+  ✓ Inf-Net_DP_batch24_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_2/epsilon_8
+  ✓ Inf-Net_DP_batch24_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_2/epsilon_8
+  ✓ Inf-Net_DP_batch24_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_2/epsilon_8
+  ✓ Inf-Net_DP_batch24_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_2/epsilon_8
+  ✓ Inf-Net_DP_batch24_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_2/epsilon_200
+  ✓ Inf-Net_DP_batch24_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_2/epsilon_200
+  ✓ Inf-Net_DP_batch24_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_2/epsilon_200
+  ✓ Inf-Net_DP_batch24_run2 -> ./Results/Lung_infection_segmentation/Inf-Net_DP/batch_24/run_2/epsilon_200
+
+Batch testing of all models completed!
+Timestamp: Sun Nov  9 01:34:16 CET 2025

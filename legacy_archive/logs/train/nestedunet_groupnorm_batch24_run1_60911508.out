@@ -1,0 +1,27 @@
+Model loading: NestedUNet (UNet++) with GroupNorm
+Converting BatchNorm to GroupNorm for fair comparison with DP models
+Model already GroupNorm-compatible
+Not loading weights from weights file (training from scratch)
+################################################## 
+Start Training (NestedUNet-GroupNorm)
+Input Channels: 3
+Output Classes: 1
+Deep Supervision: False
+Batch Size: 24
+Morphology: Disabled
+Architecture: GroupNorm (no DP)
+Save Path: ./Snapshots/save_weights/NestedUNet_GroupNorm/batch_24/run_1
+Run: 1
+Namespace(epoch=70, lr=0.0001, batchsize=24, trainsize=352, clip=0.5, decay_rate=0.1, decay_epoch=50, is_thop=False, gpu_device=0, num_workers=8, n_classes=1, in_channels=3, deep_supervision=False, train_path='./Dataset/TrainingSet/LungInfection-Train/Doctor-label', is_semi=False, is_pseudo=False, train_save=None, run=1, enable_morphology=False, morph_operation='close', morph_kernel_size=3, device='cuda')
+ ##################################################
+2025-11-08 23:13:56.253348 Epoch [001/070], Step [0003/0003], Loss: 1.5216
+2025-11-08 23:13:57.972306 Epoch [002/070], Step [0003/0003], Loss: 1.3185
+2025-11-08 23:13:59.752201 Epoch [003/070], Step [0003/0003], Loss: 1.2328
+2025-11-08 23:14:01.579675 Epoch [004/070], Step [0003/0003], Loss: 1.2383
+2025-11-08 23:14:03.305340 Epoch [005/070], Step [0003/0003], Loss: 1.1981
+2025-11-08 23:14:05.140191 Epoch [006/070], Step [0003/0003], Loss: 1.2031
+2025-11-08 23:14:06.953592 Epoch [007/070], Step [0003/0003], Loss: 1.1215
+2025-11-08 23:14:08.754295 Epoch [008/070], Step [0003/0003], Loss: 1.1432
+2025-11-08 23:14:10.517799 Epoch [009/070], Step [0003/0003], Loss: 1.1261
+[Saving Snapshot:] ./Snapshots/save_weights/NestedUNet_GroupNorm/batch_24/run_1/NestedUNet-10.pth
+Training completed at Sat Nov  8 23:14:12 CET 2025

@@ -79,51 +79,41 @@ def parse_result_path(relative_path):
         "model_type": parts[0],
         "batch_size": None,
         "run": None,
-        "noise_multiplier": None,
+        "epsilon": None,
+        "clipping_strategy": None,
         "morph_operation": None,
     }
 
     # Parse based on model type structure
-    if parts[0] == "Inf-Net":
-        # Structure: Inf-Net/batch_X/run_Y
+    # Non-DP models: model_type/batch_X/run_Y
+    if parts[0] in ["Inf-Net", "Inf-Net_GroupNorm", "UNet_GroupNorm", "NestedUNet_GroupNorm"]:
         if len(parts) >= 3:
             model_info["batch_size"] = parts[1].replace("batch_", "")
             model_info["run"] = parts[2].replace("run_", "")
 
-    elif parts[0] == "Inf-Net_GroupNorm":
-        # Structure: Inf-Net_GroupNorm/batch_X/run_Y
-        if len(parts) >= 3:
-            model_info["batch_size"] = parts[1].replace("batch_", "")
-            model_info["run"] = parts[2].replace("run_", "")
-
-    elif parts[0] == "Inf-Net_Morph":
-        # Structure: Inf-Net_Morph/morph_op/batch_X/run_Y
+    # Non-DP with Morph: model_type/morph_op/batch_X/run_Y
+    elif parts[0] in ["Inf-Net_Morph", "Inf-Net_Morph_GroupNorm", "UNet_Morph_GroupNorm", "NestedUNet_Morph_GroupNorm"]:
         if len(parts) >= 4:
             model_info["morph_operation"] = parts[1]
             model_info["batch_size"] = parts[2].replace("batch_", "")
             model_info["run"] = parts[3].replace("run_", "")
 
-    elif parts[0] == "Inf-Net_Morph_GroupNorm":
-        # Structure: Inf-Net_Morph_GroupNorm/morph_op/batch_X/run_Y
-        if len(parts) >= 4:
-            model_info["morph_operation"] = parts[1]
-            model_info["batch_size"] = parts[2].replace("batch_", "")
-            model_info["run"] = parts[3].replace("run_", "")
-
-    elif parts[0] == "Inf-Net_DP":
-        # Structure: Inf-Net_DP/batch_X/run_Y/noise_multiplier_Z
-        if len(parts) >= 4:
-            model_info["batch_size"] = parts[1].replace("batch_", "")
-            model_info["run"] = parts[2].replace("run_", "")
-            model_info["noise_multiplier"] = parts[3].replace("noise_multiplier_", "")
-
-    elif parts[0] == "Inf-Net_DP_Morph":
-        # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/noise_multiplier_Z
+    # DP models: model_type/batch_X/run_Y/epsilon_Z/clipping_strategy
+    elif parts[0] in ["Inf-Net_DP", "UNet_DP", "NestedUNet_DP"]:
         if len(parts) >= 5:
+            model_info["batch_size"] = parts[1].replace("batch_", "")
+            model_info["run"] = parts[2].replace("run_", "")
+            model_info["epsilon"] = parts[3].replace("epsilon_", "")
+            model_info["clipping_strategy"] = parts[4]
+
+    # DP with Morph: model_type/morph_op/batch_X/run_Y/epsilon_Z/clipping_strategy
+    elif parts[0] in ["Inf-Net_DP_Morph", "UNet_DP_Morph", "NestedUNet_DP_Morph"]:
+        if len(parts) >= 6:
             model_info["morph_operation"] = parts[1]
             model_info["batch_size"] = parts[2].replace("batch_", "")
             model_info["run"] = parts[3].replace("run_", "")
-            model_info["noise_multiplier"] = parts[4].replace("noise_multiplier_", "")
+            model_info["epsilon"] = parts[4].replace("epsilon_", "")
+            model_info["clipping_strategy"] = parts[5]
 
     return model_info
 
@@ -132,58 +122,43 @@ def build_evaluation_result_path(model_info):
     """Build the evaluation result save path based on model info (matching structure)"""
     base_path = "../EvaluateResults/Lung_infection_segmentation"
 
-    if model_info["model_type"] == "Inf-Net":
-        # Structure: Inf-Net/batch_X/run_Y/
+    # Non-DP models: model_type/batch_X/run_Y/
+    if model_info["model_type"] in ["Inf-Net", "Inf-Net_GroupNorm", "UNet_GroupNorm", "NestedUNet_GroupNorm"]:
         result_path = os.path.join(
             base_path,
-            "Inf-Net",
+            model_info["model_type"],
             f"batch_{model_info['batch_size']}",
             f"run_{model_info['run']}",
         )
-    elif model_info["model_type"] == "Inf-Net_GroupNorm":
-        # Structure: Inf-Net_GroupNorm/batch_X/run_Y/
+    # Non-DP with Morph: model_type/morph_op/batch_X/run_Y/
+    elif model_info["model_type"] in ["Inf-Net_Morph", "Inf-Net_Morph_GroupNorm", "UNet_Morph_GroupNorm", "NestedUNet_Morph_GroupNorm"]:
         result_path = os.path.join(
             base_path,
-            "Inf-Net_GroupNorm",
-            f"batch_{model_info['batch_size']}",
-            f"run_{model_info['run']}",
-        )
-    elif model_info["model_type"] == "Inf-Net_Morph":
-        # Structure: Inf-Net_Morph/morph_op/batch_X/run_Y/
-        result_path = os.path.join(
-            base_path,
-            "Inf-Net_Morph",
+            model_info["model_type"],
             model_info["morph_operation"],
             f"batch_{model_info['batch_size']}",
             f"run_{model_info['run']}",
         )
-    elif model_info["model_type"] == "Inf-Net_Morph_GroupNorm":
-        # Structure: Inf-Net_Morph_GroupNorm/morph_op/batch_X/run_Y/
+    # DP models: model_type/batch_X/run_Y/epsilon_Z/clipping_strategy/
+    elif model_info["model_type"] in ["Inf-Net_DP", "UNet_DP", "NestedUNet_DP"]:
         result_path = os.path.join(
             base_path,
-            "Inf-Net_Morph_GroupNorm",
+            model_info["model_type"],
+            f"batch_{model_info['batch_size']}",
+            f"run_{model_info['run']}",
+            f"epsilon_{model_info['epsilon']}",
+            model_info["clipping_strategy"],
+        )
+    # DP with Morph: model_type/morph_op/batch_X/run_Y/epsilon_Z/clipping_strategy/
+    elif model_info["model_type"] in ["Inf-Net_DP_Morph", "UNet_DP_Morph", "NestedUNet_DP_Morph"]:
+        result_path = os.path.join(
+            base_path,
+            model_info["model_type"],
             model_info["morph_operation"],
             f"batch_{model_info['batch_size']}",
             f"run_{model_info['run']}",
-        )
-    elif model_info["model_type"] == "Inf-Net_DP":
-        # Structure: Inf-Net_DP/batch_X/run_Y/noise_multiplier_Z/
-        result_path = os.path.join(
-            base_path,
-            "Inf-Net_DP",
-            f"batch_{model_info['batch_size']}",
-            f"run_{model_info['run']}",
-            f"noise_multiplier_{model_info['noise_multiplier']}",
-        )
-    elif model_info["model_type"] == "Inf-Net_DP_Morph":
-        # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/noise_multiplier_Z/
-        result_path = os.path.join(
-            base_path,
-            "Inf-Net_DP_Morph",
-            model_info["morph_operation"],
-            f"batch_{model_info['batch_size']}",
-            f"run_{model_info['run']}",
-            f"noise_multiplier_{model_info['noise_multiplier']}",
+            f"epsilon_{model_info['epsilon']}",
+            model_info["clipping_strategy"],
         )
     else:
         # Fallback for unknown model types
@@ -203,8 +178,10 @@ def evaluate_single_model(result_dir_info, gt_path, opt):
         print(f"Batch Size: {model_info['batch_size']}")
     if model_info["run"]:
         print(f"Run: {model_info['run']}")
-    if model_info["noise_multiplier"]:
-        print(f"Noise Multiplier: {model_info['noise_multiplier']}")
+    if model_info["epsilon"]:
+        print(f"Epsilon: {model_info['epsilon']}")
+    if model_info["clipping_strategy"]:
+        print(f"Clipping Strategy: {model_info['clipping_strategy']}")
     if model_info["morph_operation"]:
         print(f"Morph Operation: {model_info['morph_operation']}")
     print(f"Result Path: {result_map_path}")
@@ -336,8 +313,10 @@ def evaluate_single_model(result_dir_info, gt_path, opt):
         model_name += f"_batch{model_info['batch_size']}"
     if model_info["run"]:
         model_name += f"_run{model_info['run']}"
-    if model_info["noise_multiplier"]:
-        model_name += f"_noise{model_info['noise_multiplier']}"
+    if model_info["epsilon"]:
+        model_name += f"_eps{model_info['epsilon']}"
+    if model_info["clipping_strategy"]:
+        model_name += f"_{model_info['clipping_strategy']}"
     if model_info["morph_operation"]:
         model_name += f"_{model_info['morph_operation']}"
 
@@ -360,7 +339,7 @@ def evaluate_single_model(result_dir_info, gt_path, opt):
         meanSpe=mean_spe,
     )
 
-    # Save summary results
+    # Save summary results (individual model summary)
     summary_file = os.path.join(eval_result_path, f"{model_name}_summary.txt")
     with open(summary_file, "w") as f:
         f.write(f"Model: {model_info['model_type']}\n")
@@ -368,8 +347,10 @@ def evaluate_single_model(result_dir_info, gt_path, opt):
             f.write(f"Batch Size: {model_info['batch_size']}\n")
         if model_info["run"]:
             f.write(f"Run: {model_info['run']}\n")
-        if model_info["noise_multiplier"]:
-            f.write(f"Noise Multiplier: {model_info['noise_multiplier']}\n")
+        if model_info["epsilon"]:
+            f.write(f"Epsilon: {model_info['epsilon']}\n")
+        if model_info["clipping_strategy"]:
+            f.write(f"Clipping Strategy: {model_info['clipping_strategy']}\n")
         if model_info["morph_operation"]:
             f.write(f"Morph Operation: {model_info['morph_operation']}\n")
         f.write(f"Number of Images: {img_num}\n")
@@ -530,18 +511,80 @@ def main():
                 f"{i:<4} {model_name:<30} {result['mean_dic']:<10.4f} {result['sm']:<10.4f} {result['mae']:<8.4f} {result['num_images']:<7}"
             )
 
-        # Save overall summary
+        # Save/update overall summary (merge with existing to preserve previous evaluations)
         summary_file = (
             "../EvaluateResults/Lung_infection_segmentation/evaluation_summary.txt"
         )
         os.makedirs(os.path.dirname(summary_file), exist_ok=True)
 
+        # Read existing summary if it exists to preserve previous entries
+        existing_results = {}
+        if os.path.exists(summary_file):
+            with open(summary_file, "r") as f:
+                lines = f.readlines()
+                # Parse existing entries (skip header lines)
+                for line in lines:
+                    line = line.strip()
+                    if not line or line.startswith("Inf-Net") or line.startswith("Last Updated") or line.startswith("Total") or line.startswith("Ground") or line.startswith("Results") or line.startswith("Rank") or line.startswith("-"):
+                        continue
+                    # Look for result lines (format: "Rank Model MeanDice MaxDice S-measure MAE Images")
+                    parts = line.split()
+                    if len(parts) >= 7 and parts[0].isdigit():
+                        try:
+                            # Format: rank model_name mean_dice max_dice s_measure mae images
+                            # Model name might have underscores, so we need to be careful
+                            # The model name is everything between rank and the numeric fields
+                            # Find where numeric fields start (after model name)
+                            numeric_start = None
+                            for i in range(1, len(parts)):
+                                try:
+                                    float(parts[i])
+                                    if numeric_start is None:
+                                        numeric_start = i
+                                except ValueError:
+                                    pass
+                            
+                            if numeric_start and numeric_start >= 2:
+                                model_name = " ".join(parts[1:numeric_start])
+                                if len(parts) >= numeric_start + 5:
+                                    existing_results[model_name] = {
+                                        'mean_dic': float(parts[numeric_start]),
+                                        'max_dic': float(parts[numeric_start + 1]),
+                                        'sm': float(parts[numeric_start + 2]),
+                                        'mae': float(parts[numeric_start + 3]),
+                                        'num_images': int(parts[numeric_start + 4]),
+                                    }
+                        except (ValueError, IndexError) as e:
+                            # Skip malformed lines
+                            continue
+
+        # Update with new results (new results override old ones for same model)
+        for result in results:
+            existing_results[result['model_name']] = {
+                'mean_dic': result['mean_dic'],
+                'max_dic': result['max_dic'],
+                'sm': result['sm'],
+                'mae': result['mae'],
+                'num_images': result['num_images'],
+            }
+
+        # Convert to list and sort by mean dice
+        all_results_list = [
+            {
+                'model_name': name,
+                **metrics
+            }
+            for name, metrics in existing_results.items()
+        ]
+        all_results_list.sort(key=lambda x: x['mean_dic'], reverse=True)
+
+        # Write updated summary
         with open(summary_file, "w") as f:
             f.write(f"Inf-Net Evaluation Summary\n")
             f.write(
-                f"Evaluation Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+                f"Last Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
             )
-            f.write(f"Total Models Evaluated: {len(results)}\n")
+            f.write(f"Total Models Evaluated: {len(all_results_list)}\n")
             f.write(f"Ground Truth Path: {opt.gt_path}\n")
             f.write(f"\nResults (sorted by Mean Dice):\n")
             f.write(
@@ -549,12 +592,13 @@ def main():
             )
             f.write("-" * 100 + "\n")
 
-            for i, result in enumerate(results, 1):
+            for i, result in enumerate(all_results_list, 1):
                 f.write(
                     f"{i:<4} {result['model_name']:<40} {result['mean_dic']:<10.4f} {result['max_dic']:<10.4f} {result['sm']:<10.4f} {result['mae']:<8.4f} {result['num_images']:<7}\n"
                 )
 
-        print(f"\nOverall summary saved to: {summary_file}")
+        print(f"\nOverall summary updated at: {summary_file}")
+        print(f"  Total entries: {len(all_results_list)} (including {len(existing_results) - len(results)} previous entries)")
 
     elapsed_time = time.time() - start_time
     print(f"\nTotal evaluation time: {elapsed_time:.2f} seconds")

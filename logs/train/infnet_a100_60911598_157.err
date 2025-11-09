@@ -1,0 +1,36 @@
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/utils/data/dataloader.py:627: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/privacy_engine.py:97: UserWarning: Secure RNG turned off. This is perfectly fine for experimentation as it allows for much faster training performance, but remember to turn it on and retrain one last time before production with ``secure_mode`` turned on.
+  warnings.warn(
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/rdp.py:332: UserWarning: Optimal order is the largest alpha. Please consider expanding the range of alphas to get a tighter privacy bound.
+  warnings.warn(
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:67: RuntimeWarning: divide by zero encountered in log
+  z = np.log(np.where(t > np.log(1 - q), (np.exp(t) + q - 1) / q, 1))
+/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/accountants/analysis/prv/prvs.py:70: RuntimeWarning: divide by zero encountered in log
+  t > np.log(1 - q),
+Traceback (most recent call last):
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/MyTrain_LungInf_Unified.py", line 705, in <module>
+    train_func(train_loader, model, optimizer, epoch, save_path, opt, total_step, privacy_engine)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/MyTrain_LungInf_Unified.py", line 219, in train_unet_nestedunet
+    pred = model(images)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/opacus/grad_sample/grad_sample_module.py", line 149, in forward
+    return self._module(*args, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/Code/model_lung_infection/InfNet_NestedUNet_GroupNorm.py", line 168, in forward
+    x0_4 = self.conv0_4(torch.cat([x0_0, x0_1, x0_2, x0_3, self.up(x1_3)], 1))
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/nn/modules/upsampling.py", line 175, in forward
+    return F.interpolate(
+  File "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/.venv/lib/python3.10/site-packages/torch/nn/functional.py", line 4768, in interpolate
+    return torch._C._nn.upsample_bilinear2d(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.48 GiB. GPU 0 has a total capacity of 39.49 GiB of which 688.69 MiB is free. Including non-PyTorch memory, this process has 38.70 GiB memory in use. Of the allocated memory 36.89 GiB is allocated by PyTorch, and 1.32 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
