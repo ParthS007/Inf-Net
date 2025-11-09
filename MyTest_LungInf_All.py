@@ -149,24 +149,24 @@ def build_model_path(opt):
             f"Inf-Net-{opt.epoch}.pth",
         )
     elif opt.model_type == "Inf-Net_DP":
-        # Structure: Inf-Net_DP/batch_X/run_Y/noise_multiplier_Z/Inf-Net-E.pth
+        # Structure: Inf-Net_DP/batch_X/run_Y/epsilon_Z/Inf-Net-E.pth
         model_path = os.path.join(
             base_path,
             "Inf-Net_DP",
             f"batch_{opt.batchsize}",
             f"run_{opt.run}",
-            f"noise_multiplier_{opt.noise_multiplier}",
+            f"epsilon_{int(opt.epsilon)}",
             f"Inf-Net-{opt.epoch}.pth",
         )
     elif opt.model_type == "Inf-Net_DP_Morph":
-        # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/noise_multiplier_Z/Inf-Net-E.pth
+        # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/Inf-Net-E.pth
         model_path = os.path.join(
             base_path,
             "Inf-Net_DP_Morph",
             opt.morph_operation,
             f"batch_{opt.batchsize}",
             f"run_{opt.run}",
-            f"noise_multiplier_{opt.noise_multiplier}",
+            f"epsilon_{int(opt.epsilon)}",
             f"Inf-Net-{opt.epoch}.pth",
         )
     else:
@@ -209,23 +209,23 @@ def build_result_path(opt):
             f"run_{opt.run}",
         )
     elif opt.model_type == "Inf-Net_DP":
-        # Structure: Inf-Net_DP/batch_X/run_Y/noise_multiplier_Z/
+        # Structure: Inf-Net_DP/batch_X/run_Y/epsilon_Z/
         result_path = os.path.join(
             base_path,
             "Inf-Net_DP",
             f"batch_{opt.batchsize}",
             f"run_{opt.run}",
-            f"noise_multiplier_{opt.noise_multiplier}",
+            f"epsilon_{int(opt.epsilon)}",
         )
     elif opt.model_type == "Inf-Net_DP_Morph":
-        # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/noise_multiplier_Z/
+        # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/
         result_path = os.path.join(
             base_path,
             "Inf-Net_DP_Morph",
             opt.morph_operation,
             f"batch_{opt.batchsize}",
             f"run_{opt.run}",
-            f"noise_multiplier_{opt.noise_multiplier}",
+            f"epsilon_{int(opt.epsilon)}",
         )
     else:
         # Custom path
@@ -267,8 +267,8 @@ def list_available_models():
 
             # Add additional info for DP models
             if "DP" in parts[0] and len(parts) >= 4:
-                model_info["noise_multiplier"] = parts[3].replace(
-                    "noise_multiplier_", ""
+                model_info["epsilon"] = parts[3].replace(
+                    "epsilon_", ""
                 )
 
             # Add morphology info for DP_Morph models
@@ -276,8 +276,8 @@ def list_available_models():
                 model_info["morph_operation"] = parts[1]
                 model_info["batch_size"] = parts[2].replace("batch_", "")
                 model_info["run"] = parts[3].replace("run_", "")
-                model_info["noise_multiplier"] = parts[4].replace(
-                    "noise_multiplier_", ""
+                model_info["epsilon"] = parts[4].replace(
+                    "epsilon_", ""
                 )
 
             models.append(model_info)
@@ -321,24 +321,24 @@ def find_final_epoch_models():
                 model_info["run"] = parts[3].replace("run_", "")
 
         elif parts[0] == "Inf-Net_DP":
-            # Structure: Inf-Net_DP/batch_X/run_Y/noise_multiplier_Z/Inf-Net-70.pth
+            # Structure: Inf-Net_DP/batch_X/run_Y/epsilon_Z/Inf-Net-70.pth
             if len(parts) >= 5:
                 model_info["type"] = parts[0]
                 model_info["batch_size"] = parts[1].replace("batch_", "")
                 model_info["run"] = parts[2].replace("run_", "")
-                model_info["noise_multiplier"] = parts[3].replace(
-                    "noise_multiplier_", ""
+                model_info["epsilon"] = parts[3].replace(
+                    "epsilon_", ""
                 )
 
         elif parts[0] == "Inf-Net_DP_Morph":
-            # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/noise_multiplier_Z/Inf-Net-70.pth
+            # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/Inf-Net-70.pth
             if len(parts) >= 6:
                 model_info["type"] = parts[0]
                 model_info["morph_operation"] = parts[1]
                 model_info["batch_size"] = parts[2].replace("batch_", "")
                 model_info["run"] = parts[3].replace("run_", "")
-                model_info["noise_multiplier"] = parts[4].replace(
-                    "noise_multiplier_", ""
+                model_info["epsilon"] = parts[4].replace(
+                    "epsilon_", ""
                 )
 
         # Only add if we successfully parsed all required fields
@@ -354,8 +354,8 @@ def run_single_test(model_info, opt):
     print(
         f"Testing: {model_info['type']} | Batch: {model_info['batch_size']} | Run: {model_info['run']}"
     )
-    if "noise_multiplier" in model_info:
-        print(f"Noise Multiplier: {model_info['noise_multiplier']}")
+    if "epsilon" in model_info:
+        print(f"Epsilon: {model_info['epsilon']}")
     if "morph_operation" in model_info:
         print(f"Morph Operation: {model_info['morph_operation']}")
     print(f"Model Path: {model_info['path']}")
@@ -387,23 +387,23 @@ def run_single_test(model_info, opt):
             f"run_{model_info['run']}",
         )
     elif model_info["type"] == "Inf-Net_DP":
-        # Structure: Inf-Net_DP/batch_X/run_Y/noise_multiplier_Z/
+        # Structure: Inf-Net_DP/batch_X/run_Y/epsilon_Z/
         result_path = os.path.join(
             base_path,
             "Inf-Net_DP",
             f"batch_{model_info['batch_size']}",
             f"run_{model_info['run']}",
-            f"noise_multiplier_{model_info['noise_multiplier']}",
+            f"epsilon_{int(model_info['epsilon'])}",
         )
     elif model_info["type"] == "Inf-Net_DP_Morph":
-        # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/noise_multiplier_Z/
+        # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/
         result_path = os.path.join(
             base_path,
             "Inf-Net_DP_Morph",
             model_info["morph_operation"],
             f"batch_{model_info['batch_size']}",
             f"run_{model_info['run']}",
-            f"noise_multiplier_{model_info['noise_multiplier']}",
+            f"epsilon_{int(model_info['epsilon'])}",
         )
 
     # Create result directory
@@ -470,10 +470,10 @@ def inference():
 
     # DP-specific parameters
     parser.add_argument(
-        "--noise_multiplier",
+        "--epsilon",
         type=float,
-        default=1.1,
-        help="Noise multiplier for DP models",
+        default=8.0,
+        help="Epsilon (privacy budget) for DP models. Common values: 8, 200",
     )
 
     # Morphology-specific parameters
@@ -537,8 +537,8 @@ def inference():
             print(
                 f"{i:3d}. {model['type']} | Batch: {model['batch_size']} | Run: {model['run']}"
             )
-            if "noise_multiplier" in model:
-                print(f"     Noise Multiplier: {model['noise_multiplier']}")
+            if "epsilon" in model:
+                print(f"     Epsilon: {model['epsilon']}")
             if "morph_operation" in model:
                 print(f"     Morph Operation: {model['morph_operation']}")
 
@@ -603,8 +603,8 @@ def inference():
             print(
                 f"{i:3d}. {model['type']} | Batch: {model['batch_size']} | Run: {model['run']} | Epoch: {model['epoch']}"
             )
-            if "noise_multiplier" in model:
-                print(f"     Noise Multiplier: {model['noise_multiplier']}")
+            if "epsilon" in model:
+                print(f"     Epsilon: {model['epsilon']}")
             if "morph_operation" in model:
                 print(f"     Morph Operation: {model['morph_operation']}")
             print(f"     Path: {model['path']}")
@@ -635,7 +635,7 @@ def inference():
     print(f"Run: {opt.run}")
     print(f"Epoch: {opt.epoch}")
     if opt.model_type in ["Inf-Net_DP", "Inf-Net_DP_Morph"]:
-        print(f"Noise Multiplier: {opt.noise_multiplier}")
+        print(f"Epsilon: {opt.epsilon}")
     if opt.model_type in ["Inf-Net_Morph", "Inf-Net_DP_Morph"]:
         print(f"Morph Operation: {opt.morph_operation}")
         print(f"Test Morphology: {opt.enable_morphology_test}")

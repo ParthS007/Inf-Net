@@ -97,7 +97,7 @@ def generate_training_configs():
 
     batch_sizes = [24, 48, 64, 72]
     morph_operations = ["open", "close", "both", "dilation", "erosion"]
-    noise_multiplier = [0.3, 0.5, 0.7]
+    epsilon_values = [8, 200]  # Changed from noise_multiplier to epsilon
     epoch = 70
     max_grad_norm = 1.2
 
@@ -173,10 +173,10 @@ def generate_training_configs():
 
     # Inf-Net with DP (no morphology)
     for batch_size in batch_sizes:
-        for nm in noise_multiplier:
+        for eps in epsilon_values:
             for run in range(1, 4):  # 3 runs per configuration
                 config = {
-                    "name": f"infnet_dp_nm{nm}_batch{batch_size}_run{run}",
+                    "name": f"infnet_dp_eps{eps}_batch{batch_size}_run{run}",
                     "model_type": "Inf-Net_DP",
                     "batch_size": batch_size,
                     "run": run,
@@ -184,7 +184,7 @@ def generate_training_configs():
                     "enable_morphology": False,
                     "enable_privacy": True,
                     "enable_groupnorm": False,
-                    "noise_multiplier": nm,
+                    "epsilon": eps,
                     "max_grad_norm": max_grad_norm,
                     "morph_operation": None,
                     "script": "MyTrain_LungInfDP_Morph.py",
@@ -193,11 +193,11 @@ def generate_training_configs():
 
     # Inf-Net with DP and Morphology
     for batch_size in batch_sizes:
-        for nm in noise_multiplier:
+        for eps in epsilon_values:
             for morph_op in morph_operations:
                 for run in range(1, 4):  # 3 runs per configuration
                     config = {
-                        "name": f"infnet_dpmorph_{morph_op}_nm{nm}_batch{batch_size}_run{run}",
+                        "name": f"infnet_dpmorph_{morph_op}_eps{eps}_batch{batch_size}_run{run}",
                         "model_type": "Inf-Net_DP_Morph",
                         "batch_size": batch_size,
                         "morph_operation": morph_op,
@@ -206,7 +206,7 @@ def generate_training_configs():
                         "enable_morphology": True,
                         "enable_privacy": True,
                         "enable_groupnorm": False,
-                        "noise_multiplier": nm,
+                        "epsilon": eps,
                         "max_grad_norm": max_grad_norm,
                         "script": "MyTrain_LungInfDP_Morph.py",
                     }
@@ -225,7 +225,7 @@ def build_python_args(config):
 
     if config["enable_privacy"]:
         args.append("--enable_privacy")
-        args.append(f"--noise_multiplier {config['noise_multiplier']}")
+        args.append(f"--epsilon {config['epsilon']}")
         args.append(f"--max_grad_norm {config['max_grad_norm']}")
 
     if config["enable_morphology"]:
@@ -373,7 +373,7 @@ def main():
             else ""
         )
         privacy_info = (
-            f" | NM={config['noise_multiplier']}" if config["enable_privacy"] else ""
+            f" | ε={config['epsilon']}" if config["enable_privacy"] else ""
         )
 
         print(
