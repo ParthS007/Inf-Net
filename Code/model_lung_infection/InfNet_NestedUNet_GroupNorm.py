@@ -14,7 +14,7 @@ import torch.nn as nn
 class VGGBlock(nn.Module):
     """VGG Block with GroupNorm for DP compatibility"""
 
-    def __init__(self, in_channels, middle_channels, out_channels, num_groups=32):
+    def __init__(self, in_channels, middle_channels, out_channels, num_groups=8):
         super().__init__()
         self.relu = nn.ReLU(inplace=False)
         self.conv1 = nn.Conv2d(in_channels, middle_channels, 3, padding=1)
@@ -47,7 +47,7 @@ class NestedUNet_GroupNorm(nn.Module):
         input_channels=3,
         num_classes=1,
         deep_supervision=False,
-        num_groups=32,
+        num_groups=8,
         **kwargs
     ):
         super().__init__()

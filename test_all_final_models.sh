@@ -6,7 +6,7 @@
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=4
 #SBATCH --gres=gpu:1
-#SBATCH --partition=a100-80g
+#SBATCH --partition=rtx4090
 #SBATCH --qos=gpu6hours
 
 # Create logs directory if it doesn't exist
