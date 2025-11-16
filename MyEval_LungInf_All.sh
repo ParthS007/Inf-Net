@@ -1,13 +1,13 @@
 #!/bin/bash
 #SBATCH --job-name=infnet_eval_all
-#SBATCH --output=logs/eval/eval_all_%j.out
-#SBATCH --error=logs/eval/eval_all_%j.err
-#SBATCH --time=03:00:00
+#SBATCH --output=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/logs/eval/eval_all_%j.out
+#SBATCH --error=/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/logs/eval/eval_all_%j.err
+#SBATCH --time=00:30:00
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=4
 #SBATCH --gres=gpu:1
-#SBATCH --partition=a100-80g
-#SBATCH --qos=gpu6hours
+#SBATCH --partition=a100
+#SBATCH --qos=gpu30min
 
 # Create logs directory if it doesn't exist
 mkdir -p logs/eval
