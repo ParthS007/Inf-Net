@@ -72,7 +72,7 @@ def find_result_directories():
 
 
 def parse_result_path(relative_path):
-    """Parse the relative path to extract model information"""
+    """Parse the relative path to extract model information (with new structure including kernel_size and max_grad_norm)"""
     parts = relative_path.split(os.sep)
 
     model_info = {
@@ -80,8 +80,10 @@ def parse_result_path(relative_path):
         "batch_size": None,
         "run": None,
         "epsilon": None,
+        "max_grad_norm": None,
         "clipping_strategy": None,
         "morph_operation": None,
+        "kernel_size": None,
     }
 
     # Parse based on model type structure
@@ -91,35 +93,39 @@ def parse_result_path(relative_path):
             model_info["batch_size"] = parts[1].replace("batch_", "")
             model_info["run"] = parts[2].replace("run_", "")
 
-    # Non-DP with Morph: model_type/morph_op/batch_X/run_Y
+    # Non-DP with Morph: model_type/morph_op/kernel_{kernel_size}/batch_X/run_Y
     elif parts[0] in ["Inf-Net_Morph", "Inf-Net_Morph_GroupNorm", "UNet_Morph_GroupNorm", "NestedUNet_Morph_GroupNorm"]:
-        if len(parts) >= 4:
-            model_info["morph_operation"] = parts[1]
-            model_info["batch_size"] = parts[2].replace("batch_", "")
-            model_info["run"] = parts[3].replace("run_", "")
-
-    # DP models: model_type/batch_X/run_Y/epsilon_Z/clipping_strategy
-    elif parts[0] in ["Inf-Net_DP", "UNet_DP", "NestedUNet_DP"]:
         if len(parts) >= 5:
+            model_info["morph_operation"] = parts[1]
+            model_info["kernel_size"] = parts[2].replace("kernel_", "")
+            model_info["batch_size"] = parts[3].replace("batch_", "")
+            model_info["run"] = parts[4].replace("run_", "")
+
+    # DP models: model_type/batch_X/run_Y/epsilon_Z/maxgrad_{max_grad_norm}/clipping_strategy
+    elif parts[0] in ["Inf-Net_DP", "UNet_DP", "NestedUNet_DP"]:
+        if len(parts) >= 6:
             model_info["batch_size"] = parts[1].replace("batch_", "")
             model_info["run"] = parts[2].replace("run_", "")
             model_info["epsilon"] = parts[3].replace("epsilon_", "")
-            model_info["clipping_strategy"] = parts[4]
-
-    # DP with Morph: model_type/morph_op/batch_X/run_Y/epsilon_Z/clipping_strategy
-    elif parts[0] in ["Inf-Net_DP_Morph", "UNet_DP_Morph", "NestedUNet_DP_Morph"]:
-        if len(parts) >= 6:
-            model_info["morph_operation"] = parts[1]
-            model_info["batch_size"] = parts[2].replace("batch_", "")
-            model_info["run"] = parts[3].replace("run_", "")
-            model_info["epsilon"] = parts[4].replace("epsilon_", "")
+            model_info["max_grad_norm"] = parts[4].replace("maxgrad_", "")
             model_info["clipping_strategy"] = parts[5]
+
+    # DP with Morph: model_type/morph_op/kernel_{kernel_size}/batch_X/run_Y/epsilon_Z/maxgrad_{max_grad_norm}/clipping_strategy
+    elif parts[0] in ["Inf-Net_DP_Morph", "UNet_DP_Morph", "NestedUNet_DP_Morph"]:
+        if len(parts) >= 8:
+            model_info["morph_operation"] = parts[1]
+            model_info["kernel_size"] = parts[2].replace("kernel_", "")
+            model_info["batch_size"] = parts[3].replace("batch_", "")
+            model_info["run"] = parts[4].replace("run_", "")
+            model_info["epsilon"] = parts[5].replace("epsilon_", "")
+            model_info["max_grad_norm"] = parts[6].replace("maxgrad_", "")
+            model_info["clipping_strategy"] = parts[7]
 
     return model_info
 
 
 def build_evaluation_result_path(model_info):
-    """Build the evaluation result save path based on model info (matching structure)"""
+    """Build the evaluation result save path based on model info (matching new structure with kernel_size and max_grad_norm)"""
     base_path = "../EvaluateResults/Lung_infection_segmentation"
 
     # Non-DP models: model_type/batch_X/run_Y/
@@ -130,16 +136,17 @@ def build_evaluation_result_path(model_info):
             f"batch_{model_info['batch_size']}",
             f"run_{model_info['run']}",
         )
-    # Non-DP with Morph: model_type/morph_op/batch_X/run_Y/
+    # Non-DP with Morph: model_type/morph_op/kernel_{kernel_size}/batch_X/run_Y/
     elif model_info["model_type"] in ["Inf-Net_Morph", "Inf-Net_Morph_GroupNorm", "UNet_Morph_GroupNorm", "NestedUNet_Morph_GroupNorm"]:
         result_path = os.path.join(
             base_path,
             model_info["model_type"],
             model_info["morph_operation"],
+            f"kernel_{model_info['kernel_size']}",
             f"batch_{model_info['batch_size']}",
             f"run_{model_info['run']}",
         )
-    # DP models: model_type/batch_X/run_Y/epsilon_Z/clipping_strategy/
+    # DP models: model_type/batch_X/run_Y/epsilon_Z/maxgrad_{max_grad_norm}/clipping_strategy/
     elif model_info["model_type"] in ["Inf-Net_DP", "UNet_DP", "NestedUNet_DP"]:
         result_path = os.path.join(
             base_path,
@@ -147,17 +154,20 @@ def build_evaluation_result_path(model_info):
             f"batch_{model_info['batch_size']}",
             f"run_{model_info['run']}",
             f"epsilon_{model_info['epsilon']}",
+            f"maxgrad_{model_info['max_grad_norm']}",
             model_info["clipping_strategy"],
         )
-    # DP with Morph: model_type/morph_op/batch_X/run_Y/epsilon_Z/clipping_strategy/
+    # DP with Morph: model_type/morph_op/kernel_{kernel_size}/batch_X/run_Y/epsilon_Z/maxgrad_{max_grad_norm}/clipping_strategy/
     elif model_info["model_type"] in ["Inf-Net_DP_Morph", "UNet_DP_Morph", "NestedUNet_DP_Morph"]:
         result_path = os.path.join(
             base_path,
             model_info["model_type"],
             model_info["morph_operation"],
+            f"kernel_{model_info['kernel_size']}",
             f"batch_{model_info['batch_size']}",
             f"run_{model_info['run']}",
             f"epsilon_{model_info['epsilon']}",
+            f"maxgrad_{model_info['max_grad_norm']}",
             model_info["clipping_strategy"],
         )
     else:
@@ -180,10 +190,14 @@ def evaluate_single_model(result_dir_info, gt_path, opt):
         print(f"Run: {model_info['run']}")
     if model_info["epsilon"]:
         print(f"Epsilon: {model_info['epsilon']}")
+    if model_info["max_grad_norm"]:
+        print(f"Max Grad Norm: {model_info['max_grad_norm']}")
     if model_info["clipping_strategy"]:
         print(f"Clipping Strategy: {model_info['clipping_strategy']}")
     if model_info["morph_operation"]:
         print(f"Morph Operation: {model_info['morph_operation']}")
+    if model_info["kernel_size"]:
+        print(f"Kernel Size: {model_info['kernel_size']}")
     print(f"Result Path: {result_map_path}")
     print(f"Number of Images: {result_dir_info['num_images']}")
     print(f"{'='*80}")
@@ -315,10 +329,14 @@ def evaluate_single_model(result_dir_info, gt_path, opt):
         model_name += f"_run{model_info['run']}"
     if model_info["epsilon"]:
         model_name += f"_eps{model_info['epsilon']}"
+    if model_info["max_grad_norm"]:
+        model_name += f"_mg{model_info['max_grad_norm']}"
     if model_info["clipping_strategy"]:
         model_name += f"_{model_info['clipping_strategy']}"
     if model_info["morph_operation"]:
         model_name += f"_{model_info['morph_operation']}"
+    if model_info["kernel_size"]:
+        model_name += f"_k{model_info['kernel_size']}"
 
     # Save detailed results
     np.savez(
@@ -349,10 +367,14 @@ def evaluate_single_model(result_dir_info, gt_path, opt):
             f.write(f"Run: {model_info['run']}\n")
         if model_info["epsilon"]:
             f.write(f"Epsilon: {model_info['epsilon']}\n")
+        if model_info["max_grad_norm"]:
+            f.write(f"Max Grad Norm: {model_info['max_grad_norm']}\n")
         if model_info["clipping_strategy"]:
             f.write(f"Clipping Strategy: {model_info['clipping_strategy']}\n")
         if model_info["morph_operation"]:
             f.write(f"Morph Operation: {model_info['morph_operation']}\n")
+        if model_info["kernel_size"]:
+            f.write(f"Kernel Size: {model_info['kernel_size']}\n")
         f.write(f"Number of Images: {img_num}\n")
         f.write(f"Evaluation Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
         f.write(f"\nResults:\n")
@@ -418,6 +440,12 @@ def main():
         default=None,
         help='Filter by run number (e.g., "1", "2", "3")',
     )
+    parser.add_argument(
+        "--result_dir",
+        type=str,
+        default=None,
+        help="Evaluate a single result directory (relative to base Results path)",
+    )
 
     opt = parser.parse_args()
 
@@ -449,8 +477,23 @@ def main():
 
     print(f"Found {len(result_dirs)} result directories")
 
-    # Apply filters
-    filtered_dirs = result_dirs
+    # If --result_dir is specified, evaluate only that directory
+    if opt.result_dir:
+        base_path = "../Results/Lung_infection_segmentation"
+        target_path = os.path.join(base_path, opt.result_dir)
+        if not os.path.exists(target_path):
+            print(f"Error: Result directory not found: {target_path}")
+            return
+        
+        # Find matching directory
+        filtered_dirs = [d for d in result_dirs if d["relative_path"] == opt.result_dir]
+        if not filtered_dirs:
+            print(f"Error: Result directory not found in scan: {opt.result_dir}")
+            return
+        print(f"Evaluating single directory: {opt.result_dir}")
+    else:
+        # Apply filters
+        filtered_dirs = result_dirs
     if opt.model_filter:
         filtered_dirs = [
             d for d in filtered_dirs if opt.model_filter in d["relative_path"]

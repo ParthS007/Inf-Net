@@ -55,15 +55,43 @@ def load_model_for_inference(model_path, model_type, device="cuda"):
     Args:
         model_path: Path to checkpoint file
         model_type: One of 'Inf-Net', 'Inf-Net_Morph', 'Inf-Net_DP', 'Inf-Net_DP_Morph',
-                    'Inf-Net_GroupNorm', 'Inf-Net_Morph_GroupNorm'
+                    'Inf-Net_GroupNorm', 'Inf-Net_Morph_GroupNorm',
+                    'UNet_GroupNorm', 'UNet_Morph_GroupNorm', 'UNet_DP', 'UNet_DP_Morph',
+                    'NestedUNet_GroupNorm', 'NestedUNet_Morph_GroupNorm', 'NestedUNet_DP', 'NestedUNet_DP_Morph'
         device: Device to load model on
 
     Returns:
         model: Loaded model with correct architecture
     """
-    # Create base model
-    model = Network()
+    # Create base model based on type
+    if "UNet" in model_type and "Nested" not in model_type:
+        # UNet model
+        from Code.model_lung_infection.InfNet_UNet_GroupNorm import UNet_GroupNorm
 
+        model = UNet_GroupNorm(
+            in_channels=3,
+            out_channels=1,
+            init_features=32,
+        )
+        print("Loading UNet architecture")
+    elif "NestedUNet" in model_type:
+        # NestedUNet model
+        from Code.model_lung_infection.InfNet_NestedUNet_GroupNorm import (
+            NestedUNet_GroupNorm,
+        )
+
+        model = NestedUNet_GroupNorm(
+            input_channels=3,
+            num_classes=1,
+            deep_supervision=False,
+        )
+        print("Loading NestedUNet architecture")
+    else:
+        # Inf-Net model (default)
+        model = Network()
+        print("Loading Inf-Net architecture")
+
+    # All models in this codebase use GroupNorm (for DP compatibility or fair comparison)
     # If model was trained with DP or GroupNorm, convert architecture to GroupNorm
     is_groupnorm_model = "DP" in model_type or "GroupNorm" in model_type
 
@@ -110,6 +138,26 @@ def build_model_path(opt):
     """Build the model path based on configuration (matching snapshot structure)"""
     base_path = "./Snapshots/save_weights"
 
+    # Map model types to network names and checkpoint names
+    network_map = {
+        "Inf-Net": ("Inf-Net", "Inf-Net"),
+        "Inf-Net_Morph": ("Inf-Net", "Inf-Net"),
+        "Inf-Net_GroupNorm": ("Inf-Net", "Inf-Net"),
+        "Inf-Net_Morph_GroupNorm": ("Inf-Net", "Inf-Net"),
+        "Inf-Net_DP": ("Inf-Net", "Inf-Net"),
+        "Inf-Net_DP_Morph": ("Inf-Net", "Inf-Net"),
+        "UNet_GroupNorm": ("UNet", "UNet"),
+        "UNet_Morph_GroupNorm": ("UNet", "UNet"),
+        "UNet_DP": ("UNet", "UNet"),
+        "UNet_DP_Morph": ("UNet", "UNet"),
+        "NestedUNet_GroupNorm": ("NestedUNet", "NestedUNet"),
+        "NestedUNet_Morph_GroupNorm": ("NestedUNet", "NestedUNet"),
+        "NestedUNet_DP": ("NestedUNet", "NestedUNet"),
+        "NestedUNet_DP_Morph": ("NestedUNet", "NestedUNet"),
+    }
+
+    network_name, checkpoint_name = network_map.get(opt.model_type, (None, None))
+
     if opt.model_type == "Inf-Net":
         # Structure: Inf-Net/batch_X/run_Y/Inf-Net-Z.pth
         model_path = os.path.join(
@@ -119,55 +167,65 @@ def build_model_path(opt):
             f"run_{opt.run}",
             f"Inf-Net-{opt.epoch}.pth",
         )
-    elif opt.model_type == "Inf-Net_Morph":
-        # Structure: Inf-Net_Morph/morph_op/batch_X/run_Y/Inf-Net-Z.pth
+    elif opt.model_type in [
+        "Inf-Net_GroupNorm",
+        "UNet_GroupNorm",
+        "NestedUNet_GroupNorm",
+    ]:
+        # Structure: {Network}_GroupNorm/batch_X/run_Y/{Network}-Z.pth
         model_path = os.path.join(
             base_path,
-            "Inf-Net_Morph",
+            opt.model_type,
+            f"batch_{opt.batchsize}",
+            f"run_{opt.run}",
+            f"{checkpoint_name}-{opt.epoch}.pth",
+        )
+    elif opt.model_type in [
+        "Inf-Net_Morph_GroupNorm",
+        "UNet_Morph_GroupNorm",
+        "NestedUNet_Morph_GroupNorm",
+    ]:
+        # Structure: {Network}_Morph_GroupNorm/{operation}/kernel_{kernel_size}/batch_X/run_Y/{Network}-Z.pth
+        model_path = os.path.join(
+            base_path,
+            opt.model_type,
             opt.morph_operation,
+            f"kernel_{opt.morph_kernel_size}",
             f"batch_{opt.batchsize}",
             f"run_{opt.run}",
-            f"Inf-Net-{opt.epoch}.pth",
+            f"{checkpoint_name}-{opt.epoch}.pth",
         )
-    elif opt.model_type == "Inf-Net_GroupNorm":
-        # Structure: Inf-Net_GroupNorm/batch_X/run_Y/Inf-Net-Z.pth
+    elif opt.model_type in ["Inf-Net_DP", "UNet_DP", "NestedUNet_DP"]:
+        # Structure: {Network}_DP/batch_X/run_Y/epsilon_Z/maxgrad_{max_grad_norm}/{clipping}/{Network}-E.pth
+        clipping_dir = (
+            opt.clipping_strategy if opt.clipping_strategy != "base" else "base"
+        )
         model_path = os.path.join(
             base_path,
-            "Inf-Net_GroupNorm",
-            f"batch_{opt.batchsize}",
-            f"run_{opt.run}",
-            f"Inf-Net-{opt.epoch}.pth",
-        )
-    elif opt.model_type == "Inf-Net_Morph_GroupNorm":
-        # Structure: Inf-Net_Morph_GroupNorm/morph_op/batch_X/run_Y/Inf-Net-Z.pth
-        model_path = os.path.join(
-            base_path,
-            "Inf-Net_Morph_GroupNorm",
-            opt.morph_operation,
-            f"batch_{opt.batchsize}",
-            f"run_{opt.run}",
-            f"Inf-Net-{opt.epoch}.pth",
-        )
-    elif opt.model_type == "Inf-Net_DP":
-        # Structure: Inf-Net_DP/batch_X/run_Y/epsilon_Z/Inf-Net-E.pth
-        model_path = os.path.join(
-            base_path,
-            "Inf-Net_DP",
+            opt.model_type,
             f"batch_{opt.batchsize}",
             f"run_{opt.run}",
             f"epsilon_{int(opt.epsilon)}",
-            f"Inf-Net-{opt.epoch}.pth",
+            f"maxgrad_{opt.max_grad_norm}",
+            clipping_dir,
+            f"{checkpoint_name}-{opt.epoch}.pth",
         )
-    elif opt.model_type == "Inf-Net_DP_Morph":
-        # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/Inf-Net-E.pth
+    elif opt.model_type in ["Inf-Net_DP_Morph", "UNet_DP_Morph", "NestedUNet_DP_Morph"]:
+        # Structure: {Network}_DP_Morph/{operation}/kernel_{kernel_size}/batch_X/run_Y/epsilon_Z/maxgrad_{max_grad_norm}/{clipping}/{Network}-E.pth
+        clipping_dir = (
+            opt.clipping_strategy if opt.clipping_strategy != "base" else "base"
+        )
         model_path = os.path.join(
             base_path,
-            "Inf-Net_DP_Morph",
+            opt.model_type,
             opt.morph_operation,
+            f"kernel_{opt.morph_kernel_size}",
             f"batch_{opt.batchsize}",
             f"run_{opt.run}",
             f"epsilon_{int(opt.epsilon)}",
-            f"Inf-Net-{opt.epoch}.pth",
+            f"maxgrad_{opt.max_grad_norm}",
+            clipping_dir,
+            f"{checkpoint_name}-{opt.epoch}.pth",
         )
     else:
         # Custom path
@@ -185,47 +243,58 @@ def build_result_path(opt):
         result_path = os.path.join(
             base_path, "Inf-Net", f"batch_{opt.batchsize}", f"run_{opt.run}"
         )
-    elif opt.model_type == "Inf-Net_Morph":
-        # Structure: Inf-Net_Morph/morph_op/batch_X/run_Y/
+    elif opt.model_type in [
+        "Inf-Net_GroupNorm",
+        "UNet_GroupNorm",
+        "NestedUNet_GroupNorm",
+    ]:
+        # Structure: {Network}_GroupNorm/batch_X/run_Y/
+        result_path = os.path.join(
+            base_path, opt.model_type, f"batch_{opt.batchsize}", f"run_{opt.run}"
+        )
+    elif opt.model_type in [
+        "Inf-Net_Morph_GroupNorm",
+        "UNet_Morph_GroupNorm",
+        "NestedUNet_Morph_GroupNorm",
+    ]:
+        # Structure: {Network}_Morph_GroupNorm/{operation}/kernel_{kernel_size}/batch_X/run_Y/
         result_path = os.path.join(
             base_path,
-            "Inf-Net_Morph",
+            opt.model_type,
             opt.morph_operation,
+            f"kernel_{opt.morph_kernel_size}",
             f"batch_{opt.batchsize}",
             f"run_{opt.run}",
         )
-    elif opt.model_type == "Inf-Net_GroupNorm":
-        # Structure: Inf-Net_GroupNorm/batch_X/run_Y/
-        result_path = os.path.join(
-            base_path, "Inf-Net_GroupNorm", f"batch_{opt.batchsize}", f"run_{opt.run}"
+    elif opt.model_type in ["Inf-Net_DP", "UNet_DP", "NestedUNet_DP"]:
+        # Structure: {Network}_DP/batch_X/run_Y/epsilon_Z/maxgrad_{max_grad_norm}/{clipping}/
+        clipping_dir = (
+            opt.clipping_strategy if opt.clipping_strategy != "base" else "base"
         )
-    elif opt.model_type == "Inf-Net_Morph_GroupNorm":
-        # Structure: Inf-Net_Morph_GroupNorm/morph_op/batch_X/run_Y/
         result_path = os.path.join(
             base_path,
-            "Inf-Net_Morph_GroupNorm",
-            opt.morph_operation,
-            f"batch_{opt.batchsize}",
-            f"run_{opt.run}",
-        )
-    elif opt.model_type == "Inf-Net_DP":
-        # Structure: Inf-Net_DP/batch_X/run_Y/epsilon_Z/
-        result_path = os.path.join(
-            base_path,
-            "Inf-Net_DP",
+            opt.model_type,
             f"batch_{opt.batchsize}",
             f"run_{opt.run}",
             f"epsilon_{int(opt.epsilon)}",
+            f"maxgrad_{opt.max_grad_norm}",
+            clipping_dir,
         )
-    elif opt.model_type == "Inf-Net_DP_Morph":
-        # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/
+    elif opt.model_type in ["Inf-Net_DP_Morph", "UNet_DP_Morph", "NestedUNet_DP_Morph"]:
+        # Structure: {Network}_DP_Morph/{operation}/kernel_{kernel_size}/batch_X/run_Y/epsilon_Z/maxgrad_{max_grad_norm}/{clipping}/
+        clipping_dir = (
+            opt.clipping_strategy if opt.clipping_strategy != "base" else "base"
+        )
         result_path = os.path.join(
             base_path,
-            "Inf-Net_DP_Morph",
+            opt.model_type,
             opt.morph_operation,
+            f"kernel_{opt.morph_kernel_size}",
             f"batch_{opt.batchsize}",
             f"run_{opt.run}",
             f"epsilon_{int(opt.epsilon)}",
+            f"maxgrad_{opt.max_grad_norm}",
+            clipping_dir,
         )
     else:
         # Custom path
@@ -267,18 +336,14 @@ def list_available_models():
 
             # Add additional info for DP models
             if "DP" in parts[0] and len(parts) >= 4:
-                model_info["epsilon"] = parts[3].replace(
-                    "epsilon_", ""
-                )
+                model_info["epsilon"] = parts[3].replace("epsilon_", "")
 
             # Add morphology info for DP_Morph models
             if "DP_Morph" in parts[0] and len(parts) >= 5:
                 model_info["morph_operation"] = parts[1]
                 model_info["batch_size"] = parts[2].replace("batch_", "")
                 model_info["run"] = parts[3].replace("run_", "")
-                model_info["epsilon"] = parts[4].replace(
-                    "epsilon_", ""
-                )
+                model_info["epsilon"] = parts[4].replace("epsilon_", "")
 
             models.append(model_info)
 
@@ -290,9 +355,15 @@ def find_final_epoch_models():
     base_path = "./Snapshots/save_weights"
     final_models = []
 
-    # Find all final epoch model files
-    pattern = os.path.join(base_path, "**", "Inf-Net-70.pth")
-    model_files = glob.glob(pattern, recursive=True)
+    # Find all final epoch model files (epoch 100) for all model types
+    patterns = [
+        os.path.join(base_path, "**", "Inf-Net-100.pth"),
+        os.path.join(base_path, "**", "UNet-100.pth"),
+        os.path.join(base_path, "**", "NestedUNet-100.pth"),
+    ]
+    model_files = []
+    for pattern in patterns:
+        model_files.extend(glob.glob(pattern, recursive=True))
 
     for model_file in model_files:
         # Extract information from path
@@ -301,19 +372,35 @@ def find_final_epoch_models():
 
         model_info = {
             "path": model_file,
-            "epoch": "70",
+            "epoch": "100",
         }
 
         # Parse based on model type
+        # Handle Inf-Net variants
         if parts[0] == "Inf-Net":
-            # Structure: Inf-Net/batch_X/run_Y/Inf-Net-70.pth
+            # Structure: Inf-Net/batch_X/run_Y/Inf-Net-100.pth
             if len(parts) >= 4:
                 model_info["type"] = parts[0]
                 model_info["batch_size"] = parts[1].replace("batch_", "")
                 model_info["run"] = parts[2].replace("run_", "")
 
         elif parts[0] == "Inf-Net_Morph":
-            # Structure: Inf-Net_Morph/morph_op/batch_X/run_Y/Inf-Net-70.pth
+            # Structure: Inf-Net_Morph/morph_op/batch_X/run_Y/Inf-Net-100.pth
+            if len(parts) >= 5:
+                model_info["type"] = parts[0]
+                model_info["morph_operation"] = parts[1]
+                model_info["batch_size"] = parts[2].replace("batch_", "")
+                model_info["run"] = parts[3].replace("run_", "")
+
+        elif parts[0] == "Inf-Net_GroupNorm":
+            # Structure: Inf-Net_GroupNorm/batch_X/run_Y/Inf-Net-100.pth
+            if len(parts) >= 4:
+                model_info["type"] = parts[0]
+                model_info["batch_size"] = parts[1].replace("batch_", "")
+                model_info["run"] = parts[2].replace("run_", "")
+
+        elif parts[0] == "Inf-Net_Morph_GroupNorm":
+            # Structure: Inf-Net_Morph_GroupNorm/morph_op/batch_X/run_Y/Inf-Net-100.pth
             if len(parts) >= 5:
                 model_info["type"] = parts[0]
                 model_info["morph_operation"] = parts[1]
@@ -321,25 +408,105 @@ def find_final_epoch_models():
                 model_info["run"] = parts[3].replace("run_", "")
 
         elif parts[0] == "Inf-Net_DP":
-            # Structure: Inf-Net_DP/batch_X/run_Y/epsilon_Z/Inf-Net-70.pth
+            # Structure: Inf-Net_DP/batch_X/run_Y/epsilon_Z/optimizer_type/Inf-Net-100.pth
+            # OR: Inf-Net_DP/batch_X/run_Y/epsilon_Z/Inf-Net-100.pth (without optimizer_type)
             if len(parts) >= 5:
                 model_info["type"] = parts[0]
                 model_info["batch_size"] = parts[1].replace("batch_", "")
                 model_info["run"] = parts[2].replace("run_", "")
-                model_info["epsilon"] = parts[3].replace(
-                    "epsilon_", ""
-                )
+                model_info["epsilon"] = parts[3].replace("epsilon_", "")
+
+                # Check if there's an optimizer_type subdirectory
+                if len(parts) >= 6:
+                    # Has optimizer_type (automatic, base, nsgd, psac)
+                    model_info["optimizer_type"] = parts[4]
+                # else: no optimizer_type, epsilon is at parts[3]
 
         elif parts[0] == "Inf-Net_DP_Morph":
-            # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/Inf-Net-70.pth
+            # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/optimizer_type/Inf-Net-100.pth
+            # OR: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/Inf-Net-100.pth (without optimizer_type)
             if len(parts) >= 6:
                 model_info["type"] = parts[0]
                 model_info["morph_operation"] = parts[1]
                 model_info["batch_size"] = parts[2].replace("batch_", "")
                 model_info["run"] = parts[3].replace("run_", "")
-                model_info["epsilon"] = parts[4].replace(
-                    "epsilon_", ""
-                )
+                model_info["epsilon"] = parts[4].replace("epsilon_", "")
+
+                # Check if there's an optimizer_type subdirectory
+                if len(parts) >= 7:
+                    # Has optimizer_type (automatic, base, nsgd, psac)
+                    model_info["optimizer_type"] = parts[5]
+                # else: no optimizer_type, epsilon is at parts[4]
+
+        # Handle UNet variants
+        elif parts[0] == "UNet_GroupNorm":
+            # Structure: UNet_GroupNorm/batch_X/run_Y/UNet-100.pth
+            if len(parts) >= 4:
+                model_info["type"] = parts[0]
+                model_info["batch_size"] = parts[1].replace("batch_", "")
+                model_info["run"] = parts[2].replace("run_", "")
+
+        elif parts[0] == "UNet_Morph_GroupNorm":
+            # Structure: UNet_Morph_GroupNorm/morph_op/batch_X/run_Y/UNet-100.pth
+            if len(parts) >= 5:
+                model_info["type"] = parts[0]
+                model_info["morph_operation"] = parts[1]
+                model_info["batch_size"] = parts[2].replace("batch_", "")
+                model_info["run"] = parts[3].replace("run_", "")
+
+        elif parts[0] == "UNet_DP":
+            # Structure: UNet_DP/batch_X/run_Y/epsilon_Z/optimizer_type/UNet-100.pth
+            if len(parts) >= 6:
+                model_info["type"] = parts[0]
+                model_info["batch_size"] = parts[1].replace("batch_", "")
+                model_info["run"] = parts[2].replace("run_", "")
+                model_info["epsilon"] = parts[3].replace("epsilon_", "")
+                model_info["optimizer_type"] = parts[4]
+
+        elif parts[0] == "UNet_DP_Morph":
+            # Structure: UNet_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/optimizer_type/UNet-100.pth
+            if len(parts) >= 7:
+                model_info["type"] = parts[0]
+                model_info["morph_operation"] = parts[1]
+                model_info["batch_size"] = parts[2].replace("batch_", "")
+                model_info["run"] = parts[3].replace("run_", "")
+                model_info["epsilon"] = parts[4].replace("epsilon_", "")
+                model_info["optimizer_type"] = parts[5]
+
+        # Handle NestedUNet variants
+        elif parts[0] == "NestedUNet_GroupNorm":
+            # Structure: NestedUNet_GroupNorm/batch_X/run_Y/NestedUNet-100.pth
+            if len(parts) >= 4:
+                model_info["type"] = parts[0]
+                model_info["batch_size"] = parts[1].replace("batch_", "")
+                model_info["run"] = parts[2].replace("run_", "")
+
+        elif parts[0] == "NestedUNet_Morph_GroupNorm":
+            # Structure: NestedUNet_Morph_GroupNorm/morph_op/batch_X/run_Y/NestedUNet-100.pth
+            if len(parts) >= 5:
+                model_info["type"] = parts[0]
+                model_info["morph_operation"] = parts[1]
+                model_info["batch_size"] = parts[2].replace("batch_", "")
+                model_info["run"] = parts[3].replace("run_", "")
+
+        elif parts[0] == "NestedUNet_DP":
+            # Structure: NestedUNet_DP/batch_X/run_Y/epsilon_Z/optimizer_type/NestedUNet-100.pth
+            if len(parts) >= 6:
+                model_info["type"] = parts[0]
+                model_info["batch_size"] = parts[1].replace("batch_", "")
+                model_info["run"] = parts[2].replace("run_", "")
+                model_info["epsilon"] = parts[3].replace("epsilon_", "")
+                model_info["optimizer_type"] = parts[4]
+
+        elif parts[0] == "NestedUNet_DP_Morph":
+            # Structure: NestedUNet_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/optimizer_type/NestedUNet-100.pth
+            if len(parts) >= 7:
+                model_info["type"] = parts[0]
+                model_info["morph_operation"] = parts[1]
+                model_info["batch_size"] = parts[2].replace("batch_", "")
+                model_info["run"] = parts[3].replace("run_", "")
+                model_info["epsilon"] = parts[4].replace("epsilon_", "")
+                model_info["optimizer_type"] = parts[5]
 
         # Only add if we successfully parsed all required fields
         if "type" in model_info and "batch_size" in model_info and "run" in model_info:
@@ -358,6 +525,8 @@ def run_single_test(model_info, opt):
         print(f"Epsilon: {model_info['epsilon']}")
     if "morph_operation" in model_info:
         print(f"Morph Operation: {model_info['morph_operation']}")
+    if "optimizer_type" in model_info:
+        print(f"Optimizer Type: {model_info['optimizer_type']}")
     print(f"Model Path: {model_info['path']}")
     print(f"{'='*80}")
 
@@ -386,24 +555,133 @@ def run_single_test(model_info, opt):
             f"batch_{model_info['batch_size']}",
             f"run_{model_info['run']}",
         )
-    elif model_info["type"] == "Inf-Net_DP":
-        # Structure: Inf-Net_DP/batch_X/run_Y/epsilon_Z/
+    elif model_info["type"] == "Inf-Net_GroupNorm":
+        # Structure: Inf-Net_GroupNorm/batch_X/run_Y/
         result_path = os.path.join(
+            base_path,
+            "Inf-Net_GroupNorm",
+            f"batch_{model_info['batch_size']}",
+            f"run_{model_info['run']}",
+        )
+    elif model_info["type"] == "Inf-Net_Morph_GroupNorm":
+        # Structure: Inf-Net_Morph_GroupNorm/morph_op/batch_X/run_Y/
+        result_path = os.path.join(
+            base_path,
+            "Inf-Net_Morph_GroupNorm",
+            model_info["morph_operation"],
+            f"batch_{model_info['batch_size']}",
+            f"run_{model_info['run']}",
+        )
+    elif model_info["type"] == "Inf-Net_DP":
+        # Structure: Inf-Net_DP/batch_X/run_Y/epsilon_Z/optimizer_type/ (if optimizer_type exists)
+        # OR: Inf-Net_DP/batch_X/run_Y/epsilon_Z/ (if no optimizer_type)
+        result_path_parts = [
             base_path,
             "Inf-Net_DP",
             f"batch_{model_info['batch_size']}",
             f"run_{model_info['run']}",
             f"epsilon_{int(model_info['epsilon'])}",
-        )
+        ]
+        if "optimizer_type" in model_info:
+            result_path_parts.append(model_info["optimizer_type"])
+        result_path = os.path.join(*result_path_parts)
     elif model_info["type"] == "Inf-Net_DP_Morph":
-        # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/
-        result_path = os.path.join(
+        # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/optimizer_type/ (if optimizer_type exists)
+        # OR: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/ (if no optimizer_type)
+        result_path_parts = [
             base_path,
             "Inf-Net_DP_Morph",
             model_info["morph_operation"],
             f"batch_{model_info['batch_size']}",
             f"run_{model_info['run']}",
             f"epsilon_{int(model_info['epsilon'])}",
+        ]
+        if "optimizer_type" in model_info:
+            result_path_parts.append(model_info["optimizer_type"])
+        result_path = os.path.join(*result_path_parts)
+    elif model_info["type"] == "UNet_GroupNorm":
+        # Structure: UNet_GroupNorm/batch_X/run_Y/
+        result_path = os.path.join(
+            base_path,
+            "UNet_GroupNorm",
+            f"batch_{model_info['batch_size']}",
+            f"run_{model_info['run']}",
+        )
+    elif model_info["type"] == "UNet_Morph_GroupNorm":
+        # Structure: UNet_Morph_GroupNorm/morph_op/batch_X/run_Y/
+        result_path = os.path.join(
+            base_path,
+            "UNet_Morph_GroupNorm",
+            model_info["morph_operation"],
+            f"batch_{model_info['batch_size']}",
+            f"run_{model_info['run']}",
+        )
+    elif model_info["type"] == "UNet_DP":
+        # Structure: UNet_DP/batch_X/run_Y/epsilon_Z/optimizer_type/
+        result_path = os.path.join(
+            base_path,
+            "UNet_DP",
+            f"batch_{model_info['batch_size']}",
+            f"run_{model_info['run']}",
+            f"epsilon_{int(model_info['epsilon'])}",
+            model_info["optimizer_type"],
+        )
+    elif model_info["type"] == "UNet_DP_Morph":
+        # Structure: UNet_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/optimizer_type/
+        result_path = os.path.join(
+            base_path,
+            "UNet_DP_Morph",
+            model_info["morph_operation"],
+            f"batch_{model_info['batch_size']}",
+            f"run_{model_info['run']}",
+            f"epsilon_{int(model_info['epsilon'])}",
+            model_info["optimizer_type"],
+        )
+    elif model_info["type"] == "NestedUNet_GroupNorm":
+        # Structure: NestedUNet_GroupNorm/batch_X/run_Y/
+        result_path = os.path.join(
+            base_path,
+            "NestedUNet_GroupNorm",
+            f"batch_{model_info['batch_size']}",
+            f"run_{model_info['run']}",
+        )
+    elif model_info["type"] == "NestedUNet_Morph_GroupNorm":
+        # Structure: NestedUNet_Morph_GroupNorm/morph_op/batch_X/run_Y/
+        result_path = os.path.join(
+            base_path,
+            "NestedUNet_Morph_GroupNorm",
+            model_info["morph_operation"],
+            f"batch_{model_info['batch_size']}",
+            f"run_{model_info['run']}",
+        )
+    elif model_info["type"] == "NestedUNet_DP":
+        # Structure: NestedUNet_DP/batch_X/run_Y/epsilon_Z/optimizer_type/
+        result_path = os.path.join(
+            base_path,
+            "NestedUNet_DP",
+            f"batch_{model_info['batch_size']}",
+            f"run_{model_info['run']}",
+            f"epsilon_{int(model_info['epsilon'])}",
+            model_info["optimizer_type"],
+        )
+    elif model_info["type"] == "NestedUNet_DP_Morph":
+        # Structure: NestedUNet_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/optimizer_type/
+        result_path = os.path.join(
+            base_path,
+            "NestedUNet_DP_Morph",
+            model_info["morph_operation"],
+            f"batch_{model_info['batch_size']}",
+            f"run_{model_info['run']}",
+            f"epsilon_{int(model_info['epsilon'])}",
+            model_info["optimizer_type"],
+        )
+    else:
+        # Fallback for unknown types
+        result_path = os.path.join(
+            base_path,
+            model_info["type"],
+            f"batch_{model_info['batch_size']}",
+            f"run_{model_info['run']}",
         )
 
     # Create result directory
@@ -421,10 +699,19 @@ def run_single_test(model_info, opt):
         image = image.to(device)
 
         with torch.no_grad():
-            lateral_map_5, lateral_map_4, lateral_map_3, lateral_map_2, lateral_edge = (
-                model(image)
-            )
-            res = lateral_map_2
+            pred = model(image)
+
+            # Handle different model outputs
+            if isinstance(pred, tuple):
+                # Inf-Net outputs: (lateral_map_5, lateral_map_4, lateral_map_3, lateral_map_2, lateral_edge)
+                res = pred[3]  # Use lateral_map_2
+            elif isinstance(pred, list):
+                # NestedUNet with deep supervision outputs a list
+                res = pred[-1]  # Use final output
+            else:
+                # UNet and NestedUNet (without deep supervision) output single tensor
+                res = pred
+
             res = res.sigmoid().data.cpu().numpy().squeeze()
             res = (res - res.min()) / (res.max() - res.min() + 1e-8)
             res = (res * 255).astype(np.uint8)
@@ -455,6 +742,14 @@ def inference():
             "Inf-Net_Morph_GroupNorm",
             "Inf-Net_DP",
             "Inf-Net_DP_Morph",
+            "UNet_GroupNorm",
+            "UNet_Morph_GroupNorm",
+            "UNet_DP",
+            "UNet_DP_Morph",
+            "NestedUNet_GroupNorm",
+            "NestedUNet_Morph_GroupNorm",
+            "NestedUNet_DP",
+            "NestedUNet_DP_Morph",
             "custom",
         ],
         default="Inf-Net",
@@ -474,6 +769,19 @@ def inference():
         type=float,
         default=8.0,
         help="Epsilon (privacy budget) for DP models. Common values: 8, 200",
+    )
+    parser.add_argument(
+        "--max_grad_norm",
+        type=float,
+        default=1.2,
+        help="Maximum gradient norm used during training (for DP models)",
+    )
+    parser.add_argument(
+        "--clipping_strategy",
+        type=str,
+        default="base",
+        choices=["base", "automatic", "psac", "nsgd"],
+        help="Clipping strategy used during training (for DP models)",
     )
 
     # Morphology-specific parameters
@@ -520,6 +828,12 @@ def inference():
         action="store_true",
         help="Test all final epoch models for different configurations",
     )
+    parser.add_argument(
+        "--filter_model_type",
+        type=str,
+        default=None,
+        help="Filter models by type (e.g., 'NestedUNet_DP' to test only NestedUNet_DP models)",
+    )
 
     opt = parser.parse_args()
 
@@ -527,6 +841,16 @@ def inference():
     if opt.test_all_final:
         print("Finding all final epoch models...")
         final_models = find_final_epoch_models()
+
+        # Filter by model type if specified
+        if opt.filter_model_type:
+            original_count = len(final_models)
+            final_models = [
+                m for m in final_models if opt.filter_model_type in m["type"]
+            ]
+            print(
+                f"Filtered to {len(final_models)} models matching '{opt.filter_model_type}' (from {original_count} total)"
+            )
 
         if not final_models:
             print("No final epoch models found!")
@@ -541,6 +865,8 @@ def inference():
                 print(f"     Epsilon: {model['epsilon']}")
             if "morph_operation" in model:
                 print(f"     Morph Operation: {model['morph_operation']}")
+            if "optimizer_type" in model:
+                print(f"     Optimizer Type: {model['optimizer_type']}")
 
         print(f"\nStarting batch testing of {len(final_models)} models...")
         print("=" * 100)
@@ -550,20 +876,36 @@ def inference():
             try:
                 print(f"\n[{i}/{len(final_models)}] Starting test...")
                 result_path = run_single_test(model_info, opt)
+                # Build model identifier string
+                model_id = f"{model_info['type']}_batch{model_info['batch_size']}_run{model_info['run']}"
+                if "epsilon" in model_info:
+                    model_id += f"_eps{model_info['epsilon']}"
+                if "optimizer_type" in model_info:
+                    model_id += f"_{model_info['optimizer_type']}"
+                if "morph_operation" in model_info:
+                    model_id += f"_morph{model_info['morph_operation']}"
+
                 results_summary.append(
                     {
-                        "model": f"{model_info['type']}_batch{model_info['batch_size']}_run{model_info['run']}",
+                        "model": model_id,
                         "status": "SUCCESS",
                         "result_path": result_path,
                     }
                 )
             except Exception as e:
-                print(
-                    f"ERROR: Failed to test {model_info['type']} batch{model_info['batch_size']} run{model_info['run']}: {str(e)}"
-                )
+                # Build model identifier string
+                model_id = f"{model_info['type']}_batch{model_info['batch_size']}_run{model_info['run']}"
+                if "epsilon" in model_info:
+                    model_id += f"_eps{model_info['epsilon']}"
+                if "optimizer_type" in model_info:
+                    model_id += f"_{model_info['optimizer_type']}"
+                if "morph_operation" in model_info:
+                    model_id += f"_morph{model_info['morph_operation']}"
+
+                print(f"ERROR: Failed to test {model_id}: {str(e)}")
                 results_summary.append(
                     {
-                        "model": f"{model_info['type']}_batch{model_info['batch_size']}_run{model_info['run']}",
+                        "model": model_id,
                         "status": "FAILED",
                         "error": str(e),
                     }
@@ -616,7 +958,7 @@ def inference():
         if not opt.pth_path:
             raise ValueError("--pth_path must be specified when model_type='custom'")
         model_path = opt.pth_path
-        result_path = opt.save_path or "./Results/Lung infection segmentation/custom"
+        result_path = opt.save_path or "./Results/Lung_infection_segmentation/custom"
     else:
         model_path = build_model_path(opt)
         result_path = build_result_path(opt)
