@@ -134,3 +134,9 @@ dmypy.json
 *.jpg
 Dataset/
 legacy_archive/
+slurm_jobs/
+slurm_jobs_test/
+slurm_jobs_eval/
+EvaluateResults/
+logs/
+results/

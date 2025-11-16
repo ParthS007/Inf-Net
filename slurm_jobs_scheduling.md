@@ -1,38 +1,38 @@
 # Inf-Net Training with SLURM Array Jobs
 
-This directory contains a unified training system that uses **SLURM array jobs** to efficiently manage hundreds of training experiments.
+This directory contains a unified training system that uses SLURM array jobs to efficiently manage hundreds of training experiments.
 
 ## Overview
 
-Instead of creating individual SLURM scripts for each experiment, we use **array jobs** which:
-- ✅ Reduce scheduler load (one job submission instead of hundreds)
-- ✅ Are easier to manage and monitor
-- ✅ Provide better resource utilization
-- ✅ Allow controlled concurrency
+Instead of creating individual SLURM scripts for each experiment, we use array jobs which:
+- Reduce scheduler load (one job submission instead of hundreds)
+- Are easier to manage and monitor
+- Provide better resource utilization
+- Allow controlled concurrency
 
 ## Files
 
-- **`MyTrain_LungInf_Unified.py`**: Unified training script supporting all three networks (Inf_Net, UNet, NestedUNet) with all configurations
-- **`submit_training_jobs_unified.py`**: Script to generate array job files
-- **`submit_all_array_jobs.sh`**: Helper script to submit all generated array jobs
-- **`slurm_jobs_unified/`**: Directory containing generated array job scripts and command files
+- `MyTrain_LungInf_Unified.py`: Unified training script supporting all three networks (Inf_Net, UNet, NestedUNet) with all configurations
+- `submit_training_jobs_unified.py`: Script to generate array job files
+- `submit_all_array_jobs.sh`: Helper script to submit all generated array jobs
+- `slurm_jobs_unified/`: Directory containing generated array job scripts and command files
 
 ## Experimental Configuration
 
 The system generates experiments for:
 
-- **3 Networks**: Inf_Net GroupNorm, UNet_GroupNorm, NestedUNet_GroupNorm
-- **3 Run Types**:
+- 3 Networks: Inf_Net GroupNorm, UNet_GroupNorm, NestedUNet_GroupNorm
+- 3 Run Types:
   1. Base (no DP, no Morph)
   2. Base with/without Morph
   3. Base with/without DP
-- **Batch Sizes**: 24, 48, 64
-- **Epsilon Values**: 8, 200 (for DP experiments)
-- **Clipping Strategies**: base, automatic, psac, nsgd (for DP experiments)
-- **Morph Operation**: both (only)
-- **Epochs**: 100
-- **Max Grad Norm**: 1.2
-- **Runs**: 3 per configuration
+- Batch Sizes: 24, 48, 64
+- Epsilon Values: 8, 200 (for DP experiments)
+- Clipping Strategies: base, automatic, psac, nsgd (for DP experiments)
+- Morph Operation: both, open and close
+- Epochs: 100
+- Max Grad Norm: 1.2
+- Runs: 3 per configuration
 
 ## Usage
 
@@ -68,12 +68,12 @@ This will create:
 
 ### Step 2: Submit Array Jobs
 
-**Option A: Submit all at once (recommended)**
+Option A: Submit all at once (recommended)
 ```bash
 ./submit_all_array_jobs.sh
 ```
 
-**Option B: Submit individually**
+Option B: Submit individually
 ```bash
 cd slurm_jobs_unified/a100-80g
 sbatch array_job.sh
@@ -81,7 +81,7 @@ cd ../gpu
 sbatch array_job.sh
 ```
 
-**Option C: Submit from the main script**
+Option C: Submit from the main script
 The script can also submit automatically (without `--dry-run` flag).
 
 ### Step 3: Monitor Jobs
@@ -117,19 +117,19 @@ slurm_jobs_unified/
 
 ## How Array Jobs Work
 
-1. **commands.cmd**: Contains all training commands, one per line
+1. commands.cmd: Contains all training commands, one per line
    ```
    python MyTrain_LungInf_Unified.py --network Inf_Net --batchsize 24 --run 1 ...
    python MyTrain_LungInf_Unified.py --network Inf_Net --batchsize 24 --run 2 ...
    ...
    ```
 
-2. **array_job.sh**: SLURM script with `--array=1-N%M` directive
+2. array_job.sh: SLURM script with `--array=1-N%M` directive
    - `N` = total number of tasks (lines in commands.cmd)
    - `M` = max concurrent tasks (default: 20)
    - Each task reads its command using `SLURM_ARRAY_TASK_ID`
 
-3. **Execution**: Task 1 executes line 1, task 2 executes line 2, etc.
+3. Execution: Task 1 executes line 1, task 2 executes line 2, etc.
 
 ## Log Files
 
@@ -200,22 +200,22 @@ tail -f logs/train/infnet_a100-80g_*.out
 
 ## Troubleshooting
 
-**Q: Jobs not starting?**
+Q: Jobs not starting?
 - Check partition availability: `sinfo -p <partition>`
 - Check QoS limits: `sacctmgr show qos`
 - Reduce `--max-concurrent` if hitting limits
 
-**Q: Need to cancel all tasks?**
+Q: Need to cancel all tasks?
 ```bash
 scancel <JOB_ID>_*
 ```
 
-**Q: Want to resubmit failed tasks?**
+Q: Want to resubmit failed tasks?
 - Edit `commands.cmd` to only include failed tasks
 - Regenerate array script with new task count
 - Submit again
 
-**Q: Check which task failed?**
+Q: Check which task failed?
 ```bash
 # Check error logs
 ls -lh logs/train/*.err | sort -k5 -h

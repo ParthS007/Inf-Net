@@ -32,9 +32,10 @@ def generate_training_configs():
     batch_sizes = [24, 48, 64]
     epsilon_values = [8, 200]
     clipping_strategies = ["base", "automatic", "psac", "nsgd"]
+    kernel_sizes = [3, 5, 7, 9]  # Morphological kernel sizes
+    max_grad_norms = [1.2, 1.5, 2.0]  # Max gradient norms for DP
     num_runs = 3
     epoch = 100
-    max_grad_norm = 1.2
     morph_operation = "both"  # Only "both" as specified
 
     for network in networks:
@@ -50,69 +51,77 @@ def generate_training_configs():
                     "enable_morphology": False,
                     "enable_privacy": False,
                     "morph_operation": None,
+                    "morph_kernel_size": None,
                     "epsilon": None,
                     "clipping_strategy": None,
                     "max_grad_norm": None,
                 }
                 configs.append(config)
 
-        # 2. Base with Morph (no DP)
+        # 2. Base with Morph (no DP) - iterate over kernel sizes
         for batch_size in batch_sizes:
-            for run in range(1, num_runs + 1):
-                config = {
-                    "network": network,
-                    "name": f"{network.lower()}_morph_batch{batch_size}_run{run}",
-                    "batch_size": batch_size,
-                    "run": run,
-                    "epoch": epoch,
-                    "enable_morphology": True,
-                    "enable_privacy": False,
-                    "morph_operation": morph_operation,
-                    "epsilon": None,
-                    "clipping_strategy": None,
-                    "max_grad_norm": None,
-                }
-                configs.append(config)
+            for kernel_size in kernel_sizes:
+                for run in range(1, num_runs + 1):
+                    config = {
+                        "network": network,
+                        "name": f"{network.lower()}_morph_k{kernel_size}_batch{batch_size}_run{run}",
+                        "batch_size": batch_size,
+                        "run": run,
+                        "epoch": epoch,
+                        "enable_morphology": True,
+                        "enable_privacy": False,
+                        "morph_operation": morph_operation,
+                        "morph_kernel_size": kernel_size,
+                        "epsilon": None,
+                        "clipping_strategy": None,
+                        "max_grad_norm": None,
+                    }
+                    configs.append(config)
 
-        # 3. Base with DP (no Morph) - all clipping strategies
+        # 3. Base with DP (no Morph) - all clipping strategies and max grad norms
         for batch_size in batch_sizes:
             for eps in epsilon_values:
                 for clipping in clipping_strategies:
-                    for run in range(1, num_runs + 1):
-                        config = {
-                            "network": network,
-                            "name": f"{network.lower()}_dp_{clipping}_eps{eps}_batch{batch_size}_run{run}",
-                            "batch_size": batch_size,
-                            "run": run,
-                            "epoch": epoch,
-                            "enable_morphology": False,
-                            "enable_privacy": True,
-                            "morph_operation": None,
-                            "epsilon": eps,
-                            "clipping_strategy": clipping,
-                            "max_grad_norm": max_grad_norm,
-                        }
-                        configs.append(config)
+                    for max_grad_norm in max_grad_norms:
+                        for run in range(1, num_runs + 1):
+                            config = {
+                                "network": network,
+                                "name": f"{network.lower()}_dp_{clipping}_eps{eps}_mg{max_grad_norm}_batch{batch_size}_run{run}",
+                                "batch_size": batch_size,
+                                "run": run,
+                                "epoch": epoch,
+                                "enable_morphology": False,
+                                "enable_privacy": True,
+                                "morph_operation": None,
+                                "morph_kernel_size": None,
+                                "epsilon": eps,
+                                "clipping_strategy": clipping,
+                                "max_grad_norm": max_grad_norm,
+                            }
+                            configs.append(config)
 
-        # 4. Base with DP and Morph - all clipping strategies
+        # 4. Base with DP and Morph - all clipping strategies, kernel sizes, and max grad norms
         for batch_size in batch_sizes:
             for eps in epsilon_values:
                 for clipping in clipping_strategies:
-                    for run in range(1, num_runs + 1):
-                        config = {
-                            "network": network,
-                            "name": f"{network.lower()}_dpmorph_{clipping}_eps{eps}_batch{batch_size}_run{run}",
-                            "batch_size": batch_size,
-                            "run": run,
-                            "epoch": epoch,
-                            "enable_morphology": True,
-                            "enable_privacy": True,
-                            "morph_operation": morph_operation,
-                            "epsilon": eps,
-                            "clipping_strategy": clipping,
-                            "max_grad_norm": max_grad_norm,
-                        }
-                        configs.append(config)
+                    for max_grad_norm in max_grad_norms:
+                        for kernel_size in kernel_sizes:
+                            for run in range(1, num_runs + 1):
+                                config = {
+                                    "network": network,
+                                    "name": f"{network.lower()}_dpmorph_{clipping}_eps{eps}_mg{max_grad_norm}_k{kernel_size}_batch{batch_size}_run{run}",
+                                    "batch_size": batch_size,
+                                    "run": run,
+                                    "epoch": epoch,
+                                    "enable_morphology": True,
+                                    "enable_privacy": True,
+                                    "morph_operation": morph_operation,
+                                    "morph_kernel_size": kernel_size,
+                                    "epsilon": eps,
+                                    "clipping_strategy": clipping,
+                                    "max_grad_norm": max_grad_norm,
+                                }
+                                configs.append(config)
 
     return configs
 
@@ -135,6 +144,8 @@ def build_python_command(config):
     if config["enable_morphology"]:
         args.append("--enable_morphology")
         args.append(f"--morph_operation {config['morph_operation']}")
+        if "morph_kernel_size" in config and config["morph_kernel_size"] is not None:
+            args.append(f"--morph_kernel_size {config['morph_kernel_size']}")
 
     cmd = f"python MyTrain_LungInf_Unified.py {' '.join(args)}"
     return cmd
@@ -155,7 +166,9 @@ def create_array_job_script(
     qos="gpu6hours",
 ):
     """Create a SLURM array job script"""
-    array_spec = f"1-{num_tasks}%{max_concurrent}" if max_concurrent > 0 else f"1-{num_tasks}"
+    array_spec = (
+        f"1-{num_tasks}%{max_concurrent}" if max_concurrent > 0 else f"1-{num_tasks}"
+    )
 
     script = f"""#!/bin/bash
 #SBATCH --job-name={job_name}
@@ -386,13 +399,15 @@ def main():
                 job_id = result.stdout.strip().split()[-1]
                 print(f"  ✓ Submitted array job: {job_id}")
                 job_ids.append((partition, job_id, num_tasks))
-                summary_info.append({
-                    "partition": partition,
-                    "job_id": job_id,
-                    "num_tasks": num_tasks,
-                    "commands_file": commands_file,
-                    "script_path": array_script_path,
-                })
+                summary_info.append(
+                    {
+                        "partition": partition,
+                        "job_id": job_id,
+                        "num_tasks": num_tasks,
+                        "commands_file": commands_file,
+                        "script_path": array_script_path,
+                    }
+                )
             except subprocess.CalledProcessError as e:
                 print(f"  ✗ Failed to submit array job")
                 print(f"    Error: {e.stderr}")
