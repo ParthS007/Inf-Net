@@ -10,7 +10,6 @@ Updated Version: Support for new file structure on 2025-10-23 (@author: Parth Sh
 """
 
 import torch
-import torch.nn.functional as F
 import numpy as np
 import os
 import argparse
@@ -1005,10 +1004,19 @@ def inference():
         image = image.to(device)
 
         with torch.no_grad():
-            lateral_map_5, lateral_map_4, lateral_map_3, lateral_map_2, lateral_edge = (
-                model(image)
-            )
-            res = lateral_map_2
+            pred = model(image)
+
+            # Handle different model outputs
+            if isinstance(pred, tuple):
+                # Inf-Net outputs: (lateral_map_5, lateral_map_4, lateral_map_3, lateral_map_2, lateral_edge)
+                res = pred[3]  # Use lateral_map_2
+            elif isinstance(pred, list):
+                # NestedUNet with deep supervision outputs a list
+                res = pred[-1]  # Use final output
+            else:
+                # UNet and NestedUNet (without deep supervision) output single tensor
+                res = pred
+
             res = res.sigmoid().data.cpu().numpy().squeeze()
             res = (res - res.min()) / (res.max() - res.min() + 1e-8)
             res = (res * 255).astype(np.uint8)

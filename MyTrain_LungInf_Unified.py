@@ -1,24 +1,23 @@
 # -*- coding: utf-8 -*-
 
-"""Preview
+"""
 Unified Training Script for Lung Infection Segmentation
 Supports:
 - Three networks: Inf_Net GroupNorm, UNet_GroupNorm, NestedUNet_GroupNorm
 - Base training (no DP, no Morph)
 - Base with/without Morph
 - Base with/without DP (with clipping strategies: base, automatic, psac, nsgd)
-- Batch sizes: 24, 48, 64
+- Batch sizes: 24, 48
 - Epsilon: 8, 200
 - Morph operation: both, open, close
 - Morph kernel size: 3, 5, 7, 9
 - Epoch: 70
 - Max grad norm: 1.2, 1.5, 2
 
-Created on 2025-11-XX (@author: Parth Shandilya)
+@author: Parth Shandilya
 """
 
 import torch
-from torch.autograd import Variable
 import os
 import argparse
 import time
@@ -204,8 +203,8 @@ def train_infnet(
 
     # ---- save model ----
     os.makedirs(save_path, exist_ok=True)
-    if (epoch + 1) % 10 == 0:
-        checkpoint_path = os.path.join(save_path, f"Inf-Net-{epoch+1}.pth")
+    if epoch == opt.epoch:  # Only save the last checkpoint
+        checkpoint_path = os.path.join(save_path, f"Inf-Net-{epoch}.pth")
         if opt.enable_privacy:
             torch.save(model._module.state_dict(), checkpoint_path)
         else:
@@ -250,8 +249,6 @@ def train_unet_nestedunet(
         torch.cuda.reset_peak_memory_stats()
         print("Cleared GPU cache for NestedUNet training")
         # Set memory fraction to help with fragmentation
-        import os
-
         os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
     for i, pack in enumerate(train_loader, start=1):
@@ -328,14 +325,14 @@ def train_unet_nestedunet(
 
     # ---- save model ----
     os.makedirs(save_path, exist_ok=True)
-    if (epoch + 1) % 10 == 0:
+    if epoch == opt.epoch:  # Only save the last checkpoint
         # Map network names to checkpoint names
         checkpoint_names = {
             "UNet": "UNet",
             "NestedUNet": "NestedUNet",
         }
         model_name = checkpoint_names.get(opt.network, opt.network)
-        checkpoint_path = os.path.join(save_path, f"{model_name}-{epoch+1}.pth")
+        checkpoint_path = os.path.join(save_path, f"{model_name}-{epoch}.pth")
         if opt.enable_privacy:
             torch.save(model._module.state_dict(), checkpoint_path)
         else:
@@ -610,7 +607,7 @@ if __name__ == "__main__":
     )
 
     # hyper-parameters
-    parser.add_argument("--epoch", type=int, default=100, help="epoch number")
+    parser.add_argument("--epoch", type=int, default=70, help="epoch number")
     parser.add_argument("--lr", type=float, default=1e-4, help="learning rate")
     parser.add_argument("--batchsize", type=int, default=24, help="training batch size")
     parser.add_argument(
