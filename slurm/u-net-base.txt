@@ -1,0 +1,2 @@
+python MyTrain_LungInf_Unified.py --network UNet --batchsize 24 --run 2
+python MyTrain_LungInf_Unified.py --network UNet --batchsize 48 --run 2

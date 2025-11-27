@@ -1,0 +1,1 @@
+python MyTrain_LungInf_Unified.py --run 1 --network NestedUNet --batchsize 24 --enable_morphology --morph_operation open --morph_kernel_size 3

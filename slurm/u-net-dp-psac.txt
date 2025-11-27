@@ -1,0 +1,12 @@
+python MyTrain_LungInf_Unified.py --run 2 --network UNet --batchsize 24 --enable_privacy --epsilon 8 --max_grad_norm 1.2 --clipping_strategy psac
+python MyTrain_LungInf_Unified.py --run 2 --network UNet --batchsize 24 --enable_privacy --epsilon 8 --max_grad_norm 1.5 --clipping_strategy psac
+python MyTrain_LungInf_Unified.py --run 2 --network UNet --batchsize 24 --enable_privacy --epsilon 8 --max_grad_norm 2 --clipping_strategy psac
+python MyTrain_LungInf_Unified.py --run 2 --network UNet --batchsize 24 --enable_privacy --epsilon 200 --max_grad_norm 1.2 --clipping_strategy psac
+python MyTrain_LungInf_Unified.py --run 2 --network UNet --batchsize 24 --enable_privacy --epsilon 200 --max_grad_norm 1.5 --clipping_strategy psac
+python MyTrain_LungInf_Unified.py --run 2 --network UNet --batchsize 24 --enable_privacy --epsilon 200 --max_grad_norm 2 --clipping_strategy psac
+python MyTrain_LungInf_Unified.py --run 2 --network UNet --batchsize 48 --enable_privacy --epsilon 8 --max_grad_norm 1.2 --clipping_strategy psac
+python MyTrain_LungInf_Unified.py --run 2 --network UNet --batchsize 48 --enable_privacy --epsilon 8 --max_grad_norm 1.5 --clipping_strategy psac
+python MyTrain_LungInf_Unified.py --run 2 --network UNet --batchsize 48 --enable_privacy --epsilon 8 --max_grad_norm 2 --clipping_strategy psac
+python MyTrain_LungInf_Unified.py --run 2 --network UNet --batchsize 48 --enable_privacy --epsilon 200 --max_grad_norm 1.2 --clipping_strategy psac
+python MyTrain_LungInf_Unified.py --run 2 --network UNet --batchsize 48 --enable_privacy --epsilon 200 --max_grad_norm 1.5 --clipping_strategy psac
+python MyTrain_LungInf_Unified.py --run 2 --network UNet --batchsize 48 --enable_privacy --epsilon 200 --max_grad_norm 2 --clipping_strategy psac
