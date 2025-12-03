@@ -1,0 +1,5 @@
+Model_Name,Dataset,DPSGD,Clipping_Strategy,Epsilon,Morphology,Operation,Kernel_Size,Learning_Rate,Batch_Size,Run_Number,Iterations,Training_Loss,Training_Time_Seconds,Max_Grad_Norm,Noise_Multiplier,Stage,Mean_Dice,Max_Dice,Mean_Sensitivity,Max_Sensitivity,Mean_Specificity,Max_Specificity,S_measure,Mean_E_measure,Max_E_measure,MAE
+NestedUNet_GroupNorm,LungInfection,False,none,0.0,False,none,0,0.0001,24,1,70,0.9350636005401612,134.656888961792,,,training,0.608,0.7129,0.704,1.0,0.8765,0.9999,0.7033,0.7507,0.8838,0.1524
+NestedUNet_GroupNorm,LungInfection,False,none,0.0,False,none,0,0.0001,24,2,70,0.9139205813407898,92.60643601417542,,,training,0.5886,0.7043,0.7349,1.0,0.8513,1.0,0.6877,0.7204,0.874,0.1682
+NestedUNet_GroupNorm,LungInfection,False,none,0.0,False,none,0,0.0001,48,1,70,1.0242364406585691,150.6009213924408,,,training,0.548,0.6816,0.7065,1.0,0.8198,1.0,0.6573,0.6816,0.8694,0.196
+NestedUNet_GroupNorm,LungInfection,False,none,0.0,False,none,0,0.0001,48,2,70,0.963626265525818,118.93286323547365,,,training,0.5529,0.6767,0.6684,1.0,0.8563,0.9998,0.6759,0.6976,0.8555,0.1757

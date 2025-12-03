@@ -1,0 +1,4 @@
+Model_Name,Dataset,DPSGD,Clipping_Strategy,Epsilon,Morphology,Operation,Kernel_Size,Learning_Rate,Batch_Size,Run_Number,Iterations,Training_Loss,Training_Time_Seconds,Max_Grad_Norm,Noise_Multiplier,Stage
+UNet_DP_Morph,LungInfection,True,nsgd,200.0,True,close,3,0.0001,48,1,70,1.3458733558654785,150.7681965827942,1.5,,training
+UNet_DP_Morph,LungInfection,True,nsgd,200.0,True,close,3,0.0001,48,2,70,1.3508083820343018,146.0603802204132,1.2,,training
+UNet_DP_Morph,LungInfection,True,nsgd,200.0,True,close,3,0.0001,48,2,70,1.3595404624938965,152.84127569198608,1.5,,training

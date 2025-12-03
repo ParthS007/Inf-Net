@@ -139,4 +139,3 @@ slurm_jobs_test/
 slurm_jobs_eval/
 EvaluateResults/
 logs/
-results/

@@ -1,0 +1,3 @@
+Model_Name,Dataset,DPSGD,Clipping_Strategy,Epsilon,Morphology,Operation,Kernel_Size,Learning_Rate,Batch_Size,Run_Number,Iterations,Training_Loss,Training_Time_Seconds,Max_Grad_Norm,Noise_Multiplier,Stage
+UNet_Morph_GroupNorm,LungInfection,False,none,0,True,close,9,0.0001,24,1,70,1.1567907333374023,57.37460374832153,,,training
+UNet_Morph_GroupNorm,LungInfection,False,none,0,True,close,9,0.0001,24,2,70,1.1338579654693604,57.793981075286865,,,training

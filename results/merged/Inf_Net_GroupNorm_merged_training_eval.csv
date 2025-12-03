@@ -1,0 +1,5 @@
+Model_Name,Dataset,DPSGD,Clipping_Strategy,Epsilon,Morphology,Operation,Kernel_Size,Learning_Rate,Batch_Size,Run_Number,Iterations,Training_Loss,Training_Time_Seconds,Max_Grad_Norm,Noise_Multiplier,Stage,Mean_Dice,Max_Dice,Mean_Sensitivity,Max_Sensitivity,Mean_Specificity,Max_Specificity,S_measure,Mean_E_measure,Max_E_measure,MAE
+Inf-Net_GroupNorm,LungInfection,False,none,0.0,False,none,0,0.0001,24,1,70,2.929389476776123,117.56148624420166,,,training,0.6566,0.7193,0.6745,1.0,0.9406,0.9999,0.7603,0.8311,0.9123,0.0902
+Inf-Net_GroupNorm,LungInfection,False,none,0.0,False,none,0,0.0001,24,2,70,3.272367238998413,111.53280425071716,,,training,0.6653,0.7163,0.6832,1.0,0.9433,0.9894,0.7591,0.8418,0.9078,0.0862
+Inf-Net_GroupNorm,LungInfection,False,none,0.0,False,none,0,0.0001,48,1,70,3.670813798904419,126.0986979007721,,,training,0.6601,0.7281,0.6995,1.0,0.9368,0.9998,0.7656,0.822,0.9097,0.0939
+Inf-Net_GroupNorm,LungInfection,False,none,0.0,False,none,0,0.0001,48,2,70,3.588858366012573,119.32766723632812,,,training,0.6354,0.7166,0.675,1.0,0.9343,1.0,0.7517,0.7979,0.9081,0.1013
