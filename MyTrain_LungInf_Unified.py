@@ -35,6 +35,7 @@ from opacus.validators import ModuleValidator
 from kornia.morphology import opening, closing, dilation, erosion
 
 os.environ.setdefault("PYTORCH_ALLOC_CONF", "expandable_segments:True")
+os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
 
 
 def apply_kornia_morphology_binary(pred_mask, operation="both", kernel_size=3):

@@ -354,11 +354,11 @@ def find_final_epoch_models():
     base_path = "./Snapshots/save_weights"
     final_models = []
 
-    # Find all final epoch model files (epoch 100) for all model types
+    # Find all final epoch model files (epoch 70) for all model types
     patterns = [
-        os.path.join(base_path, "**", "Inf-Net-100.pth"),
-        os.path.join(base_path, "**", "UNet-100.pth"),
-        os.path.join(base_path, "**", "NestedUNet-100.pth"),
+        os.path.join(base_path, "**", "Inf-Net-70.pth"),
+        os.path.join(base_path, "**", "UNet-70.pth"),
+        os.path.join(base_path, "**", "NestedUNet-70.pth"),
     ]
     model_files = []
     for pattern in patterns:
@@ -371,20 +371,20 @@ def find_final_epoch_models():
 
         model_info = {
             "path": model_file,
-            "epoch": "100",
+            "epoch": "70",
         }
 
         # Parse based on model type
         # Handle Inf-Net variants
         if parts[0] == "Inf-Net":
-            # Structure: Inf-Net/batch_X/run_Y/Inf-Net-100.pth
+            # Structure: Inf-Net/batch_X/run_Y/Inf-Net-70.pth
             if len(parts) >= 4:
                 model_info["type"] = parts[0]
                 model_info["batch_size"] = parts[1].replace("batch_", "")
                 model_info["run"] = parts[2].replace("run_", "")
 
         elif parts[0] == "Inf-Net_Morph":
-            # Structure: Inf-Net_Morph/morph_op/batch_X/run_Y/Inf-Net-100.pth
+            # Structure: Inf-Net_Morph/morph_op/batch_X/run_Y/Inf-Net-70.pth
             if len(parts) >= 5:
                 model_info["type"] = parts[0]
                 model_info["morph_operation"] = parts[1]
@@ -392,14 +392,14 @@ def find_final_epoch_models():
                 model_info["run"] = parts[3].replace("run_", "")
 
         elif parts[0] == "Inf-Net_GroupNorm":
-            # Structure: Inf-Net_GroupNorm/batch_X/run_Y/Inf-Net-100.pth
+            # Structure: Inf-Net_GroupNorm/batch_X/run_Y/Inf-Net-70.pth
             if len(parts) >= 4:
                 model_info["type"] = parts[0]
                 model_info["batch_size"] = parts[1].replace("batch_", "")
                 model_info["run"] = parts[2].replace("run_", "")
 
         elif parts[0] == "Inf-Net_Morph_GroupNorm":
-            # Structure: Inf-Net_Morph_GroupNorm/morph_op/batch_X/run_Y/Inf-Net-100.pth
+            # Structure: Inf-Net_Morph_GroupNorm/morph_op/batch_X/run_Y/Inf-Net-70.pth
             if len(parts) >= 5:
                 model_info["type"] = parts[0]
                 model_info["morph_operation"] = parts[1]
@@ -407,8 +407,8 @@ def find_final_epoch_models():
                 model_info["run"] = parts[3].replace("run_", "")
 
         elif parts[0] == "Inf-Net_DP":
-            # Structure: Inf-Net_DP/batch_X/run_Y/epsilon_Z/optimizer_type/Inf-Net-100.pth
-            # OR: Inf-Net_DP/batch_X/run_Y/epsilon_Z/Inf-Net-100.pth (without optimizer_type)
+            # Structure: Inf-Net_DP/batch_X/run_Y/epsilon_Z/optimizer_type/Inf-Net-70.pth
+            # OR: Inf-Net_DP/batch_X/run_Y/epsilon_Z/Inf-Net-70.pth (without optimizer_type)
             if len(parts) >= 5:
                 model_info["type"] = parts[0]
                 model_info["batch_size"] = parts[1].replace("batch_", "")
@@ -422,8 +422,8 @@ def find_final_epoch_models():
                 # else: no optimizer_type, epsilon is at parts[3]
 
         elif parts[0] == "Inf-Net_DP_Morph":
-            # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/optimizer_type/Inf-Net-100.pth
-            # OR: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/Inf-Net-100.pth (without optimizer_type)
+            # Structure: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/optimizer_type/Inf-Net-70.pth
+            # OR: Inf-Net_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/Inf-Net-70.pth (without optimizer_type)
             if len(parts) >= 6:
                 model_info["type"] = parts[0]
                 model_info["morph_operation"] = parts[1]
@@ -439,14 +439,14 @@ def find_final_epoch_models():
 
         # Handle UNet variants
         elif parts[0] == "UNet_GroupNorm":
-            # Structure: UNet_GroupNorm/batch_X/run_Y/UNet-100.pth
+            # Structure: UNet_GroupNorm/batch_X/run_Y/UNet-70.pth
             if len(parts) >= 4:
                 model_info["type"] = parts[0]
                 model_info["batch_size"] = parts[1].replace("batch_", "")
                 model_info["run"] = parts[2].replace("run_", "")
 
         elif parts[0] == "UNet_Morph_GroupNorm":
-            # Structure: UNet_Morph_GroupNorm/morph_op/batch_X/run_Y/UNet-100.pth
+            # Structure: UNet_Morph_GroupNorm/morph_op/batch_X/run_Y/UNet-70.pth
             if len(parts) >= 5:
                 model_info["type"] = parts[0]
                 model_info["morph_operation"] = parts[1]
@@ -454,7 +454,7 @@ def find_final_epoch_models():
                 model_info["run"] = parts[3].replace("run_", "")
 
         elif parts[0] == "UNet_DP":
-            # Structure: UNet_DP/batch_X/run_Y/epsilon_Z/optimizer_type/UNet-100.pth
+            # Structure: UNet_DP/batch_X/run_Y/epsilon_Z/optimizer_type/UNet-70.pth
             if len(parts) >= 6:
                 model_info["type"] = parts[0]
                 model_info["batch_size"] = parts[1].replace("batch_", "")
@@ -463,7 +463,7 @@ def find_final_epoch_models():
                 model_info["optimizer_type"] = parts[4]
 
         elif parts[0] == "UNet_DP_Morph":
-            # Structure: UNet_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/optimizer_type/UNet-100.pth
+            # Structure: UNet_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/optimizer_type/UNet-70.pth
             if len(parts) >= 7:
                 model_info["type"] = parts[0]
                 model_info["morph_operation"] = parts[1]
@@ -474,14 +474,14 @@ def find_final_epoch_models():
 
         # Handle NestedUNet variants
         elif parts[0] == "NestedUNet_GroupNorm":
-            # Structure: NestedUNet_GroupNorm/batch_X/run_Y/NestedUNet-100.pth
+            # Structure: NestedUNet_GroupNorm/batch_X/run_Y/NestedUNet-70.pth
             if len(parts) >= 4:
                 model_info["type"] = parts[0]
                 model_info["batch_size"] = parts[1].replace("batch_", "")
                 model_info["run"] = parts[2].replace("run_", "")
 
         elif parts[0] == "NestedUNet_Morph_GroupNorm":
-            # Structure: NestedUNet_Morph_GroupNorm/morph_op/batch_X/run_Y/NestedUNet-100.pth
+            # Structure: NestedUNet_Morph_GroupNorm/morph_op/batch_X/run_Y/NestedUNet-70.pth
             if len(parts) >= 5:
                 model_info["type"] = parts[0]
                 model_info["morph_operation"] = parts[1]
@@ -489,7 +489,7 @@ def find_final_epoch_models():
                 model_info["run"] = parts[3].replace("run_", "")
 
         elif parts[0] == "NestedUNet_DP":
-            # Structure: NestedUNet_DP/batch_X/run_Y/epsilon_Z/optimizer_type/NestedUNet-100.pth
+            # Structure: NestedUNet_DP/batch_X/run_Y/epsilon_Z/optimizer_type/NestedUNet-70.pth
             if len(parts) >= 6:
                 model_info["type"] = parts[0]
                 model_info["batch_size"] = parts[1].replace("batch_", "")
@@ -498,7 +498,7 @@ def find_final_epoch_models():
                 model_info["optimizer_type"] = parts[4]
 
         elif parts[0] == "NestedUNet_DP_Morph":
-            # Structure: NestedUNet_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/optimizer_type/NestedUNet-100.pth
+            # Structure: NestedUNet_DP_Morph/morph_op/batch_X/run_Y/epsilon_Z/optimizer_type/NestedUNet-70.pth
             if len(parts) >= 7:
                 model_info["type"] = parts[0]
                 model_info["morph_operation"] = parts[1]
@@ -759,7 +759,7 @@ def inference():
     )
     parser.add_argument("--run", type=int, default=1, help="Run number")
     parser.add_argument(
-        "--epoch", type=int, default=100, help="Epoch number of the model to load"
+        "--epoch", type=int, default=70, help="Epoch number of the model to load"
     )
 
     # DP-specific parameters
@@ -868,7 +868,7 @@ def inference():
                 print(f"     Optimizer Type: {model['optimizer_type']}")
 
         print(f"\nStarting batch testing of {len(final_models)} models...")
-        print("=" * 100)
+        print("=" * 70)
 
         results_summary = []
         for i, model_info in enumerate(final_models, 1):
@@ -911,9 +911,9 @@ def inference():
                 )
 
         # Print summary
-        print("\n" + "=" * 100)
+        print("\n" + "=" * 70)
         print("BATCH TESTING SUMMARY")
-        print("=" * 100)
+        print("=" * 70)
         successful = sum(1 for r in results_summary if r["status"] == "SUCCESS")
         failed = len(results_summary) - successful
 
