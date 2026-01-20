@@ -140,3 +140,4 @@ slurm_jobs_eval/
 EvaluateResults/
 logs/
 AGENTS.md
+results_epsilon_sweep/

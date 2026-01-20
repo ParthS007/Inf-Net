@@ -465,7 +465,7 @@ def save_training_results_to_csv(
             model_name = f"{network_name}_GroupNorm"
 
     # Build directory structure based on experimental strategy (similar to OCT)
-    results_dir = "results"
+    results_dir = opt.results_base
     dataset = "LungInfection"
     dataset_dir = os.path.join(results_dir, dataset)
 
@@ -758,6 +758,12 @@ if __name__ == "__main__":
         type=int,
         default=3,
         help="Morphological kernel size (must be odd)",
+    )
+    parser.add_argument(
+        "--results_base",
+        type=str,
+        default="results",
+        help="Base directory for results (default: results)",
     )
 
     opt = parser.parse_args()
