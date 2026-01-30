@@ -4,3 +4,4 @@ UNet_DP_Morph,LungInfection,True,base,8.0,True,open,3,0.0001,48,1,70,1.452081203
 UNet_DP_Morph,LungInfection,True,base,8.0,True,open,3,0.0001,48,1,70,1.4236783981323242,139.88585662841797,2.0,,training
 UNet_DP_Morph,LungInfection,True,base,8.0,True,open,3,0.0001,48,2,70,1.3755087852478027,137.82153487205505,1.5,,training
 UNet_DP_Morph,LungInfection,True,base,8.0,True,open,3,0.0001,48,2,70,1.3513685464859009,136.8201458454132,2.0,,training
+UNet_DP_Morph,LungInfection,True,base,8.0,True,open,3,0.0001,48,1,70,1.4644842147827148,139.1217532157898,1.2,,training

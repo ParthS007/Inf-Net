@@ -4,3 +4,4 @@ UNet_DP,LungInfection,True,automatic,8.0,False,none,0,0.0001,48,2,70,1.501984715
 UNet_DP,LungInfection,True,automatic,8.0,False,none,0,0.0001,48,1,70,1.462240219116211,136.52951788902283,2.0,,training
 UNet_DP,LungInfection,True,automatic,8.0,False,none,0,0.0001,48,1,70,1.4177452325820923,135.43700575828552,1.5,,training
 UNet_DP,LungInfection,True,automatic,8.0,False,none,0,0.0001,48,2,70,1.4729387760162354,135.2008192539215,1.5,,training
+UNet_DP,LungInfection,True,automatic,8.0,False,none,0,0.0001,48,1,70,1.444751262664795,138.94098663330078,2.0,,training

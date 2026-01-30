@@ -5,3 +5,4 @@ Inf-Net_DP,LungInfection,True,nsgd,8.0,False,none,0,0.0001,48,1,70,6.88724708557
 Inf-Net_DP,LungInfection,True,nsgd,8.0,False,none,0,0.0001,48,2,70,6.820507049560547,250.28102707862854,1.2,,training
 Inf-Net_DP,LungInfection,True,nsgd,8.0,False,none,0,0.0001,48,2,70,6.776230812072754,235.40328288078308,1.5,,training
 Inf-Net_DP,LungInfection,True,nsgd,8.0,False,none,0,0.0001,48,2,70,6.674686431884766,239.2167935371399,2.0,,training
+Inf-Net_DP,LungInfection,True,nsgd,8.0,False,none,0,0.0001,48,1,70,6.841089248657227,318.397052526474,1.2,,training

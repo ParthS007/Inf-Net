@@ -5,3 +5,5 @@ NestedUNet_DP,LungInfection,True,automatic,8.0,False,none,0,0.0001,48,2,70,1.276
 NestedUNet_DP,LungInfection,True,automatic,8.0,False,none,0,0.0001,48,2,70,1.3255207538604736,284.3098289966583,2.0,,training
 NestedUNet_DP,LungInfection,True,automatic,8.0,False,none,0,0.0001,48,1,70,1.3331012725830078,274.49629855155945,1.2,,training
 NestedUNet_DP,LungInfection,True,automatic,8.0,False,none,0,0.0001,48,2,70,1.3094582557678223,293.7285792827606,1.5,,training
+NestedUNet_DP,LungInfection,True,automatic,8.0,False,none,0,0.0001,48,1,70,1.3030983209609985,275.55526971817017,1.5,,training
+NestedUNet_DP,LungInfection,True,automatic,8.0,False,none,0,0.0001,48,1,70,1.4199512004852295,272.02245259284973,2.0,,training

@@ -3,3 +3,4 @@ Inf-Net_DP_Morph,LungInfection,True,nsgd,8.0,True,both,3,0.0001,48,1,70,6.818394
 Inf-Net_DP_Morph,LungInfection,True,nsgd,8.0,True,both,3,0.0001,48,1,70,6.730999946594238,317.83625769615173,1.5,,training
 Inf-Net_DP_Morph,LungInfection,True,nsgd,8.0,True,both,3,0.0001,48,1,70,6.886721611022949,310.45403504371643,2.0,,training
 Inf-Net_DP_Morph,LungInfection,True,nsgd,8.0,True,both,3,0.0001,48,2,70,6.832966327667236,247.91350865364075,1.5,,training
+Inf-Net_DP_Morph,LungInfection,True,nsgd,8.0,True,both,3,0.0001,48,1,70,6.825777053833008,318.779833316803,1.2,,training

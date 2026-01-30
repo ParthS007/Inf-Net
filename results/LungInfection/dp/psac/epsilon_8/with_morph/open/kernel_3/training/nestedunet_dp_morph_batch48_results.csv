@@ -2,3 +2,4 @@ Model_Name,Dataset,DPSGD,Clipping_Strategy,Epsilon,Morphology,Operation,Kernel_S
 NestedUNet_DP_Morph,LungInfection,True,psac,8.0,True,open,3,0.0001,48,1,70,1.2632144689559937,296.5788457393646,1.5,,training
 NestedUNet_DP_Morph,LungInfection,True,psac,8.0,True,open,3,0.0001,48,1,70,1.4422922134399414,308.0205578804016,2.0,,training
 NestedUNet_DP_Morph,LungInfection,True,psac,8.0,True,open,3,0.0001,48,1,70,1.3861370086669922,308.3216824531555,1.2,,training
+NestedUNet_DP_Morph,LungInfection,True,psac,8.0,True,open,3,0.0001,48,1,70,1.292375087738037,292.35968112945557,1.2,,training

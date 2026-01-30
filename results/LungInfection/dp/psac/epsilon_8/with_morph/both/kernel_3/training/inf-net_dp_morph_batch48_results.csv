@@ -4,3 +4,4 @@ Inf-Net_DP_Morph,LungInfection,True,psac,8.0,True,both,3,0.0001,48,1,70,6.751657
 Inf-Net_DP_Morph,LungInfection,True,psac,8.0,True,both,3,0.0001,48,1,70,6.691174507141113,323.1439244747162,2.0,,training
 Inf-Net_DP_Morph,LungInfection,True,psac,8.0,True,both,3,0.0001,48,2,70,6.766396522521973,253.52010321617126,1.5,,training
 Inf-Net_DP_Morph,LungInfection,True,psac,8.0,True,both,3,0.0001,48,2,70,6.755348205566406,248.30568647384644,2.0,,training
+Inf-Net_DP_Morph,LungInfection,True,psac,8.0,True,both,3,0.0001,48,1,70,6.7425537109375,318.73383116722107,1.2,,training

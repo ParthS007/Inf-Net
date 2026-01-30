@@ -4,7 +4,7 @@ Inf-Net_DP,LungInfection,True,automatic,8.0,False,none,0,0.0001,24,2,70,6.584743
 Inf-Net_DP,LungInfection,True,base,8.0,False,none,0,0.0001,24,1,70,6.425747394561768,346.16373205184937,1.2,,training
 Inf-Net_DP,LungInfection,True,base,8.0,False,none,0,0.0001,24,2,70,6.5484113693237305,251.2893319129944,1.2,,training
 Inf-Net_DP,LungInfection,True,nsgd,8.0,False,none,0,0.0001,24,1,70,6.598371505737305,349.08097100257874,1.2,,training
-Inf-Net_DP,LungInfection,True,nsgd,8.0,False,none,0,0.0001,24,2,70,6.703770637512207,250.96587133407596,1.2,,training
+Inf-Net_DP,LungInfection,True,nsgd,8.0,False,none,0,0.0001,24,2,70,6.703770637512207,250.965871334076,1.2,,training
 Inf-Net_DP,LungInfection,True,psac,8.0,False,none,0,0.0001,24,1,70,6.74738883972168,347.33467650413513,1.2,,training
 Inf-Net_DP,LungInfection,True,psac,8.0,False,none,0,0.0001,24,2,70,6.697152137756348,257.0597200393677,1.2,,training
 Inf-Net_DP,LungInfection,True,automatic,8.0,False,none,0,0.0001,24,1,70,6.478108882904053,355.2958245277405,1.5,,training
@@ -62,7 +62,7 @@ Inf-Net_DP,LungInfection,True,base,8.0,False,none,0,0.0001,48,2,70,6.64264869689
 Inf-Net_DP,LungInfection,True,nsgd,8.0,False,none,0,0.0001,48,1,70,6.789013385772705,304.33962893486023,1.5,,training
 Inf-Net_DP,LungInfection,True,nsgd,8.0,False,none,0,0.0001,48,2,70,6.776230812072754,235.40328288078308,1.5,,training
 Inf-Net_DP,LungInfection,True,psac,8.0,False,none,0,0.0001,48,1,70,6.797582149505615,308.1835494041443,1.5,,training
-Inf-Net_DP,LungInfection,True,psac,8.0,False,none,0,0.0001,48,2,70,6.639340400695801,243.85853838920596,1.5,,training
+Inf-Net_DP,LungInfection,True,psac,8.0,False,none,0,0.0001,48,2,70,6.639340400695801,243.858538389206,1.5,,training
 Inf-Net_DP,LungInfection,True,automatic,8.0,False,none,0,0.0001,48,1,70,6.616817474365234,306.64445543289185,2.0,,training
 Inf-Net_DP,LungInfection,True,automatic,8.0,False,none,0,0.0001,48,2,70,6.641304016113281,238.3096752166748,2.0,,training
 Inf-Net_DP,LungInfection,True,base,8.0,False,none,0,0.0001,48,1,70,6.65380334854126,306.707978963852,2.0,,training

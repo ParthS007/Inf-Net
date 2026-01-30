@@ -4,3 +4,4 @@ NestedUNet_DP_Morph,LungInfection,True,psac,8.0,True,close,5,0.0001,48,1,70,1.25
 NestedUNet_DP_Morph,LungInfection,True,psac,8.0,True,close,5,0.0001,48,1,70,1.358199119567871,309.75550985336304,1.2,,training
 NestedUNet_DP_Morph,LungInfection,True,psac,8.0,True,close,5,0.0001,48,1,70,1.374647855758667,306.4975016117096,2.0,,training
 NestedUNet_DP_Morph,LungInfection,True,psac,8.0,True,close,5,0.0001,48,2,70,1.3974251747131348,307.8427610397339,1.5,,training
+NestedUNet_DP_Morph,LungInfection,True,psac,8.0,True,close,5,0.0001,48,1,70,1.3608338832855225,296.4417781829834,1.2,,training
