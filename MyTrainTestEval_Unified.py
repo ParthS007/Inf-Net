@@ -114,6 +114,7 @@ def run_training(opt):
             "skip_training",
             "skip_testing",
             "skip_evaluation",
+            "skip_aggregation",
         ]:
             continue
 

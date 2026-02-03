@@ -5,14 +5,18 @@ Generate SLURM experiment scripts for epsilon sweep experiments (Lung CT).
 This script generates experiments to study how Dice score varies with epsilon
 (privacy budget) from 20 to 180 in increments of 20.
 
+Two variants:
+1. Standard (no morph): DP with clipping_strategy automatic only.
+2. Morph close k5: DP with automatic + morphology close, kernel size 5.
+
 Configuration:
 - Clipping Strategy: automatic
 - Batch Size: 24
 - Max Grad Norm: 1.5
 - Run: 1
-- Morphology: False (Standard No Morph)
 - Epsilons: 20, 40, 60, 80, 100, 120, 140, 160, 180 (skip 8 and 200 - already exist)
-- Results Base: results_epsilon_sweep (separate from existing results)
+- Results Base: /scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/results_epsilon_sweep
+- Script: MyTrainTestEval_Unified.py (train + test + eval in one job)
 
 Usage:
     python generate_epsilon_sweep.py           # Generate all experiments
@@ -36,14 +40,16 @@ BATCH_SIZE = 24
 MAX_GRAD_NORM = 1.5
 RUN_NUMBER = 1
 CLIPPING_STRATEGY = "automatic"
-RESULTS_BASE = "results_epsilon_sweep"
+RESULTS_BASE = "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/results_epsilon_sweep"
 
 # Epsilon values to test (skip 8 and 200 as they already exist in results/)
 EPSILONS = [20, 40, 60, 80, 100, 120, 140, 160, 180]
 
 
-def generate_sh_script(job_name, log_dir, array_size, txt_file, time="01:00:00"):
-    """Generate SLURM shell script content."""
+def generate_sh_script(
+    job_name, log_dir, array_size, txt_file, time="01:00:00", partition="a100-80g"
+):
+    """Generate SLURM shell script content. Morph close k5 uses partition=rtx4090."""
     return f"""#!/bin/bash
 #SBATCH --job-name={job_name}
 #SBATCH --output={PROJECT_ROOT}/code/inf-net/slurm/epsilon_sweep/logs/{log_dir}/{job_name}_%A_%a.out
@@ -52,7 +58,7 @@ def generate_sh_script(job_name, log_dir, array_size, txt_file, time="01:00:00")
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=4
 #SBATCH --gres=gpu:1
-#SBATCH --partition=a100-80g
+#SBATCH --partition={partition}
 #SBATCH --qos=gpu6hours
 #SBATCH --array=1-{array_size}%16
 
@@ -87,12 +93,15 @@ echo "Task $SLURM_ARRAY_TASK_ID completed at $(date)"
 """
 
 
-def generate_epsilon_sweep_commands(model):
-    """Generate epsilon sweep commands for a given model."""
+def generate_epsilon_sweep_commands(model, morph_close_k5=False):
+    """Generate epsilon sweep commands for a given model.
+
+    morph_close_k5: if True, add --enable_morphology --morph_operation close --morph_kernel_size 5.
+    """
     commands = []
     for epsilon in EPSILONS:
         cmd = (
-            f"python MyTrain_LungInf_Unified.py "
+            f"python MyTrainTestEval_Unified.py "
             f"--run {RUN_NUMBER} "
             f"--network {model} "
             f"--batchsize {BATCH_SIZE} "
@@ -100,14 +109,21 @@ def generate_epsilon_sweep_commands(model):
             f"--epsilon {epsilon} "
             f"--max_grad_norm {MAX_GRAD_NORM} "
             f"--clipping_strategy {CLIPPING_STRATEGY} "
-            f"--results_base {RESULTS_BASE}"
+            f"--results_base {RESULTS_BASE} "
+            f"--skip_aggregation"
         )
+        if morph_close_k5:
+            cmd += (
+                " --enable_morphology --morph_operation close --morph_kernel_size 5"
+            )
         commands.append(cmd)
     return commands
 
 
-def write_files(job_name, log_dir, txt_file, sh_file, commands, dry_run=False):
-    """Write command file and SLURM script."""
+def write_files(
+    job_name, log_dir, txt_file, sh_file, commands, dry_run=False, partition=None
+):
+    """Write command file and SLURM script. partition defaults to a100-80g."""
     if dry_run:
         print(f"  Would create: {txt_file} ({len(commands)} commands)")
         print(f"  Would create: {sh_file}")
@@ -125,8 +141,11 @@ def write_files(job_name, log_dir, txt_file, sh_file, commands, dry_run=False):
 
     # Write sh file
     sh_path = SLURM_DIR / sh_file
+    part = partition if partition is not None else "a100-80g"
     with open(sh_path, "w") as f:
-        f.write(generate_sh_script(job_name, log_dir, len(commands), txt_file))
+        f.write(
+            generate_sh_script(job_name, log_dir, len(commands), txt_file, partition=part)
+        )
     print(f"  Created: {sh_file}")
 
     return 2
@@ -157,39 +176,64 @@ def main():
     print(f"  Results Base: {RESULTS_BASE}")
     print(f"  Epsilons: {EPSILONS}")
     print(f"  Models: {list(MODEL_NAMES.values())}")
+    print(f"  Variants: standard (no morph), morph_close_k5 (automatic)")
 
     for model in MODELS:
         model_short = MODEL_NAMES[model]
 
+        # Standard epsilon sweep (no morph)
         job_name = f"{model_short}_eps_sweep"
         log_dir = f"{model_short}-eps-sweep"
         txt_file = f"{model_short}-eps-sweep.txt"
         sh_file = f"{model_short}_eps_sweep.sh"
 
-        print(f"\n{model_short}:")
+        print(f"\n{model_short} (standard):")
 
-        commands = generate_epsilon_sweep_commands(model)
+        commands = generate_epsilon_sweep_commands(model, morph_close_k5=False)
         files_created += write_files(
             job_name, log_dir, txt_file, sh_file, commands, args.dry_run
         )
         total_experiments += len(commands)
+
+        # Morph close kernel 5 epsilon sweep (automatic)
+        job_name_morph = f"{model_short}_eps_sweep_morph_close_k5"
+        log_dir_morph = f"{model_short}-eps-sweep-morph-close-k5"
+        txt_file_morph = f"{model_short}-eps-sweep-morph-close-k5.txt"
+        sh_file_morph = f"{model_short}_eps_sweep_morph_close_k5.sh"
+
+        print(f"{model_short} (morph close k5):")
+
+        commands_morph = generate_epsilon_sweep_commands(
+            model, morph_close_k5=True
+        )
+        files_created += write_files(
+            job_name_morph,
+            log_dir_morph,
+            txt_file_morph,
+            sh_file_morph,
+            commands_morph,
+            args.dry_run,
+            partition="rtx4090",
+        )
+        total_experiments += len(commands_morph)
 
     print(f"\n{'=' * 60}")
     print("SUMMARY")
     print(f"{'=' * 60}")
     print(f"Total experiments: {total_experiments}")
     print(f"Files {'would be ' if args.dry_run else ''}created: {files_created}")
-    print(f"\nExperiments per model: {len(EPSILONS)}")
+    print(f"\nExperiments per model: {len(EPSILONS)} (standard) + {len(EPSILONS)} (morph close k5)")
 
     if not args.dry_run:
         print(f"\nFiles written to: {SLURM_DIR}")
         print("\nTo submit all experiments:")
         print(f"  cd {SLURM_DIR}")
-        print("  for f in *.sh; do sbatch $f; done")
+        print("  for f in *_eps_sweep*.sh; do sbatch $f; done")
         print("\nOr submit individually:")
         for model in MODELS:
             model_short = MODEL_NAMES[model]
             print(f"  sbatch {model_short}_eps_sweep.sh")
+            print(f"  sbatch {model_short}_eps_sweep_morph_close_k5.sh")
 
 
 if __name__ == "__main__":
