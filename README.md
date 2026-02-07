@@ -20,6 +20,10 @@ Inf-Net or evaluation toolbox for your research, please cite this paper ([BibTeX
 
 - We elaborately collect COVID-19 imaging-based AI research papers and datasets [awesome-list](https://github.com/HzFu/COVID19_imaging_AI_paper_list).
 
+### Thesis extension: unified training, testing, and evaluation
+
+This fork adds a **unified pipeline** for the thesis: a single training script (`MyTrain_LungInf_Unified.py`), a single testing script (`MyTest_LungInf_All.py`), and a single evaluation path (`MyEval_LungInf_All.sh` / EvaluationToolPython). It supports Inf-Net, UNet, and NestedUNet with differential privacy and morphological operations. **For setup and the full workflow (train → test → evaluate), see [INSTALL.md](INSTALL.md).**
+
 ### 0.1. :fire: NEWS :fire:
 - [2022/04/08] :boom: We release a new large-scale dataset on **Video Polyp Segmentation (VPS)** task, please enjoy it. [ProjectLink](https://github.com/GewelsJI/VPS)/ [PDF](https://arxiv.org/abs/2203.14291).
 - [2021/04/15] Update the results on multi-class segmentation task, including 'Semi-Inf-Net & FCN8s' and 'Semi-Inf-Net & MC'. (Download link: [Google Drive](https://drive.google.com/file/d/1mIA9ggiftwhdzSAMl2sIAl3rkupt2_AY/view?usp=sharing))
