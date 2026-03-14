@@ -15,7 +15,7 @@ Configuration:
 - Max Grad Norm: 1.5
 - Run: 1
 - Epsilons: 20, 40, 60, 80, 100, 120, 140, 160, 180 (skip 8 and 200 - already exist)
-- Results Base: /scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/results_epsilon_sweep
+- Results Base: {PROJECT_ROOT}/code/inf-net/results_epsilon_sweep
 - Script: MyTrainTestEval_Unified.py (train + test + eval in one job)
 
 Usage:
@@ -29,7 +29,7 @@ from pathlib import Path
 
 # Base paths
 SLURM_DIR = Path(__file__).parent
-PROJECT_ROOT = "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya"
+PROJECT_ROOT = "2025-msc-parth-shandilya" # adjust as needed
 
 # Experiment configurations
 MODELS = ["UNet", "NestedUNet", "Inf_Net"]
@@ -40,7 +40,7 @@ BATCH_SIZE = 24
 MAX_GRAD_NORM = 1.5
 RUN_NUMBER = 1
 CLIPPING_STRATEGY = "automatic"
-RESULTS_BASE = "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/results_epsilon_sweep"
+RESULTS_BASE = f"{PROJECT_ROOT}/code/inf-net/results_epsilon_sweep"
 
 # Epsilon values to test (skip 8 and 200 as they already exist in results/)
 EPSILONS = [20, 40, 60, 80, 100, 120, 140, 160, 180]

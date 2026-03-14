@@ -15,9 +15,9 @@ from collections import defaultdict
 
 # Paths
 results_dir = (
-    "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/results"
-)
-eval_dir = "/scicore/home/wagner0024/shandi0000/2025-msc-parth-shandilya/code/inf-net/EvaluateResults/Lung_infection_segmentation"
+    "/2025-msc-parth-shandilya/code/inf-net/results"
+) # adjust as needed, should point to directory containing all_results_training_global.csv and evaluation summaries
+eval_dir = "/2025-msc-parth-shandilya/code/inf-net/EvaluateResults/Lung_infection_segmentation"
 training_csv = os.path.join(results_dir, "all_results_training_global.csv")
 
 # Create output directories
